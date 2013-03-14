@@ -17,7 +17,7 @@ set :repository, "git@github.com:NYULibraries/umbra.git"
 set :scm, :git
 set :deploy_via, :remote_cache
 set(:branch, 'master') unless exists?(:branch)
-#set :git_enable_submodules, 1
+set :git_enable_submodules, 1
 
 # Environments
 set :stages, ["staging", "production"]
