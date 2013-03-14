@@ -1,0 +1,35 @@
+# Default public settings
+  
+databases: 
+  password: 
+  username: root
+  database: nyu_umbra_test
+  host: localhost
+
+capistrano:
+  server: 
+  user: 
+  path: 
+  scm_username: 
+
+sunspot:
+  solr:
+    hostname: localhost
+    port: 8981
+    log_level: WARNING
+
+newrelic:
+  api_key: 
+  app_name: 'Umbra'
+
+login:
+  default_admins: []
+  pds_url: "https://login.library.nyu.edu"
+  calling_system: "primo"
+  
+# A dummy secret token for dev sessions and public consumption 
+
+secret_token: '9f35d644c9e64245a7c54bf3d738a4159b79cccf684c2fdedfdfc4dfdadbfd3bd20ed38e72e5013001fdea7d438ea92310a686fe51b835c19d6ea785056695d0'
+  
+cookie: 
+  domain: ".local"

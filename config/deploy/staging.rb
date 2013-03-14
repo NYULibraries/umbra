@@ -8,4 +8,4 @@ set :user, app_settings[:user]
 set :host, app_settings[:server]
 server "#{host}", :app, :web, :db, :primary => true
 set :deploy_to, "#{app_path}#{application}"
-set :branch, "development"
+#set :branch, "development"
