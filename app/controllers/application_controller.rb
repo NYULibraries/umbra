@@ -48,6 +48,7 @@ class ApplicationController < ActionController::Base
   ########
   # TODO
   # Is there a Rails way to do the following two functions?
+  # sorted gem
   #
   # Protect against SQL injection by forcing column to be an actual column name in the model
   def sort_column klass, default_column = "title_sort"

@@ -1,22 +1,18 @@
-<p>
-  <b>Collection:</b>
-  <%= @record.collection %>
-</p>
+<dl class="dl-horizontal">
 
-<p>
-  <b>Title:</b>
-  <%= @record.title %>
-</p>
+  <dt>Collection:
+  <dd>&nbsp;<%= @record.collection %></dd>
 
-<p>
-  <b>Identifier:</b>
-  <%= @record.identifier %>
-</p>
+  <dt>Title:</dt>
+  <dd>&nbsp;<%= @record.title %></dd>
 
-<p>
-  <b>Description:</b>
-  <%= @record.description %>
-</p>
+  <dt>Identifier:</dt>
+  <dd>&nbsp;<%= @record.identifier %></dd>
+
+  <dt>Description:</dt>
+  <dd>&nbsp;<%= @record.description %></dd>
+  
+</dl>
 
 <%= icon_tag :edit %><%= link_to 'Edit', edit_record_path(@record) %> |
 <%= icon_tag :back %><%= link_to 'Back', records_path %>

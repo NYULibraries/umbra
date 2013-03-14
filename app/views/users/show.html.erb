@@ -1,28 +1,21 @@
 <% h = @user.user_attributes %>
 <div id="show_user">
-<p>
-  <b>NetID:</b>
-  <%=h @user.username %>
-</p>
+  <dl class="dl-horizontal">
 
-<p>
-  <b>First name:</b>
-  <%=h @user.firstname %>
-</p>
+  <dt>NetID:</dt>
+  <dd>&nbsp;<%=h @user.username %></dd>
 
-<p>
-  <b>Last name:</b>
-  <%=h @user.lastname %>
-</p>
+  <dt>First name:</dt>
+  <dd>&nbsp;<%=h @user.firstname %></dd>
 
-<p>
-  <b>E-mail:</b>
-  <%=h @user.email %>
-</p>
+  <dt>Last name:</dt>
+  <dd>&nbsp;<%=h @user.lastname %></dd>
 
-<p>
-  <b>Admin for:</b>
-  <%= form_for @user, :remote => true  do |f| %>
+  <dt>E-mail:</dt>
+  <dd>&nbsp;<%=h @user.email %></dd>
+
+  <dt>Admin for:</dt>
+  <dd><%= form_for @user, :remote => true  do |f| %>
 
   <% collection_codes.each do |collection| %>
     <% if current_user_has_access_to_collection? collection %>
@@ -37,9 +30,9 @@
   <% end -%>
   <button data-remote="true" type="submit" class="btn">Update</button>
   <% end %>
-</p>
+  </dd>
 
-<br />
+</dl>
 
 <%= icon_tag :back %>
 <%= link_to 'Back', users_path %>
