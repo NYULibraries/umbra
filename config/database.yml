@@ -20,8 +20,3 @@ production:
   <<: *development
   host: <%= Settings.databases.host %>
 
-travis:
-  adapter: mysql2
-  database: nyu_umbra_test
-  username: root
-  encoding: utf8

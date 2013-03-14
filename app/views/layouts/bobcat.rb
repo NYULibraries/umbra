@@ -4,7 +4,7 @@ module Views
     class Bobcat < ActionView::Mustache
       # Meta tags to include in layout
       def meta
-        super
+        meta = super
         meta << tag(:meta, :name => "HandheldFriendly", :content => "True")
         meta << tag(:meta, 'http-equiv' => "cleartype", :content => "on")
         meta << tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title =>  application_name, :href => opensearch_catalog_path(:format => 'xml', :only_path => false))
@@ -46,15 +46,6 @@ module Views
       # Render footer partial
       def footer
         render :partial => 'shared/footer'
-      end
-      
-      # Using Gauges?
-      def gauges?
-        (Rails.env.eql?("production") and (not gauges_tracking_code.nil?))
-      end
-
-      def gauges_tracking_code
-        Settings.gauges.tracking_code
       end
       
       # Prepend modal dialog elements to the body
