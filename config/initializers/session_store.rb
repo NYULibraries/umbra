@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-Umbra::Application.config.session_store :cookie_store, :key => '_Umbra_session'
+Umbra::Application.config.session_store :cookie_store, :key => '_umbra_session', :domain => Settings.cookie.domain
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
