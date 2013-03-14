@@ -6,11 +6,10 @@ module Views
       def meta
         super
         meta << tag(:meta, :name => "HandheldFriendly", :content => "True")
-        meta << tag(:meta, :name => "viewport", :content => "width=device-width,initial-scale=1.0")
         meta << tag(:meta, 'http-equiv' => "cleartype", :content => "on")
         meta << tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title =>  application_name, :href => opensearch_catalog_path(:format => 'xml', :only_path => false))
-        meta << raw(render_head_content)
         meta << favicon_link_tag('https://library.nyu.edu/favicon.ico')
+        meta << raw(render_head_content)
       end
       
       # Stylesheets to include in layout
