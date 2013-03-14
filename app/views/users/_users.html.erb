@@ -1,0 +1,32 @@
+<p><%= page_entries_info @users %></p>
+
+<%= paginate @users %>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+  		<th><%= sortable "username"%></th>
+  		<th><%= sortable "firstname"%></th>
+  		<th><%= sortable "lastname"%></th>
+  		<th><%= sortable "email"%></th>
+  		<th>Admin?</th>
+  		<th colspan="4">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @users.each do |user| %>
+   <% h = user.user_attributes %>
+  	<tr class="<%= cycle("even","odd") %>">
+    	<td><%=h user.username %></td>
+    	<td><%=h user.firstname %></td>
+    	<td><%=h user.lastname %></td>
+    	<td><%=h user.email %></td>
+    	<td><%=h !h[:umbra_admin].nil? && h[:umbra_admin] %></td>
+    	<td><%= link_to 'Show', user %></td>
+    	<td><%= link_to_if(user.username != current_user.username, 'Destroy', user, :data => {:confirm => 'Are you sure?'}, :method => :delete) %></td>
+ 	  </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @users %>

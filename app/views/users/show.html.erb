@@ -1,0 +1,47 @@
+<% h = @user.user_attributes %>
+<div id="show_user">
+<p>
+  <b>NetID:</b>
+  <%=h @user.username %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @user.firstname %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @user.lastname %>
+</p>
+
+<p>
+  <b>E-mail:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Admin for:</b>
+  <%= form_for @user, :remote => true  do |f| %>
+
+  <% collection_codes.each do |collection| %>
+    <% if current_user_has_access_to_collection? collection %>
+      <label class="checkbox">
+      <%= f.check_box "umbra_admin_collections[#{collection}]", 
+        :value => collection, 
+        :checked => (collections_user_can_admin.include? collection), 
+        :disabled => ((current_user.username == @user.username && (!collections_user_can_admin.include? "global")) or (current_user.username == @user.username && collection == "global")) %>
+      <%= collection.underscore.humanize %>
+      </label>
+    <% end -%>
+  <% end -%>
+  <button data-remote="true" type="submit" class="btn">Update</button>
+  <% end %>
+</p>
+
+<br />
+
+<%= icon_tag :back %>
+<%= link_to 'Back', users_path %>
+
+</div>

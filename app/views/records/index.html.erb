@@ -1,0 +1,40 @@
+<h1>Listing records</h1>
+
+<%= render 'search_form' %>
+
+<%= render 'upload' %>
+
+<p><%= page_entries_info_sunspot @records %></p>
+
+<%= paginate @records.hits, :theme => "blacklight" %>
+
+<table class="table table-bordered table-striped">
+  <tr>
+    <th><%= sortable "collection" %></th>
+    <th><%= sortable "title_sort", "Title" %></th>
+    <th>Identifier</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+<% @records.results.each do |record| %>
+  <tr>
+    <td><%= record.collection %></td>
+    <td><%= record.title %></td>
+    <td><%= link_to_unless(record.identifier.nil?, truncate(record.identifier, :length => 25), record.identifier, :title => record.identifier, :alt => record.identifier) %></td>
+    <td><%= truncate(record.description, :length => 140) %></td>
+    <td><%= link_to 'Show', record %></td>
+    <td><%= link_to 'Edit', edit_record_path(record) %></td>
+    <td><%= link_to 'Destroy', record, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= paginate @records.hits, :theme => "blacklight"  %>
+
+<br />
+
+<%= icon_tag :add %>
+<%= link_to 'New Record', new_record_path %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Collection:</b>
+  <%= @record.collection %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @record.title %>
+</p>
+
+<p>
+  <b>Identifier:</b>
+  <%= @record.identifier %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @record.description %>
+</p>
+
+<%= icon_tag :edit %><%= link_to 'Edit', edit_record_path(@record) %> |
+<%= icon_tag :back %><%= link_to 'Back', records_path %>
+

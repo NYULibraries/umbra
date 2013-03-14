@@ -1,0 +1,15 @@
+Catalog:
+  views:
+    tabs:
+      newspapers:
+        display: 'Newspapers'
+        url: "newspapers"
+        admin_code: "AggregatedNewspapers"
+      vbl:
+        display: 'Virtual Business Library'
+        url: "vbl"
+        admin_code: "VBL"
+      dataservices:
+        display: 'Data Services'
+        url: "dataservices"
+        admin_code: "DataServices"

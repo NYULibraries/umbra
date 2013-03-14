@@ -1,0 +1,103 @@
+<% record_help = t("blacklight.create_record_help") %>
+
+<%= form_for @record, :html => {:class => "form-horizontal"} do |f| %>
+
+  <% if @record.errors.any? %>
+    <div id="error_explanation" class="alert alert-error">
+      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
+      <ul>
+      <% @record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+      <div class="control-group">
+        <%= f.label :collection, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :collection %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :title, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :title %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :identifier, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :identifier %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :description, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_area :description, :rows => 3 %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :identifier, :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :identifier %>
+        </div>
+      </div>
+  </fieldset>
+  <fieldset>
+    <legend>Facets</legend>
+    <span class="help-block"><%= t("blacklight.create_record_help")%></span>
+      <div class="control-group">
+        <%= f.label :subject_controlled_list, "Categories", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :subject_controlled_list, :placeholder => "dc.subject.controlled" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :source_list, "Databases", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :source_list, :placeholder => "dc.source" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :extent_list, "Extent", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :extent_list, :placeholder => "dc.extent" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :language_list, "Languages", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :language_list, :placeholder => "dc.language" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :coverage_spatial_list, "Locations", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :coverage_spatial_list, :placeholder => "dc.coverage.spatial" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :accrualPeriodicity_list, "Frequency", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :accrualPeriodicity_list, :placeholder => "dc.accrualPeriodicity" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :coverage_temporal_list, "Activity", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :coverage_temporal_list, :placeholder => "dc.coverage.temporal" %>
+        </div>
+      </div>
+      <div class="control-group">
+        <%= f.label :subject_tag_list, "Tags", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :subject_tag_list, :placeholder => "dc.subject.tag" %>
+        </div>
+      </div>
+  </fieldset>
+
+  <div class="actions">
+    <button type="submit" class="btn">Save changes</button>
+  </div>
+<% end %>

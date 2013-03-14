@@ -1,0 +1,11 @@
+<% form_tag({:action => :upload}, :multipart => true, :class => "form-upload") do %>
+  <h5>Batch upload records from CSV file</h5>
+  <div class="fileupload fileupload-new" data-provides="fileupload">
+    <span class="fileupload-preview"></span>
+    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+    <div class="btn-group">
+      <span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><%= file_field_tag 'csv' %></span>
+      <button type="submit" class="btn">Submit</button>
+    </div>
+  </div>
+<% end %>
