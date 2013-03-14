@@ -1,0 +1,3 @@
+[submodule "config/settings"]
+	path = config/settings
+	url = git@github.com:NYULibraries/umbra_settings.git
