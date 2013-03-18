@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.11'
+gem 'rails', '~> 3.2.13'
 
 gem 'mysql2', "~> 0.3.11"
 
@@ -46,7 +46,7 @@ gem 'acts-as-taggable-on', '~> 2.3.1'
 gem "rails_config", "~> 0.3.2"
 
 #gem 'blacklight', :path => '/apps/blacklight'
-gem 'blacklight', '~> 4.0.1'
+gem 'blacklight', '~> 4.1.0'
 
 #gem 'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0"
