@@ -1,10 +1,10 @@
 class RecordsController < ApplicationController
   include Umbra::Collections
-  include Umbra::CsvUpload
   # Privileged controller
   before_filter :authenticate_admin
   # Convert blacnk values to nil in params when creating and updating
   before_filter :blank_to_nil_params, :only => [:create, :update]
+  respond_to :html, :json
 
   # GET /records
   # GET /records.json
@@ -21,10 +21,7 @@ class RecordsController < ApplicationController
       paginate :page => params[:page] || 1, :per_page => 30
     }
   
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @records }
-    end
+    respond_with(@records)
   end
 
   # GET /records/1
@@ -32,10 +29,7 @@ class RecordsController < ApplicationController
   def show
     @record = Umbra::Record.find(params[:id])
   
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @record }
-    end
+    respond_with(@record)
   end
 
   # GET /records/new
@@ -43,10 +37,7 @@ class RecordsController < ApplicationController
   def new
     @record = Umbra::Record.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @record }
-    end
+    respond_with(@record)
   end
 
   # GET /records/1/edit
@@ -59,31 +50,22 @@ class RecordsController < ApplicationController
   def create
     @record = Umbra::Record.new(params[:record])
 
-    respond_to do |format|
-      if @record.save
-        format.html { redirect_to @record, notice: "Record was successfully created." }
-        format.json { render json: @record, status: :created, location: @record }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @record.errors, status: :unprocessable_entity }
-      end
+    if @record.save
+      flash[:notice] = "Record was successfully created."
     end
+    respond_with(@record)
   end
 
   # PUT /records/1
   # PUT /records/1.json
   def update
     @record = Umbra::Record.find(params[:id])
-
-    respond_to do |format|
-      if @record.update_attributes(params[:record])
-        format.html { redirect_to @record, notice: "Record was successfully updated." }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @record.errors, status: :unprocessable_entity }
-      end
+    
+    if @record.update_attributes(params[:record])
+      flash[:notice] ="Record was successfully updated."
     end
+    
+    respond_with(@record)
   end
 
   # DELETE /records/1
@@ -92,26 +74,13 @@ class RecordsController < ApplicationController
     @record = Umbra::Record.find(params[:id])
     @record.destroy
 
-    respond_to do |format|
-      format.html { redirect_to records_url }
-      format.json { head :no_content }
-    end
+    respond_with(@record)
   end
   
   # POST /records/update
   def upload
     csv_file = params[:csv]
-    if csv_file.present?
-      if is_valid_csv? csv_file
-        update_records_from_csv(csv_file)
-        flash[:error] = @warning
-        flash[:alert] = @alert
-      else 
-        flash[:error] = "File must be a CSV."
-      end
-    else
-      flash[:error] = "Please select a file to upload."
-    end
+    csv_status = Umbra::CsvUpload.new.csv_upload(csv_file)
 
     # TODO
     # Set flag to indiciate records are batch processing batch_running.pid
@@ -126,11 +95,8 @@ class RecordsController < ApplicationController
     # Have an error saying "Error indexing batched records. Please try again." based on timestamp on a batch_failed.pid file.
     # 
     respond_to do |format|
-      #flash[:alert] = "Indexing batched records in background. Please be patient."
-      #flash[:error] = "Oops! Encountered a problem when indexing batched records. Please try again."
-      #flash[:success] = "Successfully index batched records!"
-      format.html { redirect_to records_url }
-      format.json { head :no_content }
+      flash[:notice] = csv_status
+      format.html { redirect_to records_url(:notice => csv_status) }
     end
   end
 

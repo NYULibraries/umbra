@@ -45,6 +45,10 @@ gem 'acts-as-taggable-on', '~> 2.3.1'
 
 gem "rails_config", "~> 0.3.2"
 
+# Background jobs
+gem 'delayed_job_active_record', "~> 0.4.3"
+gem 'daemons', "~> 1.1.9"
+
 #gem 'blacklight', :path => '/apps/blacklight'
 gem 'blacklight', '~> 4.1.0'
 
