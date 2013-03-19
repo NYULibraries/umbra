@@ -40,7 +40,7 @@ gem 'jquery-rails', "~> 2.1.4"
 
 # Deploy with Capistrano
 gem 'rvm-capistrano', "~> 1.2.7"
-gem 'sunspot_rails', "~> 1.3.3"
+gem 'sunspot_rails', "~> 2.0.0"
 gem 'acts-as-taggable-on', '~> 2.3.1'
 
 gem "rails_config", "~> 0.3.2"
