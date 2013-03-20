@@ -65,5 +65,5 @@ namespace :cache do
 end
 
 before "deploy", "rvm:install_ruby", "deploy:migrations"
-after "deploy", "deploy:cleanup", "deploy:passenger_symlink"
+after "deploy", "deploy:cleanup", "deploy:passenger_symlink", "cache:clear", "cache:tmp_clear"
 after "deploy:restart", "deploy:restart_delayed_job"
