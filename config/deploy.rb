@@ -48,18 +48,22 @@ namespace :deploy do
   task :passenger_symlink do
     run "rm -rf /apps/#{app_title} && ln -s #{current_path}/public /apps/#{app_title}"
   end
+  task :restart_delayed_job do
+    run "cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job restart"
+  end
 end
 
-desc "Cleanup git project"
-task :clean_git, :roles => :app do
-  # Clean up non tracked git files that aren't explicitly ignoredgit 
-  system "git clean -d -f"
-end
-
-desc "Generate rdocs and push rdocs and coverage to gh-pages"
-task :ghpages, :roles => :app do
-  system "bundle exec rake rdoc RAILS_ENV=#{rails_env} && bundle exec rake ghpages RAILS_ENV=#{rails_env}"
+namespace :cache do
+  desc "Clear rails cache"
+  task :tmp_clear, :roles => :app do
+    run "cd #{current_release} && bundle exec rake tmp:clear RAILS_ENV=#{rails_env}"
+  end
+  desc "Clear memcache after deployment"
+  task :clear, :roles => :app do
+    run "cd #{current_release} && bundle exec rake cache:clear RAILS_ENV=#{rails_env}"
+  end
 end
 
 before "deploy", "rvm:install_ruby", "deploy:migrations"
 after "deploy", "deploy:cleanup", "deploy:passenger_symlink"
+after "deploy:restart", "deploy:restart_delayed_job"
