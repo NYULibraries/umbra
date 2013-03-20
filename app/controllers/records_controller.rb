@@ -81,18 +81,6 @@ class RecordsController < ApplicationController
     csv_file = params[:csv]
     csv_status = Umbra::CsvUpload.new(csv_file, current_user).upload
 
-    # TODO
-    # Set flag to indiciate records are batch processing batch_running.pid
-    # Launch daemon process to batch insert
-    # Use existing CSV code to find or create by original id
-    # WHAT KIND OF SECURITY CHECKS DO WE NEED FOR FILE UPLOAD?
-    # Only update record if original_id exists and current_user is authroized for collection
-    # Figure out way to queue up all records to change and THEN batch update
-    # Namespace PID files so you can upload more than one at a time.
-    # For user, display an alert box saying "Indexing batched records in background. Please be patient."
-    # Have an alert saying "Successfully indexed batched records." based on timestamp on a batch_finished.pid file
-    # Have an error saying "Error indexing batched records. Please try again." based on timestamp on a batch_failed.pid file.
-    # 
     respond_to do |format|
       flash[:notice] = csv_status
       format.html { redirect_to records_url(:notice => csv_status) }
