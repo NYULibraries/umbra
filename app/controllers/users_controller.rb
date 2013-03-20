@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include Umbra::Collections
   # Privileged controller
   before_filter :authenticate_admin
   # Edit the submitted admin collections based on existing collections in @user's db entry

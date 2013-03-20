@@ -1,10 +1,6 @@
 Catalog:
   views:
     tabs:
-      newspapers:
-        display: 'Newspapers'
-        url: "newspapers"
-        admin_code: "AggregatedNewspapers"
       vbl:
         display: 'Virtual Business Library'
         url: "vbl"

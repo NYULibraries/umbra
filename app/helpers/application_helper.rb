@@ -65,4 +65,8 @@ module ApplicationHelper
     content_tag :i, "", :class => icons(key)
   end
   
+  def delayed_jobs_running?
+    (Delayed::Job.count > 0)
+  end
+  
 end

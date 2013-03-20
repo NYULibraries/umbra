@@ -1,7 +1,7 @@
 # app/views/layouts/bobcat.rb
 module Views
   module Layouts
-    class Bobcat < ActionView::Mustache
+    class Application < ActionView::Mustache
       # Meta tags to include in layout
       def meta
         meta = super
@@ -92,7 +92,8 @@ module Views
           values
         }
       end
-
+      alias all_tabs tabs
+      
       # Print default blacklight onload code
       def onload
         "$('input#q').focus();" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?

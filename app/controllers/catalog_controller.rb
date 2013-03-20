@@ -2,7 +2,6 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController  
-  include Umbra::Collections
   include Blacklight::Catalog
   
   # Set a session variable on index action stating what the user's current collection is

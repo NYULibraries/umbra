@@ -50,3 +50,10 @@ body {
   }
 }
 
+.pagination, .nyu-pagination {
+  text-align: left;
+}
+
+input[type='file'] {
+  line-height: 12px;
+}

@@ -24,6 +24,14 @@ group :development, :test do
   gem 'debugger'
   gem 'progress_bar'
   gem 'sunspot_solr'
+  #gem 'coveralls', "~> 0.6.2", :require => false
+  #gem "vcr", "~> 2.4.0"
+  #gem "webmock", "~> 1.11.0"
+end
+
+group :development do 
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :test do
@@ -33,10 +41,8 @@ group :test do
   #gem 'ruby-prof' #For Benchmarking
 end
 
-#gem 'coveralls', :require => false
-
 gem 'authpds-nyu', "~> 0.2.5"
-gem 'jquery-rails', "~> 2.1.4"
+gem 'jquery-rails', "~> 2.2.1"
 
 # Deploy with Capistrano
 gem 'rvm-capistrano', "~> 1.2.7"
@@ -53,12 +59,12 @@ gem 'daemons', "~> 1.1.9"
 gem 'blacklight', '~> 4.1.0'
 
 #gem 'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.5-no-bootstrap-sass-dep"
 
 gem 'unicode', "~> 0.4.3" #optionally used by blacklight
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 
 # For memcached
-gem 'dalli', "~> 2.5.0"
+gem 'dalli', "~> 2.6.2"
 
 gem 'newrelic_rpm', "~> 3.5.0"

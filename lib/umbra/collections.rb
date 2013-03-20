@@ -1,7 +1,7 @@
 module Umbra
   module Collections
     def self.included(base)
-      base.helper_method :collections_user_can_admin, :current_collection, :current_user_has_access_to_collection?, :collection_codes, :collection_name
+     # base.helper_method :collections_user_can_admin, :current_collection, :current_user_has_access_to_collection?, :collection_codes, :collection_name
     end
     
     # Get an array of collections authorized to the current logged in user from user attributes

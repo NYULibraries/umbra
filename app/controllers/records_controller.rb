@@ -1,5 +1,4 @@
 class RecordsController < ApplicationController
-  include Umbra::Collections
   # Privileged controller
   before_filter :authenticate_admin
   # Convert blacnk values to nil in params when creating and updating
@@ -80,7 +79,7 @@ class RecordsController < ApplicationController
   # POST /records/update
   def upload
     csv_file = params[:csv]
-    csv_status = Umbra::CsvUpload.new.csv_upload(csv_file)
+    csv_status = Umbra::CsvUpload.new(csv_file, current_user).upload
 
     # TODO
     # Set flag to indiciate records are batch processing batch_running.pid
