@@ -41,7 +41,7 @@ class RecordsController < ApplicationController
     @record = Umbra::Record.new(params[:record])
 
     if @record.save
-      flash[:notice] = t("users.create_success")
+      flash[:notice] = t("records.create_success")
     end
     respond_with(@record)
   end
@@ -52,7 +52,7 @@ class RecordsController < ApplicationController
     @record = Umbra::Record.find(params[:id])
     
     if @record.update_attributes(params[:record])
-      flash[:notice] = t("users.update_success")
+      flash[:notice] = t("records.update_success")
     end
     
     respond_with(@record)
