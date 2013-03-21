@@ -19,7 +19,7 @@ module Umbra
         # If this is a valid CSV file, proceed to uploading
         if is_valid_csv? 
           csv_to_db
-          return "Successfully loaded CSV records into database."
+          return "Successfully loaded CSV records into database. Reindexing will take a moment."
         else 
           return "File must be in CSV format."
         end
