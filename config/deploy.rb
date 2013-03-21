@@ -53,17 +53,6 @@ namespace :deploy do
   end
 end
 
-namespace :cache do
-  desc "Clear rails cache"
-  task :tmp_clear, :roles => :app do
-    run "cd #{current_release} && bundle exec rake tmp:clear RAILS_ENV=#{rails_env}"
-  end
-  desc "Clear memcache after deployment"
-  task :clear, :roles => :app do
-    run "cd #{current_release} && bundle exec rake cache:clear RAILS_ENV=#{rails_env}"
-  end
-end
-
 before "deploy", "rvm:install_ruby", "deploy:migrations"
-after "deploy", "deploy:cleanup", "deploy:passenger_symlink", "cache:clear", "cache:tmp_clear"
+after "deploy", "deploy:cleanup", "deploy:passenger_symlink"
 after "deploy:restart", "deploy:restart_delayed_job"
