@@ -3,5 +3,5 @@ $ ->
   $(".remove").html('<i class="icon-remove"></i>')
   $(".facets .label").removeClass("label")
   new window.nyulibraries.Tooltip('.record-help').html(false).trigger('hover').init()
-  $("#show_user").find("input[type='checkbox']").live 'change', ->
+  $("#show_user").on 'change', "input[type='checkbox']", ->
     $(this).closest("form").submit()

@@ -19,9 +19,9 @@ module Umbra
         # If this is a valid CSV file, proceed to uploading
         if is_valid_csv? 
           csv_to_db
-          return "Indexing batched records in background. Please be patient."
+          return "Successfully loaded CSV records into database."
         else 
-          return "File must be in CSV (comma-separated values) format."
+          return "File must be in CSV format."
         end
       else
         return "Please select a file to upload."

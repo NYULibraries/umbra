@@ -9,16 +9,7 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     # Generate sunspot search
-    @records = Umbra::Record.search {
-      fulltext params[:q]
-      any_of do
-        current_user_admin_collections.each { |collection| 
-          with(:collection, collection) 
-        }
-      end
-      order_by(sort_column.to_sym, sort_direction.to_sym)
-      paginate :page => params[:page] || 1, :per_page => 30
-    }
+    @records = record_default_search
   
     respond_with(@records)
   end
@@ -50,7 +41,7 @@ class RecordsController < ApplicationController
     @record = Umbra::Record.new(params[:record])
 
     if @record.save
-      flash[:notice] = "Record was successfully created."
+      flash[:notice] = t("users.create_success")
     end
     respond_with(@record)
   end
@@ -61,7 +52,7 @@ class RecordsController < ApplicationController
     @record = Umbra::Record.find(params[:id])
     
     if @record.update_attributes(params[:record])
-      flash[:notice] ="Record was successfully updated."
+      flash[:notice] = t("users.update_success")
     end
     
     respond_with(@record)
@@ -78,12 +69,12 @@ class RecordsController < ApplicationController
   
   # POST /records/update
   def upload
+    @records = record_default_search
     csv_file = params[:csv]
-    csv_status = Umbra::CsvUpload.new(csv_file, current_user).upload
-
-    respond_to do |format|
-      flash[:notice] = csv_status
-      format.html { redirect_to records_url(:notice => csv_status) }
+    flash[:notice] = Umbra::CsvUpload.new(csv_file, current_user).upload
+    
+    respond_with(@records) do |format|      
+      format.html { redirect_to records_url(:notice => flash[:notice]) }
     end
   end
 
@@ -99,4 +90,18 @@ class RecordsController < ApplicationController
     params[:record].merge!(params[:record]){|k, v| v.blank? ? nil : v}
   end
   private :blank_to_nil_params
+  
+  # Default admin search in Sunspot
+  def record_default_search
+    Umbra::Record.search {
+      fulltext params[:q]
+      any_of do
+        current_user_admin_collections.each { |collection| 
+          with(:collection, collection) 
+        }
+      end
+      order_by(sort_column.to_sym, sort_direction.to_sym)
+      paginate :page => params[:page] || 1, :per_page => 30
+    }
+  end
 end

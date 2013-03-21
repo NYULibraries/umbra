@@ -26,9 +26,17 @@ class User < ActiveRecord::Base
       q = "%#{search}%"
       where('firstname LIKE ? || lastname LIKE ? || username LIKE ? || email LIKE ?', q, q, q, q)
     else
-      # scoped is the way to pass a blank query in Rails3
+      # scoped to send back an ActiveRelation
       scoped
     end
+  end
+  
+  # Create a CSV format
+  comma do
+    username
+    firstname
+    lastname
+    email
   end
 
 end

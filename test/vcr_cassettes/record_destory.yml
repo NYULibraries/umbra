@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8981/solr/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><delete><id>Umbra::Record 980190962</id></delete>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(6.1-SNAPSHOT)
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
+    http_version: 
+  recorded_at: Thu, 21 Mar 2013 15:26:11 GMT
+- request:
+    method: post
+    uri: http://localhost:8981/solr/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><commit/>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(6.1-SNAPSHOT)
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>32}}'
+    http_version: 
+  recorded_at: Thu, 21 Mar 2013 15:26:11 GMT
+recorded_with: VCR 2.4.0

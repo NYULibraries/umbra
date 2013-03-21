@@ -24,9 +24,9 @@ group :development, :test do
   gem 'debugger'
   gem 'progress_bar'
   gem 'sunspot_solr'
-  #gem 'coveralls', "~> 0.6.2", :require => false
-  #gem "vcr", "~> 2.4.0"
-  #gem "webmock", "~> 1.11.0"
+  gem 'coveralls', "~> 0.6.2", :require => false
+  gem "vcr", "~> 2.4.0"
+  gem "webmock", "~> 1.11.0"
 end
 
 group :development do 
@@ -68,3 +68,5 @@ gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 gem 'dalli', "~> 2.6.2"
 
 gem 'newrelic_rpm', "~> 3.5.0"
+
+gem "comma", "~> 3.0.4"

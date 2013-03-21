@@ -92,7 +92,7 @@ module Views
           values
         }
       end
-      alias all_tabs tabs
+      alias all_tabs tabs #Need to alias to override parent alias
       
       # Print default blacklight onload code
       def onload

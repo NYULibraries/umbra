@@ -1,0 +1,33 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8981/solr/select?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: fq=type%3AUmbra%5C%3A%5C%3ARecord&sort=title_sort_ss+asc&start=0&rows=30&q=%2A%3A%2A
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - Jetty(6.1-SNAPSHOT)
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>25,''params''=>{''sort''=>''title_sort_ss
+        asc'',''start''=>''0'',''q''=>''*:*'',''wt''=>''ruby'',''fq''=>''type:Umbra\\:\\:Record'',''rows''=>''30''}},''response''=>{''numFound''=>2,''start''=>0,''docs''=>[{''id''=>''Umbra::Record
+        979694680'',''resource_id_ss''=>''979694680'',''title_sort_ss''=>''MyRecord1'',''collection_ss''=>''RestrictedCollection'',''identifier_ss''=>''http://library.nyu.edu'',''title_texts''=>[''MyRecord1''],''description_texts''=>[''This
+        record is very important to the TestCollection group.''],''collection_texts''=>[''RestrictedCollection'']},{''id''=>''Umbra::Record
+        980190963'',''resource_id_ss''=>''980190963'',''title_sort_ss''=>''MyRecord1'',''collection_ss''=>''TestCollection'',''identifier_ss''=>''http://library.nyu.edu'',''title_texts''=>[''MyRecord1''],''description_texts''=>[''This
+        record is very important to the TestCollection group.''],''collection_texts''=>[''TestCollection'']}]}}'
+    http_version: 
+  recorded_at: Thu, 21 Mar 2013 15:26:11 GMT
+recorded_with: VCR 2.4.0
