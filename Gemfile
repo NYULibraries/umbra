@@ -67,6 +67,6 @@ gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 # For memcached
 gem 'dalli', "~> 2.6.2"
 
-gem 'newrelic_rpm', "~> 3.5.0"
+gem 'newrelic_rpm', "~> 3.6.0"
 
 gem "comma", "~> 3.0.4"
