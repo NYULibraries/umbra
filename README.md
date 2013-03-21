@@ -19,4 +19,8 @@ Implements Blacklight engine gem to take advantage of the Solr-indexed catalog d
 
 Uses the Sunspot gem to manage the indexing of collections into WebSolr.
 
+To delete all the records from the index do the following in the Rails console:
+
+    Sunspot.remove_all(Umbra::Record)
+
 * [Sunspot](http://sunspot.github.com/)
