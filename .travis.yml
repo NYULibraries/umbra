@@ -1,5 +1,9 @@
 language: ruby
 
+before_script:
+  - mysql -e 'create database nyu_umbra_test;'
+  - bundle exec rake db:schema:load
+
 rvm:
   - "1.9.3"
   - "1.9.2"
