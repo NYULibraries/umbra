@@ -1,7 +1,10 @@
 module Umbra
   module Collections
     def self.included(base)
-     # base.helper_method :collections_user_can_admin, :current_collection, :current_user_has_access_to_collection?, :collection_codes, :collection_name
+    end
+    
+    def admin_collections_name
+      "umbra_admin_collections".to_sym
     end
     
     # Get an array of collections authorized to the current logged in user from user attributes
@@ -13,10 +16,10 @@ module Umbra
     def current_user_admin_collections
       unless current_user.nil? || 
               current_user[:user_attributes].nil? ||
-                current_user[:user_attributes][:umbra_admin_collections].nil? || 
-                  !(current_user[:user_attributes][:umbra_admin_collections].is_a? Array)
-          return [] if current_user[:user_attributes][:umbra_admin_collections].include? "global" 
-          return current_user[:user_attributes][:umbra_admin_collections]  
+                current_user[:user_attributes][admin_collections_name].nil? || 
+                  !(current_user[:user_attributes][admin_collections_name].is_a? Array)
+          return [] if current_user[:user_attributes][admin_collections_name].include? "global" 
+          return current_user[:user_attributes][admin_collections_name]  
       else    
         return [nil]    
       end
@@ -37,21 +40,21 @@ module Umbra
     # Get user collections for @user instance, cast as Array if necessary
     def user_collections
       @user = User.find(params[:id])
-      @user_collections ||= (@user.user_attributes[:umbra_admin_collections].nil?) ? [] : 
-                              (@user.user_attributes[:umbra_admin_collections].is_a? Array) ? 
-                                @user.user_attributes[:umbra_admin_collections] : [@user.user_attributes[:umbra_admin_collections]]
+      @user_collections ||= (@user.user_attributes[admin_collections_name].nil?) ? [] : 
+                              (@user.user_attributes[admin_collections_name].is_a? Array) ? 
+                                @user.user_attributes[admin_collections_name] : [@user.user_attributes[admin_collections_name]]
     end
     private :user_collections
 
     # Edit authorized collection list based on submitted values
     def update_admin_collections
-      unless params[:user].nil? or params[:user][:umbra_admin_collections].nil? 
+      unless params[:user].nil? or params[:user][admin_collections_name].nil? 
         # Loop through all submitted admin collections
-        params[:user][:umbra_admin_collections].keys.each do |collection|
+        params[:user][admin_collections_name].keys.each do |collection|
           # Remove collection from list if checkbox was unchecked
-          user_collections.delete(collection) unless params[:user][:umbra_admin_collections][collection].to_i == 1
+          user_collections.delete(collection) unless params[:user][admin_collections_name][collection].to_i == 1
           # Add collection to list if checkbox was checked
-          user_collections.push(collection) if params[:user][:umbra_admin_collections][collection].to_i == 1 and !user_collections.include? collection
+          user_collections.push(collection) if params[:user][admin_collections_name][collection].to_i == 1 and !user_collections.include? collection
         end 
       end
     end
@@ -61,8 +64,8 @@ module Umbra
     #
     # If no collections have been set for this user return an empty array. 
     def collections_user_can_admin
-      return [] if @user.user_attributes[:umbra_admin_collections].nil? or !@user.user_attributes[:umbra_admin_collections].is_a? Array
-      return @user.user_attributes[:umbra_admin_collections]
+      return [] if @user.user_attributes[admin_collections_name].nil? or !@user.user_attributes[admin_collections_name].is_a? Array
+      return @user.user_attributes[admin_collections_name]
     end
     
     # Get the current collection code

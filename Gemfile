@@ -41,7 +41,7 @@ group :test do
   #gem 'ruby-prof' #For Benchmarking
 end
 
-gem 'authpds-nyu', "~> 0.2.5"
+gem 'authpds-nyu', "~> 0.2.12"
 gem 'jquery-rails', "~> 2.2.1"
 
 # Deploy with Capistrano
@@ -56,7 +56,7 @@ gem 'delayed_job_active_record', "~> 0.4.3"
 gem 'daemons', "~> 1.1.9"
 
 #gem 'blacklight', :path => '/apps/blacklight'
-gem 'blacklight', '~> 4.1.0'
+gem 'blacklight', '~> 4.2.0'
 
 #gem 'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.5-no-bootstrap-sass-dep"
