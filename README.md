@@ -1,7 +1,5 @@
 # Umbra
 
-[![Build Status](http://jenkins1.bobst.nyu.edu/job/Umbra%20Production/badge/icon)](http://jenkins1.bobst.nyu.edu/job/Umbra%20Production/)
-
 [![Build Status](https://travis-ci.org/NYULibraries/umbra.png?branch=master)](https://travis-ci.org/NYULibraries/umbra)
 [![Dependency Status](https://gemnasium.com/NYULibraries/umbra.png)](https://gemnasium.com/NYULibraries/umbra)
 [![Code Climate](https://codeclimate.com/github/NYULibraries/umbra.png)](https://codeclimate.com/github/NYULibraries/umbra)

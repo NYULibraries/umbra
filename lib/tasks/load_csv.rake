@@ -4,7 +4,7 @@ namespace :umbra do
   desc "Import from csv file"
   task :load_csv, [:klass, :csv_file, :encoding] => :environment do |t, args|
     #, :encoding => "windows-1251:utf-8"
-    args.with_defaults(:klass => "Umbra::Record", :csv_file => "db/csv/newspapers.csv")
+    args.with_defaults(:klass => "Umbra::Record", :csv_file => "db/csv/dss.csv", :encoding => "windows-1251:utf-8")
 
     #For each line in CSV database file, include headers and encoding conditionally
     CSV.foreach(args[:csv_file], :headers => true, :encoding => args[:encoding]) do |row|
