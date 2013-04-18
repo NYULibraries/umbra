@@ -43,14 +43,14 @@ module Umbra
           row.each do |field|
             unless field[1].nil?
               facets.keys.each do |facet|
-                facets[facet].push(field[1]) if field[0].eql? dc_format(facet)
+                facets[facet.to_sym].push(field[1]) if field[0].eql? dc_format(facet)
               end
             end
           end
         
           #Map each facet array to acts_as_taggable list 
           facets.keys.each {|facet| facets_insert.merge!({facet.to_sym => facets[facet.to_sym]}) }
-
+          
           #Generate record, or find if CSV contained a unique ID matching to original-id
           record = Umbra::Record.find_or_create_by_original_id(row["guid"])
           # Update attrs in the record and merge in facets
@@ -72,7 +72,7 @@ module Umbra
     
     # Get proper dublin core format from databse friendly version (i.e. subject_tag_list => dc.subject.tag)
     def dc_format(facet)
-      facet.to_s.split("_list")[0..-1].split("_").unshift("dc").join(".")
+      facet.to_s.split("_list").first.split("_").unshift("dc").join(".")
     end
     private :dc_format
     

@@ -15,9 +15,11 @@ class CatalogController < ApplicationController
     config.default_solr_params = { 
       :qt => '',
       :rows => 10,
-      :fl => "*",
+      :fl => "resource_id_ss title_sort_ss identifier_ss score title_texts description_texts source_list_sms extent_list_sms",
       :fq => "type:Umbra**Record",
       :facet => true,
+      :hl => true,
+      "hl.fl" => "title_sort_ss identifier_ss score title_texts description_texts source_list_sms extent_list_sms",
       "facet.mincount" => 1,
       :echoParams => "explicit",
       :qf => "title_texts^5.0 description_texts",
@@ -27,7 +29,6 @@ class CatalogController < ApplicationController
 
     ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
     ## parameters included in the Blacklight-jetty document requestHandler.
-    #
     config.default_document_solr_params = {
       :qt => '',
       :fq => "type:Umbra**Record",
@@ -83,6 +84,7 @@ class CatalogController < ApplicationController
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
+    config.add_field_configuration_to_solr_request!
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display 

@@ -74,7 +74,7 @@ class RecordsController < ApplicationController
     flash[:notice] = Umbra::CsvUpload.new(csv_file, current_user).upload
     
     respond_with(@records) do |format|      
-      format.html { redirect_to records_url(:notice => flash[:notice]) }
+      format.html { render :index }#redirect_to records_url(:notice => flash[:notice]) }
     end
   end
 

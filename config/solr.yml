@@ -10,15 +10,11 @@
 # jetty_path is only required for rake tasks that need to know
 # how to start up solr, generally for automated testing. 
 
-development:
+development: &development
   url: <%= Settings.solr.url %>
 staging:
-  url: <%= Settings.solr.url %>
+  <<: *development
 production:
-  url: <%= Settings.solr.url %>
+  <<: *development
 test:
-  url: <%= Settings.solr.url %>
-travis: &travis
-  url: "http://127.0.0.1:#{ENV['TEST_JETTY_PORT'] || 8888}/solr"
-cucumber:
-  <<: *travis
+  <<: *development

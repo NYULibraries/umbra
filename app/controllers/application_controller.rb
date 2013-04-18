@@ -68,20 +68,18 @@ class ApplicationController < ActionController::Base
   #
   ########
   
-  # Load YAML file with tabs info into Hash
-  def tabs_info
-    @tabs_info ||= YAML.load_file( File.join(Rails.root, "config", "tabs.yml") )
+  # Load YAML file with repos info into Hash
+  def repositories_info
+    @repositories_info ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )
   end
-  helper_method :tabs_info
+  helper_method :repositories_info
   
   # Return which Hash set to use
   #
-  # * Admin tabs if user is an admin and is currently in the admin view
-  # * Otherwise the Catalog tabs
-  def tab_info    
-   return tabs_info["Admin"] if is_admin? and is_in_admin_view?
-   return tabs_info["Catalog"]
+  # * Return the Catalog repositories
+  def repository_info    
+   return repositories_info["Catalog"]
   end
-  helper_method :tab_info
+  helper_method :repository_info
   
 end

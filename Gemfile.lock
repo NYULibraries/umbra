@@ -1,12 +1,20 @@
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_assets.git
-  revision: c8ee4cb9557ea3b25e13e233b12c506928c286e3
-  tag: v1.0.5-no-bootstrap-sass-dep
+  revision: 166c8809eaeeb02f23f69bb726009eed2e376a9e
+  tag: v1.0.8-no-bootstrap-sass-dep
   specs:
-    nyulibraries_assets (1.0.5)
+    nyulibraries_assets (1.0.8)
       compass (~> 0.12.2)
       institutions (~> 0.0.5)
       rake (~> 10.0.2)
+
+GIT
+  remote: git://github.com/NYULibraries/rake_nyu.git
+  revision: ac5c6e60209e10067348da0f4a89a998dd07a45a
+  specs:
+    rake_nyu (1.0.0)
+      rake (~> 10.0.4)
+      require_all (~> 1.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -107,7 +115,6 @@ GEM
       simplecov (>= 0.7)
       thor
     crack (0.3.2)
-    daemons (1.1.9)
     dalli (2.6.2)
     debug_inspector (0.0.2)
     debugger (1.5.0)
@@ -116,11 +123,6 @@ GEM
       debugger-ruby_core_source (~> 1.2.0)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.0)
-    delayed_job (3.0.5)
-      activesupport (~> 3.0)
-    delayed_job_active_record (0.4.4)
-      activerecord (>= 2.1.0, < 4)
-      delayed_job (~> 3.0)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -202,7 +204,7 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
-    rails_config (0.3.2)
+    rails_config (0.3.3)
       activesupport (>= 3.0)
     railties (3.2.13)
       actionpack (= 3.2.13)
@@ -279,10 +281,8 @@ DEPENDENCIES
   compass-rails (~> 1.0.0)
   compass-susy-plugin (~> 0.9.0)
   coveralls (~> 0.6.2)
-  daemons (~> 1.1.9)
   dalli (~> 2.6.2)
   debugger
-  delayed_job_active_record (~> 0.4.3)
   jquery-rails (~> 2.2.1)
   json (~> 1.7.7)
   mustache-rails (~> 0.2.3)
@@ -292,6 +292,7 @@ DEPENDENCIES
   progress_bar
   rails (~> 3.2.13)
   rails_config (~> 0.3.2)
+  rake_nyu!
   rvm-capistrano (~> 1.3.0)
   sass-rails (~> 3.2.3)
   simplecov

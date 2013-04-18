@@ -1,11 +1,4 @@
-production:
-  solr:
-    hostname: <%= Settings.sunspot.solr.hostname %>
-    path: <%= Settings.sunspot.solr.path %>
-    port: <%= Settings.sunspot.solr.port %>
-    log_level: <%= Settings.sunspot.solr.log_level %>
-
-development:
+development: &development
   solr:
     hostname: <%= Settings.sunspot.solr.hostname %>
     path: <%= Settings.sunspot.solr.path %>
@@ -13,14 +6,10 @@ development:
     log_level: <%= Settings.sunspot.solr.log_level %>
 
 staging:
-  solr:
-    hostname: <%= Settings.sunspot.solr.hostname %>
-    path: <%= Settings.sunspot.solr.path %>
-    port: <%= Settings.sunspot.solr.port %>
-    log_level: <%= Settings.sunspot.solr.log_level %>
+  <<: *development
+
+production:
+  <<: *development
 
 test:
-  solr:
-    hostname: <%= Settings.sunspot.solr.hostname %>
-    port: <%= Settings.sunspot.solr.port %>
-    log_level: <%= Settings.sunspot.solr.log_level %>
+  <<: *development

@@ -70,7 +70,7 @@ module Umbra
     
     # Get the current collection code
     def current_collection collection_name
-      @current_collection ||= tabs_info["Catalog"]["views"]["tabs"][collection_name]["admin_code"] unless collection_name.nil? or tabs_info["Catalog"]["views"]["tabs"][collection_name].nil?
+      @current_collection ||= repositories_info["Catalog"]["repositories"][collection_name]["admin_code"] unless collection_name.nil? or repositories_info["Catalog"]["repositories"][collection_name].nil?
     end
     
     # Sets a session variable to the user submitted collection 
@@ -96,14 +96,14 @@ module Umbra
     # * Show blank if no collection
     def collection_name
       (session[:collection]) ? 
-        tab_info["views"]["tabs"][session[:collection]]["display"] : 
+        repository_info["repositories"][session[:collection]]["display"] : 
           (!current_collection(params[:collection]).nil?) ? 
-            tab_info["views"]["tabs"][params[:collection]]["display"] : "" 
+            repository_info["repositories"][params[:collection]]["display"] : "" 
     end
 
     # Collect collections admin code from YAML
     def collection_codes
-      @collections ||= tabs_info["Catalog"]["views"]["tabs"].collect{|c| c[1]["admin_code"] }.push("global")
+      @collections ||= repositories_info["Catalog"]["repositories"].collect{|c| c[1]["admin_code"] }.push("global")
     end
 
   end
