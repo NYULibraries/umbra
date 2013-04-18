@@ -8,9 +8,8 @@ GIT
       institutions (~> 0.0.5)
       rake (~> 10.0.2)
 
-GIT
-  remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: ac5c6e60209e10067348da0f4a89a998dd07a45a
+PATH
+  remote: /apps/rake_nyu
   specs:
     rake_nyu (1.0.0)
       rake (~> 10.0.4)

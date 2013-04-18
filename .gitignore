@@ -22,6 +22,7 @@ doc
 rdoc
 brakeman-output.rabs
 rvm.env
+*.bak
 
 config/settings.local.yml
 config/settings/*.local.yml
