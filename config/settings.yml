@@ -6,13 +6,6 @@ databases:
   database: nyu_umbra_test
   host: localhost
 
-capistrano:
-  servers:
-    - 
-  user: 
-  path: 
-  scm_username: 
-
 sunspot:
   solr:
     hostname: localhost
