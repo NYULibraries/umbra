@@ -7,7 +7,8 @@ databases:
   host: localhost
 
 capistrano:
-  server: 
+  servers:
+    - 
   user: 
   path: 
   scm_username: 
@@ -17,10 +18,6 @@ sunspot:
     hostname: localhost
     port: 8981
     log_level: WARNING
-
-newrelic:
-  api_key: 
-  app_name: 'Umbra'
 
 login:
   default_admins: ["real_user"]

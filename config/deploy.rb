@@ -94,8 +94,12 @@ namespace :deploy do
   task :passenger_symlink do
     run "rm -rf /apps/#{app_title} && ln -s #{current_path}/public /apps/#{app_title}"
   end
-  task :restart_delayed_job do
-    run "cd #{current_path}; RAILS_ENV=#{rails_env} script/delayed_job restart"
+end
+
+namespace :cache do
+  desc "Clear rails cache"
+  task :tmp_clear, :roles => :app do
+    run "cd #{current_release} && rake tmp:clear RAILS_ENV=#{rails_env}"
   end
 end
 
@@ -106,6 +110,7 @@ before "rails_config:see", "rails_config:set_servers"
 after "multistage:ensure", "rails_config:see"
 # After your bundle has installed, do any migrations
 after "bundle:install", "deploy:migrate"
+after "deploy", "deploy:cleanup", "deploy:passenger_symlink", "cache:tmp_clear"
 # Before newrelic runs, set up its yaml file
 before "newrelic:notice_deployment", "rails_config:newrelic:set"
 # After newrelic runs, reset up its yaml file
@@ -113,5 +118,3 @@ after "newrelic:notice_deployment", "rails_config:newrelic:reset"
 after "deploy:update", "newrelic:notice_deployment"
 # Make sure correct ruby is installed
 before "deploy", "rvm:install_ruby"
-# Cleanup old deploys and set passenger symbolic link
-after "deploy", "deploy:cleanup", "deploy:passenger_symlink", "deploy:restart_delayed_job"

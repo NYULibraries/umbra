@@ -5,18 +5,13 @@ development: &development
   username: <%= Settings.databases.username %>
   password: <%= Settings.databases.password %>
   encoding: utf8
-
-test:
-  <<: *development
-  host: <%= Settings.databases.host %>
-  database: <%= Settings.databases.database %>
-  username: <%= Settings.databases.username %>
-
+  
 staging:
   <<: *development
-  host: <%= Settings.databases.host %>
 
 production:  
   <<: *development
-  host: <%= Settings.databases.host %>
+  
+test:
+  <<: *development
 
