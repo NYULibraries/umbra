@@ -23,12 +23,12 @@ end
 group :development, :test do
   gem 'debugger'
   gem 'progress_bar'
-  gem 'sunspot_solr'
 end
 
 group :development do 
   gem "better_errors"
   gem "binding_of_caller"
+  gem 'sunspot_solr'
 end
 
 group :test do
