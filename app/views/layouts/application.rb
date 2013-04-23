@@ -45,12 +45,21 @@ module Views
         render :partial => 'shared/footer'
       end
       
+      # Using Gauges?
+      def gauges?
+        (Rails.env.eql?("production") and (not gauges_tracking_code.nil?))
+      end
+
+      def gauges_tracking_code
+        Settings.gauges.tracking_code
+      end
+      
       # Prepend modal dialog elements to the body
       def prepend_body
         prepend_body = '<div class="modal-container"></div>'.html_safe
         prepend_body << '<div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>'.html_safe
       end
-      
+       
       # Prepend search box amd flash message partials before to yield
       def prepend_yield
         return unless show_search_box?
