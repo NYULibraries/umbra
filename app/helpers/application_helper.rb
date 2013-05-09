@@ -33,6 +33,4 @@ module ApplicationHelper
     catalog_javascripts = javascript_include_tag "application"
   end
   
-
-  
 end
