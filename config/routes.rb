@@ -1,6 +1,6 @@
 Umbra::Application.routes.draw do
 
-  root :to => "catalog#index", :collection => "vbl"
+  root :to => redirect("/vbl")
 
   # Create named routes for each collection specified in tabs.yml
   YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
