@@ -14,8 +14,11 @@ sunspot:
 
 login:
   default_admins: ["real_user"]
-  pds_url: "https://login.library.nyu.edu"
-  calling_system: "primo"
+  pds_url: 
+  calling_system: 
+
+solr: 
+  url: "http://127.0.0.1:8981/solr"
   
 # A dummy secret token for dev sessions and public consumption 
 
