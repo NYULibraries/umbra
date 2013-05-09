@@ -55,7 +55,7 @@ gem "rails_config", "~> 0.3.2"
 gem 'blacklight', '~> 4.2.0'
 
 #gem 'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.8-no-bootstrap-sass-dep"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.10"
 
 gem 'unicode', "~> 0.4.3" #optionally used by blacklight
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'

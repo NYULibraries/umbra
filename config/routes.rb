@@ -1,10 +1,10 @@
 Umbra::Application.routes.draw do
 
-  root :to => "catalog#index"
+  root :to => "catalog#index", :collection => "vbl"
 
   # Create named routes for each collection specified in tabs.yml
   YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
-     match "#{coll[0]}" => "catalog#index", :collection => "#{coll[0]}"
+     get "#{coll[0]}" => "catalog#index", :collection => "#{coll[0]}"
   end
   
   Blacklight.add_routes(self)
@@ -14,7 +14,7 @@ Umbra::Application.routes.draw do
       post 'upload', :on => :collection
     end
     resources :users
-    match "clear_patron_data", :to => "users#clear_patron_data"
+    post "clear_patron_data", :to => "users#clear_patron_data"
   end
   
   match 'login', :to => 'user_sessions#new', :as => :login

@@ -24,12 +24,7 @@ module Views
         application = link_to application_name, root_path
         application << (params[:controller] == "catalog" and !params[:id]) ? content_tag(:span, t('blacklight.search.search_results'), :id => 'results_text') : ""
       end
-      
-      # Render the sidebar partial
-      def sidebar
-        render :partial => 'catalog/sidebar'
-      end
-      
+
       # Print breadcrumb navigation
       def breadcrumbs
         breadcrumbs = super
