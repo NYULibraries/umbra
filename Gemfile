@@ -4,7 +4,7 @@ gem 'rails', '~> 3.2.13'
 
 gem 'mysql2', "~> 0.3.11"
 
-gem 'json', "~> 1.7.7"
+gem 'json', "~> 1.8.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
