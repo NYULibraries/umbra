@@ -52,7 +52,7 @@ gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
 gem "rails_config", "~> 0.3.2"
 
 #gem 'blacklight', :path => '/apps/blacklight'
-gem 'blacklight', '~> 4.2.0'
+gem 'blacklight', '~> 4.2.1'
 
 #gem 'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.10"
