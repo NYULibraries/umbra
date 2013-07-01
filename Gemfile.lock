@@ -83,7 +83,7 @@ GEM
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.0.4)
-    capistrano (2.15.4)
+    capistrano (2.15.0)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -280,8 +280,8 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   blacklight (~> 4.2.1)
-  capistrano (~> 2.15.0)
-  capistrano-ext (~> 1.2.1)
+  capistrano (= 2.15.0)
+  capistrano-ext (= 1.2.1)
   coffee-rails (~> 3.2.1)
   comma (~> 3.0.4)
   compass-rails (~> 1.0.0)
