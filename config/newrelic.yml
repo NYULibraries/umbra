@@ -224,3 +224,4 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: false
+  # app_name: <%= Settings.newrelic.app_name %>
