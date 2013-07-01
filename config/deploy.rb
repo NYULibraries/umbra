@@ -1,11 +1,15 @@
-# Multistage
-require 'capistrano/ext/multistage'
 # Load bundler-capistrano gem
 require "bundler/capistrano"
 # Load rvm-capistrano gem
 require "rvm/capistrano"
 # Include New Relic recipes
 require 'new_relic/recipes'
+
+# Environments
+set :stages, %w{staging production}
+set :default_stage, "staging"
+# Multistage
+require 'capistrano/ext/multistage'
 
 set :ssh_options, {:forward_agent => true}
 set :app_title, "umbra"
@@ -25,9 +29,7 @@ set :deploy_via, :remote_cache
 set(:branch, 'master') unless exists?(:branch)
 set :git_enable_submodules, 1
 
-# Environments
-set :stages, %w{staging production}
-set :default_stage, "staging"
+
 set :keep_releases, 5
 set :use_sudo, false
 
