@@ -24,18 +24,17 @@ set :bundle_without, [:development, :test]
 
 # Git vars
 set :repository, "git@github.com:NYULibraries/umbra.git" 
-set :scm, :git
+set :scm, :gitg
 set :deploy_via, :remote_cache
 set(:branch, 'master') unless exists?(:branch)
 set :git_enable_submodules, 1
-
 
 set :keep_releases, 5
 set :use_sudo, false
 
 # Configure app_settings from rails_config
 # Defer processing until we have rails environment
-set(:app_settings) { eval(run_locally("rails runner -e #{rails_env} 'p Settings.capistrano.to_hash'")) }
+set(:app_settings) { run_locally("rails runner -e #{rails_env} 'p Settings.capistrano.to_hash'") }
 set(:scm_username) { app_settings[:scm_username] }
 set(:app_path) { app_settings[:path] }
 set(:user) { app_settings[:user] }
