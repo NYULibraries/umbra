@@ -33,8 +33,4 @@ module ApplicationHelper
     catalog_javascripts = javascript_include_tag "application"
   end
   
-  def gauges_tracking_code
-    Settings.gauges.tracking_code
-  end
-  
 end

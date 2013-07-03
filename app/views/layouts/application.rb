@@ -63,14 +63,21 @@ module Views
       # Boolean for whether or not to show tabs
       def show_tabs
         return false
-        #(!is_in_admin_view? and controller.controller_name.eql? "catalog")
       end
       
       # Only show search box on admin view or for search catalog, excluding bookmarks, search history, etc.
       def show_search_box?
         (is_in_admin_view? or controller.controller_name.eql? "catalog")
       end
-  
+      
+      # Using Gauges?
+      def gauges?
+        (Rails.env.eql?("production") and (not gauges_tracking_code.nil?))
+      end
+      
+      def gauges_tracking_code
+        Settings.gauges.tracking_code
+      end
     
       # Print default blacklight onload code
       def onload
