@@ -26,7 +26,11 @@ module Views
       end
       
       def application_title
-       t('blacklight.application_name')
+        if collection_name.blank?
+          t('blacklight.application_name') 
+        else
+          collection_name
+        end
       end
 
       # Print breadcrumb navigation
