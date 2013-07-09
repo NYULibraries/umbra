@@ -24,6 +24,10 @@ module Views
         application = link_to application_name, root_path
         application << (params[:controller] == "catalog" and !params[:id]) ? content_tag(:span, t('blacklight.search.search_results'), :id => 'results_text') : ""
       end
+      
+      def application_title
+       t('blacklight.application_name')
+      end
 
       # Print breadcrumb navigation
       def breadcrumbs
