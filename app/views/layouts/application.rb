@@ -35,11 +35,6 @@ module Views
         return breadcrumbs
       end
       
-      # Render footer partial
-      def footer
-        render :partial => 'shared/footer'
-      end
-      
       # Prepend modal dialog elements to the body
       def prepend_body
         content_tag(:div, nil, :class => "modal-container")+
@@ -68,11 +63,6 @@ module Views
       # Only show search box on admin view or for search catalog, excluding bookmarks, search history, etc.
       def show_search_box?
         (is_in_admin_view? or controller.controller_name.eql? "catalog")
-      end
-      
-      # Using Gauges?
-      def gauges?
-        (Rails.env.eql?("production") and (not gauges_tracking_code.nil?))
       end
       
       def gauges_tracking_code
