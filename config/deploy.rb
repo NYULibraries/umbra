@@ -8,7 +8,8 @@ set :application, "#{app_title}_repos"
 set :rvm_ruby_string, "1.9.3-p448"
 
 # Git vars
-set :repository, "git@github.com:NYULibraries/umbra.git" 
+set :repository, "git@github.com:NYULibraries/umbra.git"
+set :branch, "master"
 
 # Rails specific vars
 set :normalize_asset_timestamps, false
