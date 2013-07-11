@@ -12,5 +12,3 @@ set :repository, "git@github.com:NYULibraries/umbra.git"
 
 # Rails specific vars
 set :normalize_asset_timestamps, false
-
-set :recipient, "web.services@library.nyu.edu"
