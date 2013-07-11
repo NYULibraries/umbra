@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: 7cf4dcf8071555279a78b568b748f892397c2b98
+  revision: 34a9249164dadfbc6c64d3feeac41b2b9a4fe2a2
   specs:
     rake_nyu (1.0.0)
       cap_git_tools (~> 0.9.1)
