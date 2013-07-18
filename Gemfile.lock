@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: 3b6e2e6217a8942d2654fe07c63b178a71ee6ce3
+  revision: db5dfa4678f167cc651b37c23820794014d3d05d
   specs:
     rake_nyu (1.0.0)
       cap_git_tools (~> 0.9.1)
@@ -128,7 +128,7 @@ GEM
       rest-client
       simplecov (>= 0.7)
       thor
-    crack (0.4.0)
+    crack (0.4.1)
       safe_yaml (~> 0.9.0)
     dalli (2.6.4)
     debug_inspector (0.0.2)
@@ -191,7 +191,7 @@ GEM
     mustache-rails (0.2.3)
       actionpack (>= 3.1)
       mustache (~> 0.99.4)
-    mysql2 (0.3.11)
+    mysql2 (0.3.13)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -250,7 +250,7 @@ GEM
       mime-types (>= 1.16)
     rsolr (1.0.9)
       builder (>= 2.1.2)
-    rvm-capistrano (1.4.0)
+    rvm-capistrano (1.4.1)
       capistrano (>= 2.0.0)
     safe_yaml (0.9.4)
     sass (3.2.9)
@@ -285,7 +285,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.37)
-    uglifier (2.1.1)
+    uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode (0.4.4)
