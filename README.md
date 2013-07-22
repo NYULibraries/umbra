@@ -18,3 +18,4 @@ Uses the [Sunspot](http://sunspot.github.com/) gem to manage the indexing of col
 To delete all the records from the index do the following in the Rails console:
 
     Sunspot.remove_all(Umbra::Record)
+
