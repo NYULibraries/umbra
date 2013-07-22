@@ -19,3 +19,4 @@ To delete all the records from the index do the following in the Rails console:
 
     Sunspot.remove_all(Umbra::Record)
 
+
