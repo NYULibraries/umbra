@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: 3ad6ad1e695ef43fa2ef54a16f2c153b32fb6b6c
+  revision: aa71e4dfe44fc98108d8ba23ee5d0cb124bbeb25
   specs:
     rake_nyu (1.0.0)
       cap_git_tools (~> 0.9.1)
@@ -24,14 +24,6 @@ GIT
       rake (~> 10.0.4)
       require_all (~> 1.2.1)
       rvm-capistrano (~> 1.4.0)
-
-GIT
-  remote: git@github.com:hab278/capistrano-tagging.git
-  revision: c2c8e8478b03b0eded175a52adf387c38e39ac4d
-  branch: master
-  specs:
-    capistrano-tagging (0.1.1)
-      capistrano (~> 2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -310,7 +302,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   blacklight (~> 4.2.1)
-  capistrano-tagging!
   coffee-rails (~> 3.2.1)
   comma (~> 3.0.4)
   compass-rails (~> 1.0.0)
