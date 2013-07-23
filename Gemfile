@@ -43,8 +43,7 @@ gem 'jquery-rails', "~> 2.2.1"
 gem 'sunspot_rails', "~> 2.0.0"
 gem 'acts-as-taggable-on', '~> 2.4.0'
 
-# gem "capistrano-tagging", :git => 'git@github.com:hab278/capistrano-tagging.git', :branch => "master"
-gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
+gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git", :branch => "devel"
 gem "rails_config", "~> 0.3.2"
 
 #gem 'blacklight', :path => '/apps/blacklight'
