@@ -9,16 +9,6 @@ module Views
         meta << raw(render_head_content)
       end
       
-      # Stylesheets to include in layout
-      def stylesheets
-        catalog_stylesheets
-      end
-
-      # Javascripts to include in layout
-      def javascripts
-        catalog_javascripts
-      end
-
       # Generate link to application root
       def application
         application = link_to application_name, root_path
@@ -41,6 +31,10 @@ module Views
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
         breadcrumbs << link_to_unless_current(collection_name) unless params[:collection].nil?
         return breadcrumbs
+      end
+      
+      def footer_html
+        render :partial => "shared/footer"
       end
       
       # Prepend modal dialog elements to the body
