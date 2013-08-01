@@ -11,7 +11,7 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_deploy.git
-  revision: b8531059ac15fa3f70d6cf48589500742a2a5d60
+  revision: bad9c5a0d037bf12786fcb125058f55c29757170
   branch: devel
   specs:
     nyulibraries_deploy (2.0.0)
@@ -255,7 +255,7 @@ GEM
     rvm-capistrano (1.4.1)
       capistrano (>= 2.0.0)
     safe_yaml (0.9.4)
-    sass (3.2.9)
+    sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
