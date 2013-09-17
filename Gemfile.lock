@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_assets.git
-  revision: 1994439f56a8d8f6a54e53ecbb8dc01cd7fc9213
-  tag: v1.1.9
+  revision: 73314bbcd396d2ce40921b6f4aa69a0e9ffb6a4d
+  tag: v1.1.15
   specs:
-    nyulibraries_assets (1.1.9)
+    nyulibraries_assets (1.1.15)
       bootstrap-sass (>= 2.2.0, < 2.3.1.1)
       compass (~> 0.12.2)
       institutions (~> 0.0.5)
@@ -14,19 +14,27 @@ GIT
   revision: d31343c35fc6f8c8f5d1b019d875df92f0917251
   tag: v2.0.3
   specs:
-    nyulibraries_deploy (2.0.0)
+    rake_nyu (1.0.0)
       cap_git_tools (~> 0.9.1)
       capistrano (~> 2.15.5)
       git (~> 1.2.5)
       mail (~> 2.5.4)
-      newrelic_rpm (~> 3.6.0)
       octokit (~> 1.25.0)
       rails (~> 3.2.13)
-      rails_config (~> 0.3.2)
       rails_config (~> 0.3.2)
       rake (~> 10.0.4)
       require_all (~> 1.2.1)
       rvm-capistrano (~> 1.4.0)
+
+GIT
+  remote: git@github.com:NYULibraries/authpds-nyu.git
+  revision: ae20187de22c3892132e311769e7f1d0486a5b77
+  branch: shibboleth
+  specs:
+    authpds-nyu (0.2.13)
+      authpds (~> 0.2.9)
+      exlibris-aleph (~> 1.0.4)
+      require_all (~> 1.2.1)
 
 GEM
   remote: https://rubygems.org/
@@ -76,11 +84,15 @@ GEM
       institutions (~> 0.0.4)
       nokogiri (~> 1.5.3)
       require_all (~> 1.2.1)
+<<<<<<< HEAD
     authpds-nyu (0.2.13)
       authpds (~> 0.2.9)
       exlibris-aleph (~> 1.0.4)
       require_all (~> 1.2.1)
     better_errors (1.0.1)
+=======
+    better_errors (0.9.0)
+>>>>>>> 845ddb84f0f12cd76749bbd93c8b135877bbbfa5
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
@@ -184,8 +196,13 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     marc (0.5.1)
+<<<<<<< HEAD
     mime-types (1.25)
     multi_json (1.8.0)
+=======
+    mime-types (1.24)
+    multi_json (1.7.9)
+>>>>>>> 845ddb84f0f12cd76749bbd93c8b135877bbbfa5
     multi_xml (0.5.5)
     multipart-post (1.2.0)
     mustache (0.99.4)
@@ -253,7 +270,11 @@ GEM
       builder (>= 2.1.2)
     rvm-capistrano (1.4.4)
       capistrano (>= 2.15.4)
+<<<<<<< HEAD
     safe_yaml (0.9.7)
+=======
+    safe_yaml (0.9.5)
+>>>>>>> 845ddb84f0f12cd76749bbd93c8b135877bbbfa5
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -284,7 +305,10 @@ GEM
       ref
     thor (0.18.1)
     tilt (1.4.1)
+<<<<<<< HEAD
     tins (0.9.0)
+=======
+>>>>>>> 845ddb84f0f12cd76749bbd93c8b135877bbbfa5
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -305,10 +329,10 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 2.4.0)
-  authpds-nyu (~> 0.2.12)
+  authpds-nyu!
   better_errors
   binding_of_caller
-  blacklight (~> 4.2.1)
+  blacklight (~> 4.2.2)
   coffee-rails (~> 3.2.1)
   comma (~> 3.0.4)
   compass-rails (~> 1.0.0)
@@ -322,10 +346,10 @@ DEPENDENCIES
   mysql2 (~> 0.3.11)
   newrelic_rpm (~> 3.6.0)
   nyulibraries_assets!
-  nyulibraries_deploy!
   progress_bar
-  rails (~> 3.2.13)
+  rails (~> 3.2.14)
   rails_config (~> 0.3.2)
+  rake_nyu!
   sass-rails (~> 3.2.3)
   simplecov
   simplecov-rcov
