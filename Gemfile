@@ -44,7 +44,7 @@ gem 'jquery-rails', "~> 2.2.1"
 gem 'sunspot_rails', "~> 2.0.0"
 gem 'acts-as-taggable-on', '~> 2.4.0'
 
-gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_deploy.git",  :branch => "development-deploy"
+gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_deploy.git",  :tag => "v3.0.0"
 gem "rails_config", "~> 0.3.2"
 
 #gem 'blacklight', :path => '/apps/blacklight'
