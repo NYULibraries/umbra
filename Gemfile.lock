@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_assets.git
-  revision: 73314bbcd396d2ce40921b6f4aa69a0e9ffb6a4d
-  tag: v1.1.15
+  revision: c7b523a3d6d0b9360be96c5efc6a9b19e311c11f
+  tag: v1.1.14
   specs:
-    nyulibraries_assets (1.1.15)
+    nyulibraries_assets (1.1.14)
       bootstrap-sass (>= 2.2.0, < 2.3.1.1)
       compass (~> 0.12.2)
       institutions (~> 0.0.5)
@@ -11,8 +11,8 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_deploy.git
-  revision: 7d117883b19b97825c68276af08cc6e6d34b28e3
-  tag: v2.0.4
+  revision: 7d502a41cde936f47784e441b0adeb5e728378ea
+  branch: development-deploy
   specs:
     nyulibraries_deploy (2.0.0)
       cap_git_tools (~> 0.9.1)
@@ -207,7 +207,7 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     netrc (0.7.7)
-    newrelic_rpm (3.6.7.152)
+    newrelic_rpm (3.6.7.159)
     nokogiri (1.5.10)
     octokit (1.25.0)
       addressable (~> 2.2)
@@ -290,7 +290,7 @@ GEM
       ref
     thor (0.18.1)
     tilt (1.4.1)
-    tins (0.9.0)
+    tins (0.10.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)

@@ -44,14 +44,14 @@ gem 'jquery-rails', "~> 2.2.1"
 gem 'sunspot_rails', "~> 2.0.0"
 gem 'acts-as-taggable-on', '~> 2.4.0'
 
-gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_deploy.git",  :tag => "v2.0.4"
+gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_deploy.git",  :branch => "development-deploy"
 gem "rails_config", "~> 0.3.2"
 
 #gem 'blacklight', :path => '/apps/blacklight'
 gem 'blacklight', '~> 4.2.2'
 
 #gem 'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.1.15"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.1.14"
 
 gem 'unicode', "~> 0.4.3" #optionally used by blacklight
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
