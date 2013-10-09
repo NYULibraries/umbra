@@ -37,6 +37,24 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :show
   end
+  
+  test "should update user with admin privileges" do
+    put :update, :id => users(:real_user).to_param, :user => { :umbra_admin_collections => {"VBL"=>0, "DataServices"=>1} }
+    
+    assert assigns(:user)
+    assert assigns(:user).user_attributes[:umbra_admin]
+    assert_equal flash[:notice], "User successfully updated."
+    assert_redirected_to user_path(assigns(:user))
+  end
+  
+  test "should update user without admin privileges" do
+    put :update, :id => users(:real_user).to_param, :user => { :umbra_admin_collections => nil }
+    
+    assert assigns(:user)
+    assert(!assigns(:user).user_attributes[:umbra_admin])
+    assert_equal flash[:notice], "User successfully updated."
+    assert_redirected_to user_path(assigns(:user))
+  end
 
   test "should destroy user" do
     assert_difference('User.count', -1) do
@@ -52,7 +70,7 @@ class UsersControllerTest < ActionController::TestCase
     end
     
     assert_not_nil assigns(:users)
-    assert_template :index
+    assert_redirected_to users_url
   end
   
   test "should get csv list" do

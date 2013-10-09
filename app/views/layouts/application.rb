@@ -8,16 +8,6 @@ module Views
         meta << tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title =>  application_name, :href => opensearch_catalog_path(:format => 'xml', :only_path => false))
         meta << raw(render_head_content)
       end
-      
-      # Stylesheets to include in layout
-      def stylesheets
-        catalog_stylesheets
-      end
-
-      # Javascripts to include in layout
-      def javascripts
-        catalog_javascripts
-      end
 
       # Generate link to application root
       def application
