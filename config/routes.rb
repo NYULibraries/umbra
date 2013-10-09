@@ -14,7 +14,7 @@ Umbra::Application.routes.draw do
       post 'upload', :on => :collection
     end
     resources :users
-    post "clear_patron_data", :to => "users#clear_patron_data"
+    delete "clear_patron_data", :to => "users#clear_patron_data"
   end
   
   match 'login', :to => 'user_sessions#new', :as => :login

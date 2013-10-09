@@ -29,16 +29,9 @@ class UsersController < ApplicationController
     }
     @user.user_attributes = user_attributes
     
-    if @user.save 
-      flash[:notice] = t('users.update_success')
-    else
-      flash[:error] = t('users.update_failure')
-    end
-    
-    respond_with(@user) do |format|
-      format.js { render :layout => false }
-      format.html { render action: "show" }
-    end
+    flash[:notice] = t('users.update_success') if @user.save 
+
+    respond_with(@user)
   end
   
   # DELETE /users/1
@@ -49,14 +42,14 @@ class UsersController < ApplicationController
     respond_with(@user)
   end
   
-  # Delete all non-admin patrons
+  # DELETE /users/clear_patron_data
   def clear_patron_data
-    @users = User.search(params[:q]).order(sort_column + " " + sort_direction).page(params[:page]).per(30)
-    User.destroy_all("user_attributes not like '%:umbra_admin: true%'")
-    flash[:success] = t('users.clear_patron_data_success')
+    @users = User.all
     
-    respond_with(@users) do |format|
-      format.html { render :index }
+    flash[:success] = t('users.clear_patron_data_success') if User.destroy_all("user_attributes not like '%:umbra_admin: true%'")
+        
+    respond_with(@users, :location => users_url) do |format|
+      format.html { redirect_to users_url }
     end
   end
   
