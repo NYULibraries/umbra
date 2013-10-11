@@ -5,7 +5,7 @@ class ApplicationControllerTest < ActionController::TestCase
   setup :activate_authlogic
 
   def setup
-    current_user = UserSession.create(users(:admin))
+    current_user = UserSession.create(users(:global_admin))
   end
   
   test "should test development functions" do
