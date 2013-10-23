@@ -1,2 +1,2 @@
 set :rails_env, "staging"
-set :branch, "staging"
+set :branch, "development-shibboleth"

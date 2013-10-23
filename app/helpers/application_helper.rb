@@ -22,15 +22,4 @@ module ApplicationHelper
     return html
   end
 
-  # Stylesheets include helper
-  def catalog_stylesheets
-    catalog_stylesheets = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Muli"
-    catalog_stylesheets += stylesheet_link_tag "application"
-  end
-  
-  # Javascripts include helper
-  def catalog_javascripts
-    catalog_javascripts = javascript_include_tag "application"
-  end
-  
 end

@@ -8,7 +8,7 @@ module Views
         meta << tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title =>  application_name, :href => opensearch_catalog_path(:format => 'xml', :only_path => false))
         meta << raw(render_head_content)
       end
-      
+
       # Generate link to application root
       def application
         application = link_to application_name, root_path
@@ -31,10 +31,6 @@ module Views
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
         breadcrumbs << link_to_unless_current(collection_name) unless params[:collection].nil?
         return breadcrumbs
-      end
-      
-      def footer_html
-        render :partial => "shared/footer"
       end
       
       # Prepend modal dialog elements to the body
