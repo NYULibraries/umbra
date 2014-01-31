@@ -23,6 +23,3 @@ solr:
 # A dummy secret token for dev sessions and public consumption 
 
 secret_token: '9f35d644c9e64245a7c54bf3d738a4159b79cccf684c2fdedfdfc4dfdadbfd3bd20ed38e72e5013001fdea7d438ea92310a686fe51b835c19d6ea785056695d0'
-  
-cookie: 
-  domain: ".local"
