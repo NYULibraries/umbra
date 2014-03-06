@@ -11,6 +11,7 @@ sunspot:
     hostname: localhost
     port: 8981
     log_level: WARNING
+    path: /solr
 
 login:
   default_admins: ["real_user"]
@@ -18,7 +19,7 @@ login:
   calling_system: 
 
 solr: 
-  url: "http://127.0.0.1:8981/solr"
+  url: "http://localhost:8981/solr"
   
 # A dummy secret token for dev sessions and public consumption 
 

@@ -2,12 +2,12 @@
 http_interactions:
 - request:
     method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
+    uri: http://localhost:8981/solr/update?wt=ruby
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">Umbra::Record
         980190962</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
-        name="class_name">Umbra::Record</field><field name="resource_id_ss">980190962</field><field
+        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007f92d916e630&gt;</field><field
         name="title_sort_ss">MyRecord1</field><field name="collection_ss">TestCollection</field><field
         name="identifier_ss">http://library.nyu.edu</field><field boost="5.0" name="title_texts">MyRecord1</field><field
         name="description_texts">This record is very important to the TestCollection
@@ -27,17 +27,17 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Thu, 09 May 2013 16:36:24 GMT
+      - Thu, 06 Mar 2014 22:54:30 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>13}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>15}}'
     http_version: 
-  recorded_at: Thu, 09 May 2013 16:36:24 GMT
+  recorded_at: Thu, 06 Mar 2014 22:54:31 GMT
 - request:
     method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
+    uri: http://localhost:8981/solr/update?wt=ruby
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><commit/>
@@ -56,12 +56,12 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Thu, 09 May 2013 16:36:24 GMT
+      - Thu, 06 Mar 2014 22:54:30 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>0}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>13}}'
     http_version: 
-  recorded_at: Thu, 09 May 2013 16:36:24 GMT
-recorded_with: VCR 2.4.0
+  recorded_at: Thu, 06 Mar 2014 22:54:31 GMT
+recorded_with: VCR 2.6.0

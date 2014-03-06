@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
+    uri: http://localhost:8981/solr/update?wt=ruby
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><delete><id>Umbra::Record 980190962</id></delete>
@@ -21,17 +21,17 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Thu, 09 May 2013 16:36:23 GMT
+      - Thu, 06 Mar 2014 22:54:30 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>8}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>21}}'
     http_version: 
-  recorded_at: Thu, 09 May 2013 16:36:23 GMT
+  recorded_at: Thu, 06 Mar 2014 22:54:30 GMT
 - request:
     method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
+    uri: http://localhost:8981/solr/update?wt=ruby
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><commit/>
@@ -50,12 +50,12 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Thu, 09 May 2013 16:36:23 GMT
+      - Thu, 06 Mar 2014 22:54:30 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>11}}'
     http_version: 
-  recorded_at: Thu, 09 May 2013 16:36:23 GMT
-recorded_with: VCR 2.4.0
+  recorded_at: Thu, 06 Mar 2014 22:54:30 GMT
+recorded_with: VCR 2.6.0
