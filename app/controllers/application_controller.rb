@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
   
   # Load YAML file with repos info into Hash
   def repositories_info
-    @repositories_info ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )
+    @repositories_info ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") ).with_indifferent_access
   end
   helper_method :repositories_info
   

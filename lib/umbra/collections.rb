@@ -1,8 +1,6 @@
 module Umbra
   module Collections
-    def self.included(base)
-    end
-    
+  
     def admin_collections_name
       "umbra_admin_collections".to_sym
     end
@@ -14,51 +12,59 @@ module Umbra
     # * If the user has no access to specific collections and no global flag return an array containing nil
     #   This will add the nil collection to the search which will return nothing
     def current_user_admin_collections
-      unless current_user.nil? || 
-              current_user[:user_attributes].nil? ||
-                current_user[:user_attributes][admin_collections_name].nil? || 
-                  !(current_user[:user_attributes][admin_collections_name].is_a? Array)
-          return [] if current_user[:user_attributes][admin_collections_name].include? "global" 
-          return current_user[:user_attributes][admin_collections_name]  
+      if current_user.has_admin_collections?
+        if current_user.has_global_collection?
+          []
+        else
+          current_user[:user_attributes][admin_collections_name]
+        end
       else    
         return [nil]    
       end
     end
     private :current_user_admin_collections
-
+    
     # Find out if current_user has access to collection
     #
     # * True if current_user's admin collections is empty, this means the "global" flag is set
     # * True if collection is included in current_user's list of collection
     # * False otherwise
-    def current_user_has_access_to_collection collection
+    def current_user_has_access_to_collection(collection)
       (current_user_admin_collections.empty? or current_user_admin_collections.include? collection)
     end
     private :current_user_has_access_to_collection
     alias_method :current_user_has_access_to_collection?, :current_user_has_access_to_collection
     
-    # Get user collections for @user instance, cast as Array if necessary
-    def user_collections
-      @user = User.find(params[:id])
-      @user_collections ||= (@user.user_attributes[admin_collections_name].nil?) ? [] : 
-                              (@user.user_attributes[admin_collections_name].is_a? Array) ? 
-                                @user.user_attributes[admin_collections_name] : [@user.user_attributes[admin_collections_name]]
-    end
-    private :user_collections
-
     # Edit authorized collection list based on submitted values
     def update_admin_collections
-      unless params[:user].nil? or params[:user][admin_collections_name].nil? 
+      @user = User.find(params[:id])
+      unless params[:user][admin_collections_name].blank?
         # Loop through all submitted admin collections
         params[:user][admin_collections_name].keys.each do |collection|
-          # Remove collection from list if checkbox was unchecked
-          user_collections.delete(collection) unless params[:user][admin_collections_name][collection].to_i == 1
-          # Add collection to list if checkbox was checked
-          user_collections.push(collection) if params[:user][admin_collections_name][collection].to_i == 1 and !user_collections.include? collection
+          update_admin_collection(collection)
         end 
       end
     end
     private :update_admin_collections
+    
+    def update_admin_collection(collection)
+      if collection_unselected?(collection)
+        @user.user_collections.delete(collection)
+      elsif !@user.user_collections.include? collection
+        @user.user_collections.push(collection)
+      end
+    end
+    private :update_admin_collection
+    
+    def collection_selected?(collection)
+      params[:user][admin_collections_name][collection].to_i == 1 rescue false
+    end
+    private :collection_selected?
+        
+    def collection_unselected?(collection)
+      !collection_selected?(collection)
+    end
+    private :collection_unselected?
 
     # Return which collections this admin user is authorized to view and edit
     #
@@ -69,18 +75,23 @@ module Umbra
     end
     
     # Get the current collection code
-    def current_collection collection_name
+    def current_collection(collection_name)
       @current_collection ||= repositories_info["Catalog"]["repositories"][collection_name]["admin_code"] unless collection_name.nil? or repositories_info["Catalog"]["repositories"][collection_name].nil?
     end
     
     # Sets a session variable to the user submitted collection 
     def set_session_collection
       # This redirect hijacks the "Start over" function to redirect back to the correct collection instead of the generic catalog
-      redirect_to("/#{session[:collection]}") if !params[:collection].present? and session[:collection].present? and request.path == "/catalog"
+      redirect_to("/#{session[:collection]}") if redirect_to_session_url?
       # Set session variable to local param
       # Don't set it to nil though because we don't want it to default to "all collections"
       session[:collection] = params[:collection] if params[:collection].present?
     end
+    
+    def redirect_to_session_url?
+      params[:collection].blank? && session[:collection].present? && request.path == "/catalog"
+    end
+    private :redirect_to_session_url?
 
     # Add the session collection to the list of submitted variables
     def add_collection_param_to_search
@@ -95,11 +106,29 @@ module Umbra
     # * If there is a current collection otherwise, use that
     # * Show blank if no collection
     def collection_name
-      (session[:collection]) ? 
-        repository_info["repositories"][session[:collection]]["display"] : 
-          (!current_collection(params[:collection]).nil?) ? 
-            repository_info["repositories"][params[:collection]]["display"] : "" 
+      if (session[:collection]) 
+        session_collection
+      elsif current_collection(params[:collection]).present?
+        params_collection
+      else
+        ""
+      end
     end
+    
+    def session_collection
+      collection_from_repositories_hash(session[:collection])
+    end
+    private :session_collection
+    
+    def params_collection
+      collection_from_repositories_hash(params[:collection])
+    end
+    private :params_collection
+    
+    def collection_from_repositories_hash(collection)
+      repository_info["repositories"][collection]["display"]
+    end
+    private :collection_from_repositories_hash
 
     # Collect collections admin code from YAML
     def collection_codes

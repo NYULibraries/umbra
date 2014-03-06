@@ -30,5 +30,24 @@ class User < ActiveRecord::Base
     lastname
     email
   end
+  
+  def has_admin_collections?
+    (self.try(:user_attributes)[admin_collections_name].present?) rescue false
+  end
+  
+  def has_global_collection?
+    self.try(:user_attributes)[admin_collections_name].include? "global" rescue false
+  end
+  
+  # Get user collections for @user instance, cast as Array if necessary
+  def user_collections
+    @user_collections ||= (self.user_attributes[admin_collections_name].nil?) ? [] : 
+                            (self.user_attributes[admin_collections_name].is_a? Array) ? 
+                              self.user_attributes[admin_collections_name] : [self.user_attributes[admin_collections_name]]
+  end
+  
+  def admin_collections_name
+    "umbra_admin_collections".to_sym
+  end
 
 end

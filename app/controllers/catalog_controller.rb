@@ -205,9 +205,7 @@ class CatalogController < ApplicationController
     # consider it an actual search to be saved. Can't predict exactly
     # what the keys for a search will be, due to possible extra plugins.
     return if (search_session.keys - [:controller, :action, :total, :counter, :commit ]) == [] 
-    params_copy = search_session.clone # don't think we need a deep copy for this
-    params_copy.delete(:page)
-    params_copy.delete(:utf8) # Added this line
+    params_copy = search_session.clone.except(:page, :utf8) # don't think we need a deep copy for this
   
     unless @searches.collect { |search| search.query_params }.include?(params_copy)
       new_search = Search.create(:query_params => params_copy)

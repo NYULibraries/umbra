@@ -45,6 +45,8 @@ module Umbra
       end
     end
     
+    # Always auto_index for now
+    # Could insert logic here for when to auto_index
     def index?
       true
     end

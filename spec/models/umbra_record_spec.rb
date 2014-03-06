@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Umbra::Record do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe ".index?" do
+    
+    subject { Umbra::Record.new }
+    it { expect(subject.index?).to be_true }
+    
+  end
+  
 end

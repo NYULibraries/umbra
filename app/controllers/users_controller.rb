@@ -24,8 +24,8 @@ class UsersController < ApplicationController
   def update
     # Update user attributes
     user_attributes = {
-      :umbra_admin_collections => user_collections,
-      :umbra_admin => !user_collections.empty?
+      :umbra_admin_collections => @user.user_collections,
+      :umbra_admin => !@user.user_collections.empty?
     }
     @user.user_attributes = user_attributes
     
