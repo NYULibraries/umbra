@@ -44,6 +44,7 @@ group :test do
   gem 'webmock', '~> 1.15.0'
 end
 
+gem 'factory_girl_rails', :group => [:test, :development]
 gem 'rspec-rails', :group => [:test, :development]
 gem 'pry', :group => [:test, :development]
 gem 'debugger', :groups => [:development, :test]
