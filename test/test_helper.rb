@@ -5,7 +5,7 @@ unless ENV['TRAVIS']
   SimpleCov.start
 else
   require 'coveralls'
-  Coveralls.wear!
+  Coveralls.wear_merged!
 end
 
 ENV["RAILS_ENV"] ||= "test"

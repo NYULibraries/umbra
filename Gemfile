@@ -42,6 +42,7 @@ group :test do
   gem 'coveralls', '~> 0.7.0', :require => false
   gem 'vcr', '~> 2.6.0'
   gem 'webmock', '~> 1.15.0'
+  gem 'database_cleaner'
 end
 
 gem 'factory_girl_rails', :group => [:test, :development]

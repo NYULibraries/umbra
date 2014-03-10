@@ -27,4 +27,8 @@ RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
 
+require 'coveralls/rake/task'
+Coveralls::RakeTask.new
+task :test_with_coveralls => [:spec, :features, 'coveralls:push']
+
 task :default => :test

@@ -32,36 +32,7 @@ module Umbra
     def csv_to_db(encoding = "windows-1251:utf-8")
       Rails.logger.info "Starting job for #{csv_file}"
       CSV.foreach(csv_file.tempfile, :headers => true, :encoding => encoding) do |row|
-        # User can only update records he has access to
-        if current_user_has_access_to_collection? row["nyu.libraries.collection"]
-        
-          #Create a hash of expected facets to add with acts_as_taggable
-          facets = { :extent_list => [], :subject_controlled_list => [], :subject_tag_list => [], :coverage_spatial_list => [], :coverage_temporal_list => [], 
-                     :coverage_jurisdiction_list => [], :source_list => [], :language_list => [], :accrualPeriodicity_list => [] }
-          facets_insert = {}
-          #For each field in row, add facet to appropriate array
-          row.each do |field|
-            unless field[1].nil?
-              facets.keys.each do |facet|
-                facets[facet.to_sym].push(field[1]) if field[0].eql? dc_format(facet)
-              end
-            end
-          end
-        
-          #Map each facet array to acts_as_taggable list 
-          facets.keys.each {|facet| facets_insert.merge!({facet.to_sym => facets[facet.to_sym]}) }
-          
-          #Generate record, or find if CSV contained a unique ID matching to original-id
-          record = Umbra::Record.find_or_create_by_original_id(row["guid"])
-          # Update attrs in the record and merge in facets
-          # Delay with delayed_job
-          record.update_attributes({
-            :collection => row["nyu.libraries.collection"],
-            :title => row[dc_format(:title)],
-            :identifier => row[dc_format(:identifier)],
-            :description => row[dc_format(:description)],
-          }.merge(facets_insert))
-        end
+        csv_row_to_db(row)
       end
       # Write a failed PID, if the process can't save to DB
     rescue => e
@@ -69,6 +40,50 @@ module Umbra
       write_pid_file(pid_failed)
     end
     private :csv_to_db
+    
+    def csv_row_to_db(row)
+      # User can only update records he has access to
+      if current_user_has_access_to_collection? row["nyu.libraries.collection"]
+      
+        #For each field in row, add facet to appropriate array
+        row.each {|field| csv_field_to_db(field) }
+      
+        #Map each facet array to acts_as_taggable list 
+        facets.keys.each {|facet| facets_insert.merge!({facet.to_sym => facets[facet.to_sym]}) }
+        
+        csv_row_save(row)
+      end
+    end
+    
+    def csv_row_save(row)
+      #Generate record, or find if CSV contained a unique ID matching to original-id
+      record = Umbra::Record.find_or_create_by_original_id(row["guid"])
+      # Update attrs in the record and merge in facets
+      # Delay with delayed_job
+      record.update_attributes({
+        :collection => row["nyu.libraries.collection"],
+        :title => row[dc_format(:title)],
+        :identifier => row[dc_format(:identifier)],
+        :description => row[dc_format(:description)],
+      }.merge(facets_insert))
+    end
+    
+    def csv_field_to_db(field)
+      unless field[1].nil?
+        facets.keys.each do |facet|
+          facets[facet.to_sym].push(field[1]) if field[0].eql? dc_format(facet)
+        end
+      end
+    end
+    
+    def facets
+      @facets ||= { :extent_list => [], :subject_controlled_list => [], :subject_tag_list => [], :coverage_spatial_list => [], :coverage_temporal_list => [], 
+                 :coverage_jurisdiction_list => [], :source_list => [], :language_list => [], :accrualPeriodicity_list => [] }
+    end
+    
+    def facets_insert
+      @facets_insert ||= {}
+    end
     
     # Get proper dublin core format from databse friendly version (i.e. subject_tag_list => dc.subject.tag)
     def dc_format(facet)

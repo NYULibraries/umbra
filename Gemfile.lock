@@ -130,6 +130,7 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     dalli (2.6.4)
+    database_cleaner (1.2.0)
     debug_inspector (0.0.2)
     debugger (1.6.6)
       columnize (>= 0.3.1)
@@ -322,6 +323,7 @@ DEPENDENCIES
   compass-susy-plugin (~> 0.9.0)
   coveralls (~> 0.7.0)
   dalli (~> 2.6.4)
+  database_cleaner
   debugger
   factory_girl_rails
   jquery-rails (~> 3.1.0)
