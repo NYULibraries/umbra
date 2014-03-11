@@ -47,3 +47,14 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/vcr_cassettes'
+  c.configure_rspec_metadata!
+  c.hook_into :webmock
+  c.filter_sensitive_data("http://localhost:8981/solr") { Settings.solr.url }
+end
+
+def csv_fixture file
+  File.new(File.join(File.dirname(__FILE__), 'fixtures', 'csv', file))
+end

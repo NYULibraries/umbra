@@ -100,4 +100,28 @@ describe Umbra::Collections do
       
   end
   
+  describe ".collection_name" do
+    
+    subject { collection_name }
+    let(:session) { { :collection => :sv } }
+    let(:params) { { :collection => :tt } }
+    let(:repository_info) { { :repositories => { :tt => {:display => "Tiny Town", :admin_code => :tt}, :sv => {:display => "Smurf Village", :admin_code => :sv} } }.with_indifferent_access }
+    let(:repositories_info) { {"Catalog" => repository_info} }
+    
+    context "when session defines collection" do
+      it { should eql("Smurf Village") }
+    end
+    
+    context "when params defines collection" do
+      let(:session) { {} }
+      it { should eql("Tiny Town") }
+    end
+    
+    context "when collection is not defined" do
+      let(:session) { {} }
+      let(:params) { {} }
+      it { should eql("") }
+    end
+  end
+  
 end
