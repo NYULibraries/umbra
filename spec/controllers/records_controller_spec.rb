@@ -5,7 +5,7 @@ describe RecordsController, :type => :controller do
   include Umbra::Collections
   
   let(:user) { create(:user_with_admin_collections) }
-  before(:each) { controller.stub!(:current_user).and_return(user) }
+  before(:each) { controller.stub(:current_user).and_return(user) }
 
   describe ".upload", vcr: { cassette_name: "upload csv document" } do
     it "should upload a CSV doc" do
