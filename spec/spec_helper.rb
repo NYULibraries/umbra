@@ -55,6 +55,7 @@ VCR.configure do |c|
   c.filter_sensitive_data("http://localhost:8981/solr") { Settings.solr.url }
 end
 
-def csv_fixture file
-  File.new(File.join(File.dirname(__FILE__), 'fixtures', 'csv', file))
+def csv_fixture filename
+  file = File.new(File.join(File.dirname(__FILE__), 'fixtures', 'csv', filename))
+  ActionDispatch::Http::UploadedFile.new(:tempfile => file, :filename => File.basename(file))
 end

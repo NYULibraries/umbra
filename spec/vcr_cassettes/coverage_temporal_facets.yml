@@ -6,8 +6,8 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">Umbra::Record
-        6</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
-        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007ffaca3fa710&gt;</field><field
+        1</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
+        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007f9031b81140&gt;</field><field
         name="title_sort_ss">MyRecord</field><field name="collection_ss">VBL</field><field
         boost="5.0" name="title_texts">MyRecord</field><field name="collection_texts">VBL</field></doc></add>
     headers:
@@ -24,22 +24,22 @@ http_interactions:
       - chunked
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>1}}
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>60}}
 
 '
     http_version: 
-  recorded_at: Tue, 11 Mar 2014 16:02:31 GMT
+  recorded_at: Wed, 12 Mar 2014 19:55:42 GMT
 - request:
     method: post
     uri: http://localhost:8981/solr/update?wt=ruby
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">Umbra::Record
-        6</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
-        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007ffaca3fa710&gt;</field><field
+        1</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
+        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007f9031b81140&gt;</field><field
         name="title_sort_ss">MyRecord</field><field name="collection_ss">VBL</field><field
-        name="subject_controlled_list_sms">Tag1</field><field boost="5.0" name="title_texts">MyRecord</field><field
-        name="collection_texts">VBL</field></doc></add>
+        name="coverage_temporal_list_sms">CoverageTemporal 1</field><field boost="5.0"
+        name="title_texts">MyRecord</field><field name="collection_texts">VBL</field></doc></add>
     headers:
       Content-Type:
       - text/xml
@@ -54,9 +54,9 @@ http_interactions:
       - chunked
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>1}}
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>3}}
 
 '
     http_version: 
-  recorded_at: Tue, 11 Mar 2014 16:02:31 GMT
+  recorded_at: Wed, 12 Mar 2014 19:55:42 GMT
 recorded_with: VCR 2.6.0

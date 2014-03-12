@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://localhost:8981/solr/select?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: fq=type%3AUmbra%5C%3A%5C%3ARecord&fq=%28collection_ss%3AVBL+OR+collection_ss%3ADataServices%29&sort=title_sort_ss+asc&start=0&rows=30&q=%2A%3A%2A
+    headers:
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>0},''response''=>{''numFound''=>9,''start''=>0,''docs''=>[{''id''=>''Umbra::Record
+        4'',''resource_id_ss''=>''#<Umbra::Record:0x007fd2542cd610>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295275387224064''},{''id''=>''Umbra::Record
+        1'',''resource_id_ss''=>''#<Umbra::Record:0x007ffac96e4c88>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''source_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295593517842432''},{''id''=>''Umbra::Record
+        2'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca6dafc0>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_tag_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295593690857472''},{''id''=>''Umbra::Record
+        3'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca57d358>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_jurisdiction_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295593810395136''},{''id''=>''Umbra::Record
+        5'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca4e7588>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''accrualPeriodicity_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594099802112''},{''id''=>''Umbra::Record
+        6'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca3fa710>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594217242624''},{''id''=>''Umbra::Record
+        7'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca5fb000>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''extent_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594330488832''},{''id''=>''Umbra::Record
+        8'',''resource_id_ss''=>''#<Umbra::Record:0x007ffac8ed3cd8>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''language_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594515038208''},{''id''=>''Umbra::Record
+        9'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca373378>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_spatial_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594687004672''}]}}
+
+'
+    http_version: 
+  recorded_at: Wed, 12 Mar 2014 19:55:47 GMT
+- request:
+    method: post
+    uri: http://localhost:8981/solr/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><commit/>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>72}}
+
+'
+    http_version: 
+  recorded_at: Wed, 12 Mar 2014 19:55:47 GMT
+recorded_with: VCR 2.6.0

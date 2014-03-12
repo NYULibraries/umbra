@@ -1,6 +1,6 @@
 module Umbra
   module Collections
-  
+      
     def admin_collections_name
       "umbra_admin_collections".to_sym
     end
