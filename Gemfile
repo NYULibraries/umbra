@@ -14,8 +14,8 @@ gem 'nyulibraries-deploy', :git => 'git://github.com/NYULibraries/nyulibraries-d
 gem 'unicode', '~> 0.4.4.1'
 gem 'mustache', '0.99.4'
 gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
-gem 'dalli', '~> 2.6.4'
-gem 'newrelic_rpm', '~> 3.7.0'
+gem 'dalli', '~> 2.7.0'
+gem 'newrelic_rpm', '~> 3.7'
 gem 'comma', '~> 3.2.0'
 gem 'blacklight', '~> 4.2.2'
 
@@ -40,8 +40,8 @@ group :test do
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
   gem 'coveralls', '~> 0.7.0', :require => false
-  gem 'vcr', '~> 2.6.0'
-  gem 'webmock', '~> 1.15.0'
+  gem 'vcr', '~> 2.8.0'
+  gem 'webmock', '~> 1.17.4'
   gem 'database_cleaner'
 end
 

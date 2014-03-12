@@ -1,10 +1,17 @@
 require 'simplecov'
 require 'coveralls'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-Coveralls.wear_merged!
+unless ENV["TRAVIS"]
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+    SimpleCov::Formatter::HTMLFormatter,
+    Coveralls::SimpleCov::Formatter
+  ]
+  SimpleCov.start
+else
+  Coveralls.wear_merged!('rails')
+end
 
-ENV["RAILS_ENV"] ||= "test"
+ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'authlogic'
