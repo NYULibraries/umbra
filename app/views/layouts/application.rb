@@ -64,7 +64,7 @@ module Views
       end
       
       def gauges_tracking_code
-        Settings.gauges.tracking_code
+        ENV['GAUGES_TOKEN']
       end
     
       # Print default blacklight onload code

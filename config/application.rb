@@ -9,6 +9,12 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+require 'nyulibraries-assets'
+ 
+require 'figs'
+# Don't run this initializer on travis.
+Figs.load(stage: Rails.env) unless ENV['TRAVIS']
+
 module Umbra
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

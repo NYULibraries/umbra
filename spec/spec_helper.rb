@@ -59,7 +59,7 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.configure_rspec_metadata!
   c.hook_into :webmock
-  c.filter_sensitive_data("http://localhost:8981/solr") { Settings.solr.url }
+  c.filter_sensitive_data("http://localhost:8981/solr") { ENV['SOLR_URL'] }
 end
 
 def csv_fixture filename

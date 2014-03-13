@@ -1,0 +1,6 @@
+--- !ruby/object:Figs::Figfile
+repo: git@github.com:NYULibraries/configula.git
+locations:
+- common/deploy.yml
+- umbra.yml
+method: git
