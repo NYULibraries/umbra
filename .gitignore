@@ -24,3 +24,5 @@ config/environments/*.local.yml
 
 spec/out.html
 .coveralls.yml
+
+application.yml

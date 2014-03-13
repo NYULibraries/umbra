@@ -1,7 +1,7 @@
 development: &development
   solr:
     hostname: <%= (ENV['SUNSPOT_HOSTNAME'] || 'localhost') %>
-    path: <%= (ENV['SUNSPOT_PATH'] || '/solr' %>
+    path: <%= (ENV['SUNSPOT_PATH'] || '/solr') %>
     port: <%= (ENV['SUNSPOT_PORT'] || '8981') %>
     log_level: WARNING
 
