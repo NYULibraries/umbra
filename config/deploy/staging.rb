@@ -1,2 +1,2 @@
 set :rails_env, "staging"
-set :branch, "developments-figs"
+set :branch, "development-figs"
