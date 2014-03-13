@@ -14,21 +14,17 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - Apache-Coyote/1.1
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
       - chunked
-      Date:
-      - Thu, 06 Mar 2014 22:54:30 GMT
-      Connection:
-      - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>21}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>1}}
+
+'
     http_version: 
-  recorded_at: Thu, 06 Mar 2014 22:54:30 GMT
+  recorded_at: Thu, 13 Mar 2014 18:37:01 GMT
 - request:
     method: post
     uri: http://localhost:8981/solr/update?wt=ruby
@@ -43,19 +39,15 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - Apache-Coyote/1.1
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
       - chunked
-      Date:
-      - Thu, 06 Mar 2014 22:54:30 GMT
-      Connection:
-      - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>11}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>55}}
+
+'
     http_version: 
-  recorded_at: Thu, 06 Mar 2014 22:54:30 GMT
-recorded_with: VCR 2.6.0
+  recorded_at: Thu, 13 Mar 2014 18:37:01 GMT
+recorded_with: VCR 2.8.0

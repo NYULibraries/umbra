@@ -14,246 +14,41 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Server:
-      - Apache-Coyote/1.1
       Content-Type:
       - text/plain;charset=UTF-8
       Transfer-Encoding:
       - chunked
-      Date:
-      - Thu, 06 Mar 2014 22:54:30 GMT
-      Connection:
-      - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>1,''params''=>{''fq''=>''type:Umbra\\:\\:Record'',''wt''=>''ruby'',''rows''=>''30'',''start''=>''0'',''sort''=>''title_sort_ss
-        asc'',''q''=>''*:*''}},''response''=>{''numFound''=>374,''start''=>0,''docs''=>[{''id''=>''Umbra::Record
-        8329'',''resource_id_ss''=>''8329'',''title_sort_ss''=>''ABI/Inform'',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU01805'',''title_texts''=>[''ABI/Inform''],''description_texts''=>[''ABI/Inform
-        Dateline- Contains complete articles from hundreds of local and regional publications
-        that chronicle the day-to-day operations of thousands of U.S. and Canadian
-        companies. Important business trends and events as well as regional market
-        and economic conditions also receive considerable coverage. Coverage dates:
-        1985 ? present                                                                                                          ABI/INFORM
-        Global Direct- Periodical database specializing in business literature, including
-        full text of over 1920 of the 2890 ABI/Inform titles. All titles are indexed
-        and abstracted. Also included in ProQuest are Newspapers and General Periodicals.
-        Coverage varies from 1971 - present                                                               ABI/INFORM
-        Trade & Industry - Search more than 1200 business periodicals and newsletters
-        with a trade or industry focus. Provides users with the latest industry news,
-        product and competitive information,  trends, and a wide variety of other
-        topics. Contains publications on every major industry, including finance,
-        insurance, transportation, construction, and many more. Coverage dates: 1971
-        - present''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Journals/Newspapers/Books'']},{''id''=>''Umbra::Record
-        8090'',''resource_id_ss''=>''8090'',''title_sort_ss''=>''ALFRED Archival Federal
-        Reserve Economic Data'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://alfred.stlouisfed.org/'',''title_texts''=>[''ALFRED
-        Archival Federal Reserve Economic Data''],''subject_tag_list_sms''=>[''Economics''],''description_texts''=>[''ALFRED
-        allows you to retrieve vintage versions of economic data that were available
-        on specific dates in history. In general, economic data for past observation
-        periods are revised as more accurate estimates become available. As a result,
-        previous vintages of data can be superseded and may no longer be available
-        from various data sources. Vintage or real time economic data allows academics
-        to reproduce others\'' research, build more accurate forecasting models, and
-        analyze economic policy decisions using the data available at the time.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Business
-        & Economics (US)'']},{''id''=>''Umbra::Record 8330'',''resource_id_ss''=>''8330'',''title_sort_ss''=>''Access
-        World News '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU01631'',''title_texts''=>[''Access
-        World News ''],''description_texts''=>[''Full-text content of over 2,200 North
-        American newspapers and more than 1,200 international newspapers, plus 300
-        wire services and over 200 broadcast news transcripts. Covers local, regional,
-        and world issues, politics, government policies, sports, industries, cultural
-        activities, schools, and the people and events in the community''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Journals/Newspapers/Books'']},{''id''=>''Umbra::Record
-        8331'',''resource_id_ss''=>''8331'',''title_sort_ss''=>''Accounting & Tax
-        (ProQuest)  '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU01434'',''title_texts''=>[''Accounting
-        & Tax (ProQuest)  ''],''description_texts''=>[''Provides access to top accounting
-        journals and trade publications, reference reports, proceedings, and dissertations,
-        etc. ''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Journals/Newspapers/Books'']},{''id''=>''Umbra::Record
-        8332'',''resource_id_ss''=>''8332'',''title_sort_ss''=>''Accunet AP Photo
-        Archive  '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU01697'',''title_texts''=>[''Accunet
-        AP Photo Archive  ''],''description_texts''=>[''The Accunet/AP Photo Archive
-        contains approximately 700,000 photographs dating back to 1850; 800 additional
-        images are added each day by photojournalists. Photographs of current events
-        are available to view and print within minutes of an event. Also includes
-        the International Photo Archive and a Euro/Asian Photo Archive''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Journals/Newspapers/Books'']},{''id''=>''Umbra::Record
-        8089'',''resource_id_ss''=>''8089'',''title_sort_ss''=>''Administration for
-        Children and Families Child Care and Development Fund Data and Statistics'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.acf.hhs.gov/programs/ccb/data/index.htm'',''title_texts''=>[''Administration
-        for Children and Families Child Care and Development Fund Data and Statistics''],''subject_tag_list_sms''=>[''Education'',''Child
-        Care'',''Demograhic Characteristics''],''description_texts''=>[''Child Care
-        and Development Fund Statistics, Child Care and Development Fund Expenditure
-        Data, and related government programs.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Area
-        & Cultural Studies'']},{''id''=>''Umbra::Record 8269'',''resource_id_ss''=>''8269'',''title_sort_ss''=>''Africa
-        Development Indicators (World Bank)'',''collection_ss''=>''DataServices'',''identifier_ss''=>''https://ezproxy.library.nyu.edu/login?url=http://ddp-ext.worldbank.org/ext/DDPQQ/member.do?method=getMembers&userid=1&queryId=175'',''title_texts''=>[''Africa
-        Development Indicators (World Bank)''],''description_texts''=>[''Contains
-        over 1,000 indicators and time series from 1965 for 53 countries. Data include
-        social, economic, financial, natural resources, infrastructure, governance,
-        partnership, and environmental indicators. Results can be scaled, mapped,
-        and charted.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Population
-        & Demography'']},{''id''=>''Umbra::Record 8333'',''resource_id_ss''=>''8333'',''title_sort_ss''=>''African
-        Development Indicators (World Bank Group) '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU02264'',''title_texts''=>[''African
-        Development Indicators (World Bank Group) ''],''description_texts''=>[''The
-        most detailed collection of data on Africa, containing over 1,600 indicators,
-        covering 53 African countries and spanning the period 1961 to 2008. Data include
-        social, economic, financial, natural resources, infrastructure, governance,
-        partnership, and environmental indicators. Data are drawn from World Development
-        Indicators, and other sources. ''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Country'']},{''id''=>''Umbra::Record
-        8334'',''resource_id_ss''=>''8334'',''title_sort_ss''=>''Alternative Press
-        Index  '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU03657'',''title_texts''=>[''Alternative
-        Press Index  ''],''description_texts''=>[''The Alternative Press Center (APC)
-        is a non-profit collective dedicated to providing access to and increasing
-        public awareness of the alternative press. Founded in 1969, it remains one
-        of the oldest self-sustaining alternative media institutions in the United
-        States. For more than a quarter of a century, the Alternative Press Index
-        has been recognized as a leading guide to the alternative press in the United
-        States and around the world.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Journals/Newspapers/E-Books'']},{''id''=>''Umbra::Record
-        8091'',''resource_id_ss''=>''8091'',''title_sort_ss''=>''American FactFinder'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://factfinder2.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t'',''title_texts''=>[''American
-        FactFinder''],''subject_tag_list_sms''=>[''Education'',''Demograhic Characteristics'',''Population'',''census
-        data'',''demographic characteristics'',''population''],''description_texts''=>[''Gateway/Portal
-        to 2000 US Census data, including population, housing, economic, and geographic
-        data. Also includes American Community Survey, Population Estimates, Economic
-        Census and Annual Economic Surveys.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Population
-        & Demography'']},{''id''=>''Umbra::Record 8092'',''resource_id_ss''=>''8092'',''title_sort_ss''=>''American
-        Federation of Teachers Salary Survey'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.aft.org/yourwork/teachers/reports/salarybystate07.cfm'',''title_texts''=>[''American
-        Federation of Teachers Salary Survey''],''subject_tag_list_sms''=>[''Education'',''Salaries''],''description_texts''=>[''AFT
-        statistics are gathered from an annual Teacher Salary Survey and include the
-        "Survey and Analysis of Teacher Salary Trends" and the "AFT Public Employees
-        Compensation Survey." Reports are in .pdf format.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Education'']},{''id''=>''Umbra::Record
-        8093'',''resource_id_ss''=>''8093'',''title_sort_ss''=>''American National
-        Election Studies (ANES)'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.electionstudies.org/'',''title_texts''=>[''American
-        National Election Studies (ANES)''],''subject_tag_list_sms''=>[''Politics'',''voting
-        behavior'',''public opinion'',''public policy''],''description_texts''=>[''The
-        American National Election Studies (ANES) produces high quality data on voting,
-        public opinion, and political participation to serve the research needs of
-        social scientists, teachers, students, policy makers and journalists who want
-        to better understand the theoretical and empirical foundations of national
-        election outcomes.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Policy
-        & Political Science'']},{''id''=>''Umbra::Record 8335'',''resource_id_ss''=>''8335'',''title_sort_ss''=>''AmericanFactFinder
-        (AFF)'',''collection_ss''=>''VBL'',''identifier_ss''=>''http://factfinder.census.gov/home/saff/main.html?_lang=en'',''title_texts''=>[''AmericanFactFinder
-        (AFF)''],''description_texts''=>[''is an online source for population, housing,
-        economic and geographic data that presents the results from four key data
-        programs: Decennial Census of Housing and Population - 1990 and 2000, Economic
-        Census 1997 and 2002, American Community Survey - 1996-present, Population
-        Estimates Program - July 1, 2003-present
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>1},''response''=>{''numFound''=>16,''start''=>0,''docs''=>[{''id''=>''Umbra::Record
+        1'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4008c2398>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_tag_list_sms''=>[''SubjectTag
+        1'',''that'',''another''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486482257182720''},{''id''=>''Umbra::Record
+        5'',''resource_id_ss''=>''#<Umbra::Record:0x007fc3fcf7a180>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''extent_list_sms''=>[''Extent
+        1'',''Extent 2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486482958680064''},{''id''=>''Umbra::Record
+        9'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4016c8f78>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_temporal_list_sms''=>[''CoverageTemporal
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486483369721856''},{''id''=>''Umbra::Record
+        13'',''resource_id_ss''=>''#<Umbra::Record:0x007fc401abd4d0>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''SubjectControlled
+        1'',''SubjectControlled 2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486483811172352''},{''id''=>''Umbra::Record
+        17'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4057e7a68>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''language_list_sms''=>[''Language
+        1'',''German'',''French''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486484317634560''},{''id''=>''Umbra::Record
+        21'',''resource_id_ss''=>''#<Umbra::Record:0x007fc401ad8000>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''source_list_sms''=>[''Source
+        1'',''Source2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486484860796928''},{''id''=>''Umbra::Record
+        25'',''resource_id_ss''=>''#<Umbra::Record:0x007fc401edf158>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''accrualPeriodicity_list_sms''=>[''AccrualPeriodicity
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486485351530496''},{''id''=>''Umbra::Record
+        29'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4052b94d8>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_spatial_list_sms''=>[''CoverageSpatial
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486485821292544''},{''id''=>''Umbra::Record
+        33'',''resource_id_ss''=>''#<Umbra::Record:0x007fc40511fa28>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_jurisdiction_list_sms''=>[''CoverageJurisdiction
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486486304686080''},{''id''=>''Umbra::Record
+        2'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca6dafc0>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_tag_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295593690857472''},{''id''=>''Umbra::Record
+        3'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca57d358>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_jurisdiction_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295593810395136''},{''id''=>''Umbra::Record
+        6'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca3fa710>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594217242624''},{''id''=>''Umbra::Record
+        7'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca5fb000>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''extent_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594330488832''},{''id''=>''Umbra::Record
+        8'',''resource_id_ss''=>''#<Umbra::Record:0x007ffac8ed3cd8>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''language_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594515038208''},{''id''=>''Umbra::Record
+        4'',''resource_id_ss''=>''#<Umbra::Record:0x007fd2542cd610>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295275387224064''},{''id''=>''Umbra::Record
+        980190963'',''resource_id_ss''=>''#<Umbra::Record:0x007fc514816970>'',''title_sort_ss''=>''MyRecord1'',''collection_ss''=>''TestCollection'',''identifier_ss''=>''http://library.nyu.edu'',''title_texts''=>[''MyRecord1''],''description_texts''=>[''This
+        record is very important to the TestCollection group.''],''collection_texts''=>[''TestCollection''],''_version_''=>''1462486508643549184''}]}}
 
-        Annual Review ''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Economic
-        & Statistical Information'']},{''id''=>''Umbra::Record 8286'',''resource_id_ss''=>''8286'',''title_sort_ss''=>''Annual
-        Economic Surveys (US Census Bureau)'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.census.gov/econ/other_econ.html'',''title_texts''=>[''Annual
-        Economic Surveys (US Census Bureau)''],''description_texts''=>[''Annual economic
-        surveys cover selected sectors of the U.S. economy and feature industry and
-        geographic statistics that supplement those published in the economic census.
-        Data are available at the national level, and in some cases, for states, metro
-        areas and counties. These surveys provide interim information that is critical
-        for understanding changes in the nation\''s economic structure and performance.
-        ''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Business
-        & Economics (US)'']},{''id''=>''Umbra::Record 8336'',''resource_id_ss''=>''8336'',''title_sort_ss''=>''Annual
-        Review'',''collection_ss''=>''VBL'',''identifier_ss''=>''http://arch.library.nyu.edu/databases/proxy/NYU00418'',''title_texts''=>[''Annual
-        Review''],''description_texts''=>[''Since 1932, Annual Reviews has offered
-        comprehensive, timely collections of critical reviews
-
-        written by leading scientists. Annual Reviews volumes are published each year
-        for 40 focused
-
-        disciplines within the Biomedical, Life, Physical, and Social Sciences including
-        Economics.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Journals/Newspapers/E-Books'']},{''id''=>''Umbra::Record
-        8278'',''resource_id_ss''=>''8278'',''title_sort_ss''=>''Arthur S. Banks Cross-National
-        Time-Series Data Archive'',''collection_ss''=>''DataServices'',''title_texts''=>[''Arthur
-        S. Banks Cross-National Time-Series Data Archive''],''description_texts''=>[''The
-        Cross-National Time-Series Data Archive provides annual data for a range of
-        countries from 1815 to the present covering demographics, economy, education,
-        and politics. To access this data, please contact the Data Service Studio
-        at data.service@nyu.edu.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Population
-        & Demography'']},{''id''=>''Umbra::Record 8094'',''resource_id_ss''=>''8094'',''title_sort_ss''=>''Association
-        of Religion Data Archive (ARDA)'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.thearda.com/'',''title_texts''=>[''Association
-        of Religion Data Archive (ARDA)''],''subject_tag_list_sms''=>[''Religion'',''religion'',''religious
-        attitudes'',''religious affiliation''],''description_texts''=>[''The ARDA
-        Data Archive is a collection of surveys, polls, and other data submitted by
-        researchers, and includes nearly 400 data files. Currently housed in the Social
-        Science Research Institute at the Pennsylvania State University, the ARDA
-        is funded by the Lilly Endowment, the John Templeton Foundation, and the Pennsylvania
-        State University. Includes National Profiles, U.S. Denominations, and GIS
-        Maps and Reports regarding religion.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Philosophy
-        & Religion'']},{''id''=>''Umbra::Record 8337'',''resource_id_ss''=>''8337'',''title_sort_ss''=>''Balance
-        of Payments Statistics (IMF) '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU02532'',''title_texts''=>[''Balance
-        of Payments Statistics (IMF) ''],''description_texts''=>[''Provides information
-        on the balance of payments among countries and geographical areas of the world.
-        Contains approximately 100,000 time series covering more than 170 countries
-        and areas and includes all series appearing on the BOP Country Pages.
-
-        Bernan Essential Government Information  ''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Economic
-        & Statistical Information'']},{''id''=>''Umbra::Record 8097'',''resource_id_ss''=>''8097'',''title_sort_ss''=>''Behavioral
-        Risk Factor Surveillance System'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.cdc.gov/brfss/'',''title_texts''=>[''Behavioral
-        Risk Factor Surveillance System''],''subject_tag_list_sms''=>[''Health'',''Healthcare''],''description_texts''=>[''The
-        BFRSS is a state-based system of health surveys that generates information
-        about health risk behaviors, clinical preventative practices, and health care
-        access and use primarily related to chronic diseases and injury.  States use
-        standardized procedures to collect data through monthly telephone interviews.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Health'',''Nursing
-        & Nutrition'']},{''id''=>''Umbra::Record 8338'',''resource_id_ss''=>''8338'',''title_sort_ss''=>''Bernan
-        Essential Government Information  '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://ezproxy.library.nyu.edu/login?url=http://gii.bernan.com'',''title_texts''=>[''Bernan
-        Essential Government Information  ''],''description_texts''=>[''Bernan is
-        a leading distributor of essential publications from the United States government
-        and intergovernmental organizations, and a respected publisher of critically
-        acclaimed reference works based on government data.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Economic
-        & Statistical Information'']},{''id''=>''Umbra::Record 8098'',''resource_id_ss''=>''8098'',''title_sort_ss''=>''Bloomberg'',''collection_ss''=>''DataServices'',''title_texts''=>[''Bloomberg''],''subject_tag_list_sms''=>[''Financial
-        Markets'',''Economic Indicators'',''Company Info'',''Securities'',''Finance''],''description_texts''=>[''Provides
-        analysis and quotes for equities and indices around the globe, current company,
-        industry and market news, and economic data for the countries of the world.
-        **This resource is only accessible in Bobst Library. To use this resource,
-        stop by the 5th floor Reference Center.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Business
-        & Economics (US)'']},{''id''=>''Umbra::Record 8339'',''resource_id_ss''=>''8339'',''title_sort_ss''=>''Bloomberg
-        (Terminal located on the 5th Floor/Bobst Library) '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU02674'',''title_texts''=>[''Bloomberg
-        (Terminal located on the 5th Floor/Bobst Library) ''],''description_texts''=>[''Online
-        database providing current and historical financial quotes, business newswires,
-        and descriptive information, research and statistics on over 52,000 companies
-        worldwide.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Company
-        & Financial Information'']},{''id''=>''Umbra::Record 8291'',''resource_id_ss''=>''8291'',''title_sort_ss''=>''Bureau
-        of Economic Analysis (BEA)'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.bea.gov/'',''title_texts''=>[''Bureau
-        of Economic Analysis (BEA)''],''description_texts''=>[''The BEA prepares national,
-        regional, industry, and international accounts that present essential information
-        on such key issues as economic growth, regional economic development, interindustry
-        relationships, and the Nation\''s position in the world economy. ''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Business
-        & Economics (US)'']},{''id''=>''Umbra::Record 8099'',''resource_id_ss''=>''8099'',''title_sort_ss''=>''Bureau
-        of Justice Statistics'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.ojp.usdoj.gov/bjs/'',''title_texts''=>[''Bureau
-        of Justice Statistics''],''subject_tag_list_sms''=>[''Offenses'',''Criminal
-        Justice''],''description_texts''=>[''Statistics related to crimes, victims,
-        law enforcement, and criminal justice in the United States.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Policy
-        & Political Science'']},{''id''=>''Umbra::Record 8100'',''resource_id_ss''=>''8100'',''title_sort_ss''=>''Bureau
-        of Labor Statistics'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.bls.gov/'',''title_texts''=>[''Bureau
-        of Labor Statistics''],''subject_tag_list_sms''=>[''Labor'',''Employment''],''description_texts''=>[''Data
-        related to employment, unemployment, wages, consumer and business spending,
-        occupations, safety, and health in the United States.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Policy
-        & Political Science'']},{''id''=>''Umbra::Record 8101'',''resource_id_ss''=>''8101'',''title_sort_ss''=>''Bureau
-        of Transportation Statistics'',''collection_ss''=>''DataServices'',''identifier_ss''=>''http://www.bts.gov'',''title_texts''=>[''Bureau
-        of Transportation Statistics''],''subject_tag_list_sms''=>[''Transportation'',''Airline'',''Freight''],''description_texts''=>[''Information
-        and data related to the transportation industry, including household-level
-        data; includes transportation economics, freight data, border crossing-data,
-        and commodities transported.''],''collection_texts''=>[''DataServices''],''subject_controlled_list_sms''=>[''Population
-        & Demography'']},{''id''=>''Umbra::Record 8340'',''resource_id_ss''=>''8340'',''title_sort_ss''=>''Business
-        & Company Resource Center '',''collection_ss''=>''VBL'',''identifier_ss''=>''http://arch.library.nyu.edu/databases/proxy/NYU02314'',''title_texts''=>[''Business
-        & Company Resource Center ''],''description_texts''=>[''Business & Company
-        Resource Center brings together a variety of global business information.
-        Resources in the database include: Company profiles (including corporate parent/sibling
-        relationships), Industry ranking, Products and brands, Stock prices, Investment
-        reports, Industry statistics, Corporate chronologies and histories, Consumer  data,
-        Emerging technology reports, Industry newsletter news and analysis, and Business
-        journal news and analysis.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Company
-        & Financial Information'']},{''id''=>''Umbra::Record 8341'',''resource_id_ss''=>''8341'',''title_sort_ss''=>''Business
-        Full Text '',''collection_ss''=>''VBL'',''identifier_ss''=>''http://arch.library.nyu.edu/databases/proxy/NYU01397'',''title_texts''=>[''Business
-        Full Text ''],''description_texts''=>[''Wilson Business Full Text is a full
-        text database that indexes and abstracts articles from English-language periodicals
-        published in the United States and elsewhere, including the leading business
-        magazines and trade and research journals, plus the full text of selected
-        periodicals. With Quality abstracting and indexing of more than 850 publications,
-        users will find feature articles, product reviews, interviews, biographical
-        sketches, corporate profiles, obituaries, surveys, book reviews, reports from
-        associations, societies, trade shows and conferences, and more.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Journals/Newspapers/E-Books'']},{''id''=>''Umbra::Record
-        8342'',''resource_id_ss''=>''8342'',''title_sort_ss''=>''Business Insights
-        (formerly Reuters Business Insight)  '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU02506'',''title_texts''=>[''Business
-        Insights (formerly Reuters Business Insight)  ''],''description_texts''=>[''Market
-        analysis reports across eight markets; eCommerce, Technology, Telecommunications,
-        Financial Services, Healthcare, Consumer Goods, Energy and Human Resources.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Industry
-        Information'',''Information'']},{''id''=>''Umbra::Record 8343'',''resource_id_ss''=>''8343'',''title_sort_ss''=>''Business
-        Monitor Online  '',''collection_ss''=>''VBL'',''identifier_ss''=>''https://arch.library.nyu.edu/databases/proxy/NYU03590'',''title_texts''=>[''Business
-        Monitor Online  ''],''description_texts''=>[''Provides extensive industry,
-        economic, political, risk, and financial market analysis and data for about
-        175 countries. Especially useful for emerging economies.''],''collection_texts''=>[''VBL''],''subject_controlled_list_sms''=>[''Industry
-        Information'']}]}}'
+'
     http_version: 
-  recorded_at: Thu, 06 Mar 2014 22:54:30 GMT
-recorded_with: VCR 2.6.0
+  recorded_at: Thu, 13 Mar 2014 18:37:01 GMT
+recorded_with: VCR 2.8.0
