@@ -6,7 +6,7 @@ class UserSession < Authlogic::Session::Base
   def additional_attributes
     h = {}
     return h unless pds_user
-    h[:umbra_admin], h[:umbra_admin_collections] = true, ["global"] if (ENV['PDS_ADMINS'] || ["real_user"]).include? pds_user.uid
+    h[:umbra_admin], h[:umbra_admin_collections] = true, ["global"] if ENV['PDS_ADMINS'].present? && ENV['PDS_ADMINS'].include? pds_user.uid
     return h
   end
 end

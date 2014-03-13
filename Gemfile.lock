@@ -327,7 +327,6 @@ DEPENDENCIES
   database_cleaner
   debugger
   factory_girl_rails
-  figs (~> 1.2.0)
   jquery-rails (~> 3.1.0)
   jquery-ui-rails (~> 4.2.0)
   json (~> 1.8.0)
