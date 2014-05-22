@@ -6,12 +6,12 @@ development: &development
   database: <%= (ENV['UMBRA_DB_DATABASE'] || "umbra_test") %>
   password: <%= ENV['UMBRA_DB_PASSWORD'] %>
   encoding: utf8
-  
+
 staging:
   <<: *development
 
-production:  
+production:
   <<: *development
-  
+
 test:
   <<: *development
