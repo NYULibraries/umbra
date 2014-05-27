@@ -9,6 +9,8 @@ Umbra::Application.load_tasks
 # end of the default task
 
 # Add the coveralls task as the default with the appropriate prereqs
-require 'coveralls/rake/task'
-Coveralls::RakeTask.new
-task :default => [:test, :spec, 'coveralls:push']
+if Rails.env.test?
+  require 'coveralls/rake/task'
+  Coveralls::RakeTask.new
+  task :default => [:test, :spec, 'coveralls:push']
+end
