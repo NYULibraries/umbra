@@ -1,10 +1,11 @@
 require 'simplecov'
+require 'simplecov-rcov'
 require 'coveralls'
 
-Coveralls.wear_merged!('rails')
-
+SimpleCov.merge_timeout 3600
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::RcovFormatter,
   Coveralls::SimpleCov::Formatter
 ]
 SimpleCov.start
@@ -19,9 +20,9 @@ class User
   def nyuidn
     user_attributes[:nyuidn]
   end
-  
+
   def error; end
-  
+
   def uid
     username
   end
@@ -30,7 +31,7 @@ end
 class ActiveSupport::TestCase
   set_fixture_class :records => "Umbra::Record"
   fixtures :all
-  
+
   #Umbra::Record.reindex
   def set_dummy_pds_user(user_session)
     user_session.instance_variable_set("@pds_user".to_sym, users(:real_user))
@@ -42,12 +43,12 @@ end
 # back. Useful for efficiency, also useful for
 # testing code against API's that not everyone
 # has access to -- the responses can be cached
-# and re-used. 
+# and re-used.
 require 'vcr'
 require 'webmock'
 
 # To allow us to do real HTTP requests in a VCR.turned_off, we
-# have to tell webmock to let us. 
+# have to tell webmock to let us.
 WebMock.allow_net_connect!
 
 @@solr_url = Settings.solr.url
@@ -55,6 +56,6 @@ WebMock.allow_net_connect!
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr_cassettes'
   # webmock needed for HTTPClient testing
-  c.hook_into :webmock 
+  c.hook_into :webmock
   c.filter_sensitive_data("http://localhost:8981/solr") { @@solr_url }
 end

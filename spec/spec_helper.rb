@@ -1,10 +1,11 @@
 require 'simplecov'
+require 'simplecov-rcov'
 require 'coveralls'
 
-Coveralls.wear_merged!('rails')
-
+SimpleCov.merge_timeout 3600
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::RcovFormatter,
   Coveralls::SimpleCov::Formatter
 ]
 SimpleCov.start
@@ -31,7 +32,7 @@ RSpec.configure do |config|
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   #config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  
+
   config.include FactoryGirl::Syntax::Methods
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
