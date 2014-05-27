@@ -13,7 +13,7 @@ gem 'nyulibraries-assets', :git => 'git://github.com/NYULibraries/nyulibraries-a
 gem 'nyulibraries-deploy', :git => 'git://github.com/NYULibraries/nyulibraries-deploy.git', :tag => 'v4.0.0'
 gem 'unicode', '~> 0.4.4.1'
 gem 'mustache', '0.99.4'
-gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
+gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie'
 gem 'dalli', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.7'
 gem 'comma', '~> 3.2.0'
@@ -29,7 +29,7 @@ group :assets do
   gem 'yui-compressor', '~> 0.12.0'
 end
 
-group :development do 
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'sunspot_solr'
@@ -49,4 +49,3 @@ gem 'factory_girl_rails', :group => [:test, :development]
 gem 'rspec-rails', :group => [:test, :development]
 gem 'pry', :group => [:test, :development]
 gem 'debugger', :groups => [:development, :test]
-
