@@ -27,26 +27,26 @@ http_interactions:
         6'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca3fa710>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594217242624''},{''id''=>''Umbra::Record
         7'',''resource_id_ss''=>''#<Umbra::Record:0x007ffaca5fb000>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''extent_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594330488832''},{''id''=>''Umbra::Record
         8'',''resource_id_ss''=>''#<Umbra::Record:0x007ffac8ed3cd8>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''language_list_sms''=>[''Tag1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462295594515038208''},{''id''=>''Umbra::Record
-        1'',''resource_id_ss''=>''#<Umbra::Record:0x007f9031b81140>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_temporal_list_sms''=>[''CoverageTemporal
-        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400862532927488''},{''id''=>''Umbra::Record
-        5'',''resource_id_ss''=>''#<Umbra::Record:0x007f902a749d18>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''language_list_sms''=>[''Language
-        1'',''German'',''French''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400863056166912''},{''id''=>''Umbra::Record
-        9'',''resource_id_ss''=>''#<Umbra::Record:0x007f902d75c6b8>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_tag_list_sms''=>[''SubjectTag
-        1'',''that'',''another''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400863697895424''},{''id''=>''Umbra::Record
-        13'',''resource_id_ss''=>''#<Umbra::Record:0x007f90328091b0>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_jurisdiction_list_sms''=>[''CoverageJurisdiction
-        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400864179191808''},{''id''=>''Umbra::Record
-        17'',''resource_id_ss''=>''#<Umbra::Record:0x007f902a4b2438>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_spatial_list_sms''=>[''CoverageSpatial
-        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400864688799744''},{''id''=>''Umbra::Record
-        21'',''resource_id_ss''=>''#<Umbra::Record:0x007f902c87a6b8>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''accrualPeriodicity_list_sms''=>[''AccrualPeriodicity
-        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400865178484736''},{''id''=>''Umbra::Record
-        25'',''resource_id_ss''=>''#<Umbra::Record:0x007f902a1bc378>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''SubjectControlled
-        1'',''SubjectControlled 2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400865701724160''},{''id''=>''Umbra::Record
-        29'',''resource_id_ss''=>''#<Umbra::Record:0x007f902910fd40>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''source_list_sms''=>[''Source
-        1'',''Source2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400866233352192''},{''id''=>''Umbra::Record
-        33'',''resource_id_ss''=>''#<Umbra::Record:0x007f90297e2690>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''extent_list_sms''=>[''Extent
-        1'',''Extent 2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462400866771271680''}]}}
+        1'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4008c2398>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_tag_list_sms''=>[''SubjectTag
+        1'',''that'',''another''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486482257182720''},{''id''=>''Umbra::Record
+        5'',''resource_id_ss''=>''#<Umbra::Record:0x007fc3fcf7a180>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''extent_list_sms''=>[''Extent
+        1'',''Extent 2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486482958680064''},{''id''=>''Umbra::Record
+        9'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4016c8f78>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_temporal_list_sms''=>[''CoverageTemporal
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486483369721856''},{''id''=>''Umbra::Record
+        13'',''resource_id_ss''=>''#<Umbra::Record:0x007fc401abd4d0>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''subject_controlled_list_sms''=>[''SubjectControlled
+        1'',''SubjectControlled 2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486483811172352''},{''id''=>''Umbra::Record
+        17'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4057e7a68>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''language_list_sms''=>[''Language
+        1'',''German'',''French''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486484317634560''},{''id''=>''Umbra::Record
+        21'',''resource_id_ss''=>''#<Umbra::Record:0x007fc401ad8000>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''source_list_sms''=>[''Source
+        1'',''Source2''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486484860796928''},{''id''=>''Umbra::Record
+        25'',''resource_id_ss''=>''#<Umbra::Record:0x007fc401edf158>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''accrualPeriodicity_list_sms''=>[''AccrualPeriodicity
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486485351530496''},{''id''=>''Umbra::Record
+        29'',''resource_id_ss''=>''#<Umbra::Record:0x007fc4052b94d8>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_spatial_list_sms''=>[''CoverageSpatial
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486485821292544''},{''id''=>''Umbra::Record
+        33'',''resource_id_ss''=>''#<Umbra::Record:0x007fc40511fa28>'',''title_sort_ss''=>''MyRecord'',''collection_ss''=>''VBL'',''coverage_jurisdiction_list_sms''=>[''CoverageJurisdiction
+        1''],''title_texts''=>[''MyRecord''],''collection_texts''=>[''VBL''],''_version_''=>''1462486486304686080''}]}}
 
 '
     http_version: 
-  recorded_at: Wed, 12 Mar 2014 20:04:11 GMT
-recorded_with: VCR 2.6.0
+  recorded_at: Thu, 13 Mar 2014 18:36:41 GMT
+recorded_with: VCR 2.8.0

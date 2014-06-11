@@ -9,6 +9,12 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+require 'nyulibraries-assets'
+
+require 'figs'
+# Don't run this initializer on travis.
+Figs.load(stage: Rails.env) unless ENV['TRAVIS']
+
 module Umbra
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -53,7 +59,7 @@ module Umbra
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = true    
+    config.assets.enabled = true
     # Default SASS Configuration, check out https://github.com/rails/sass-rails for details
     config.assets.compress = !Rails.env.development?
 

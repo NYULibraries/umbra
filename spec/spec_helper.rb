@@ -1,8 +1,9 @@
 require 'simplecov'
 require 'coveralls'
 
-Coveralls.wear_merged!('rails')
+# Coveralls.wear_merged!('rails')
 
+SimpleCov.merge_timeout 3600
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
@@ -15,6 +16,8 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
 #require 'capybara/rspec'
+require "authlogic/test_case"
+include Authlogic::TestCase
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -31,7 +34,7 @@ RSpec.configure do |config|
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   #config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  
+
   config.include FactoryGirl::Syntax::Methods
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -55,11 +58,13 @@ RSpec.configure do |config|
   config.order = "random"
 end
 
+@@solr_url = ENV['SOLR_URL']
+
 VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.configure_rspec_metadata!
   c.hook_into :webmock
-  c.filter_sensitive_data("http://localhost:8981/solr") { Settings.solr.url }
+  c.filter_sensitive_data("http://localhost:8981/solr") { @@solr_url }
 end
 
 def csv_fixture filename

@@ -1,3 +1,3 @@
 load 'deploy'
-load 'deploy/assets'
-load 'config/deploy' 
+# load 'deploy/assets'
+load 'config/deploy'

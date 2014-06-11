@@ -6,8 +6,8 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">Umbra::Record
-        13</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
-        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007f90328091b0&gt;</field><field
+        33</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
+        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007fc40511fa28&gt;</field><field
         name="title_sort_ss">MyRecord</field><field name="collection_ss">VBL</field><field
         boost="5.0" name="title_texts">MyRecord</field><field name="collection_texts">VBL</field></doc></add>
     headers:
@@ -24,19 +24,19 @@ http_interactions:
       - chunked
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>3}}
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>1}}
 
 '
     http_version: 
-  recorded_at: Wed, 12 Mar 2014 19:55:44 GMT
+  recorded_at: Thu, 13 Mar 2014 18:36:40 GMT
 - request:
     method: post
     uri: http://localhost:8981/solr/update?wt=ruby
     body:
       encoding: US-ASCII
       string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">Umbra::Record
-        13</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
-        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007f90328091b0&gt;</field><field
+        33</field><field name="type">Umbra::Record</field><field name="type">ActiveRecord::Base</field><field
+        name="class_name">Umbra::Record</field><field name="resource_id_ss">#&lt;Umbra::Record:0x007fc40511fa28&gt;</field><field
         name="title_sort_ss">MyRecord</field><field name="collection_ss">VBL</field><field
         name="coverage_jurisdiction_list_sms">CoverageJurisdiction 1</field><field
         boost="5.0" name="title_texts">MyRecord</field><field name="collection_texts">VBL</field></doc></add>
@@ -58,5 +58,5 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Wed, 12 Mar 2014 19:55:44 GMT
-recorded_with: VCR 2.6.0
+  recorded_at: Thu, 13 Mar 2014 18:36:40 GMT
+recorded_with: VCR 2.8.0

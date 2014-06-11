@@ -1,17 +1,17 @@
 development: &development
   adapter: mysql2
-  host: <%= Settings.databases.host %>  
-  database: <%= Settings.databases.database %>
-  username: <%= Settings.databases.username %>
-  password: <%= Settings.databases.password %>
+  username: <%= (ENV['UMBRA_DB_USER'] || "root") %>
+  host: <%= (ENV['UMBRA_DB_HOST'] || "localhost") %>
+  port: <%= (ENV['UMBRA_DB_PORT'] || "") %>
+  database: <%= (ENV['UMBRA_DB_DATABASE'] || "umbra_test") %>
+  password: <%= ENV['UMBRA_DB_PASSWORD'] %>
   encoding: utf8
-  
+
 staging:
   <<: *development
 
-production:  
-  <<: *development
-  
-test:
+production:
   <<: *development
 
+test:
+  <<: *development
