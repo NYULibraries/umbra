@@ -26,6 +26,6 @@ http_interactions:
         title_texts description_texts source_list_sms extent_list_sms'',''echoParams''=>''explicit'',''f.source_list_sms.facet.limit''=>''21'',''f.accrualPeriodicity_list_sms.facet.limit''=>''21'',''facet.field''=>[''subject_controlled_list_sms'',''source_list_sms'',''language_list_sms'',''extent_list_sms'',''coverage_spatial_list_sms'',''accrualPeriodicity_list_sms'',''coverage_temporal_list_sms'',''subject_tag_list_sms''],''f.language_list_sms.facet.limit''=>''21'',''fq''=>''type:Umbra**Record''}},''response''=>{''numFound''=>0,''start''=>0,''maxScore''=>0.0,''docs''=>[]},''facet_counts''=>{''facet_queries''=>{},''facet_fields''=>{''subject_controlled_list_sms''=>[],''source_list_sms''=>[],''language_list_sms''=>[],''extent_list_sms''=>[],''coverage_spatial_list_sms''=>[],''accrualPeriodicity_list_sms''=>[],''coverage_temporal_list_sms''=>[],''subject_tag_list_sms''=>[]},''facet_dates''=>{},''facet_ranges''=>{}}}
 
 '
-    http_version: 
+    http_version:
   recorded_at: Thu, 13 Mar 2014 18:37:00 GMT
 recorded_with: VCR 2.8.0
