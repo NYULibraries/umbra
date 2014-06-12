@@ -5,6 +5,9 @@ rvm:
   - "2.0.0"
   - "2.1.0"
 
+env:
+  - SOLR_URL='http://localhost:8981/solr'
+
 before_script:
   - mysql -e 'create database umbra_test;'
   - RAILS_ENV=test bundle exec rake db:schema:load
