@@ -10,7 +10,7 @@ body {
 }
 
 #search {
-  margin-bottom: $paddingStandard;
+  margin-bottom: $padding-base;
 }
 
 .toggle_bookmark { margin-top: 2px !important; }
@@ -21,10 +21,10 @@ body {
   #search_field { display: none !important; }
 }
 
-.q { 
-  padding-top: 6px !important; 
-  padding-bottom: 6px !important; 
-  line-height: $lineHeightLarge !important; 
+.q {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  line-height: $line-height-large !important;
 }
 
 .record-help { margin-bottom: 10px; }
@@ -32,7 +32,7 @@ body {
 .field_with_errors {
   input {
     @extend .alert;
-    @extend .alert-error;
+    @extend .alert-danger;
   }
   label {
     color: #B94A48;
