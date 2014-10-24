@@ -1,8 +1,8 @@
 class RecordsController < ApplicationController
   # Privileged controller
-  before_filter :authenticate_admin
+  before_action :authenticate_admin
   # Convert blacnk values to nil in params when creating and updating
-  before_filter :blank_to_nil_params, :only => [:create, :update]
+  before_action :blank_to_nil_params, :only => [:create, :update]
   respond_to :html, :json
 
   # GET /records
@@ -10,7 +10,7 @@ class RecordsController < ApplicationController
   def index
     # Generate sunspot search
     @records = record_default_search
-  
+
     respond_with(@records)
   end
 
@@ -18,7 +18,7 @@ class RecordsController < ApplicationController
   # GET /records/1.json
   def show
     @record = Umbra::Record.find(params[:id])
-  
+
     respond_with(@record)
   end
 
@@ -50,11 +50,11 @@ class RecordsController < ApplicationController
   # PUT /records/1.json
   def update
     @record = Umbra::Record.find(params[:id])
-    
+
     if @record.update_attributes(params[:record])
       flash[:notice] = t("records.update_success")
     end
-    
+
     respond_with(@record)
   end
 
@@ -66,14 +66,14 @@ class RecordsController < ApplicationController
 
     respond_with(@record)
   end
-  
+
   # POST /records/update
   def upload
     @records = record_default_search
     csv_file = params[:csv]
     flash[:notice] = Umbra::CsvUpload.new(csv_file, current_user).upload
-    
-    respond_with(@records) do |format|      
+
+    respond_with(@records) do |format|
       format.html { render :index }#redirect_to records_url(:notice => flash[:notice]) }
     end
   end
@@ -90,14 +90,14 @@ class RecordsController < ApplicationController
     params[:record].merge!(params[:record]){|k, v| v.blank? ? nil : v}
   end
   private :blank_to_nil_params
-  
+
   # Default admin search in Sunspot
   def record_default_search
     Umbra::Record.search {
       fulltext params[:q]
       any_of do
-        current_user_admin_collections.each { |collection| 
-          with(:collection, collection) 
+        current_user_admin_collections.each { |collection|
+          with(:collection, collection)
         }
       end
       order_by(sort_column.to_sym, sort_direction.to_sym)

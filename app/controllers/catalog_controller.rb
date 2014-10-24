@@ -6,9 +6,9 @@ class CatalogController < ApplicationController
   
   # Set a session variable on index action stating what the user's current collection is
   # so this will persist through their searching until they go to a new collection
-  before_filter :set_session_collection, :only => :index
+  before_action :set_session_collection, :only => :index
   # Before each search add the collection parameter to the list of parameters so it persists after the initial search
-  before_filter :add_collection_param_to_search
+  before_action :add_collection_param_to_search
   
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
