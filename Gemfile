@@ -30,7 +30,6 @@ gem 'compass-rails', '~> 2.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', '~> 0.12.0', platforms: :ruby
 gem 'uglifier', '>= 2.5.3'
-gem 'yui-compressor', '~> 0.12.0'
 
 group :development do
   gem 'better_errors', '~> 2.0.0'
