@@ -20,9 +20,9 @@
   <% collection_codes.each do |collection| %>
     <% if current_user_has_access_to_collection? collection %>
       <label class="checkbox">
-      <%= f.check_box "umbra_admin_collections[#{collection}]", 
-        :value => collection, 
-        :checked => (collections_user_can_admin.include? collection), 
+      <%= f.check_box "umbra_admin_collections[#{collection}]",
+        :value => collection,
+        :checked => (collections_user_can_admin.include? collection),
         :disabled => ((current_user.username == @user.username && (!collections_user_can_admin.include? "global")) or (current_user.username == @user.username && collection == "global")) %>
       <%= collection.underscore.humanize %>
       </label>
@@ -34,7 +34,7 @@
 
 </dl>
 
-<%= icon_tag :back %>
+<i class="glyphicon glyphicon-chevron-left"></i>
 <%= link_to 'Back', users_path %>
 
 </div>

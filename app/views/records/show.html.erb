@@ -13,9 +13,12 @@
 
   <dt>Description:</dt>
   <dd>&nbsp;<%= @record.description %></dd>
-  
+
 </dl>
 
-<%= icon_tag :edit %><%= link_to 'Edit', edit_record_path(@record) %> |
-<%= icon_tag :back %><%= link_to 'Back', records_path %>
-
+<%= link_to edit_record_path(@record), class: "btn btn-link" do %>
+  <i class="glyphicon glyphicon-wrench"></i> Edit
+<% end %>
+<%= link_to records_path, class: "btn btn-link" do %>
+  <i class="glyphicon glyphicon-chevron-left"></i> Back
+<% end %>

@@ -41,15 +41,7 @@ module Views
       # Prepend search box amd flash message partials before to yield
       def prepend_yield
         return unless show_search_box?
-        prepend_yield = ""
-
-        prepend_yield += render :partial => 'shared/header_navbar' unless is_in_admin_view?
-
-        prepend_yield += content_tag :div, :id => "main-flashses" do
-         render :partial => '/flash_msg'
-        end
-
-        return prepend_yield.html_safe
+        render :partial => 'shared/header_navbar' unless is_in_admin_view?
       end
 
       # Boolean for whether or not to show tabs
@@ -64,11 +56,6 @@ module Views
 
       def gauges_tracking_code
         ENV['GAUGES_TOKEN']
-      end
-
-      # Print default blacklight onload code
-      def onload
-        "$('input#q').focus();" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?
       end
 
       # Add blacklight body classes to laytou
