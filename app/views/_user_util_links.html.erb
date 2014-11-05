@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if current_user && current_user.admin? %>
   <%= sidebar_section("admin_links", content_tag(:h2, "Admin Panel")) do %>
   <ul class="admin_options">
       <li><%= link_to "Manage Records", records_url %></li>

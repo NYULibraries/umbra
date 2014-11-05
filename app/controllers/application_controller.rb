@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   # If user is an admin pass back true, otherwise redirect to root
   def authenticate_admin
-    if !current_user.admin?
+    unless current_user && current_user.admin?
       redirect_to(root_path) and return
     else
       return true
