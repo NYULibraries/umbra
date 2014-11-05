@@ -1,9 +1,9 @@
 FactoryGirl.define do
-  
-  factory Umbra::Record do
+
+  factory :record, class: Umbra::Record do
     collection "VBL"
     title "MyRecord"
-    
+
     trait :subject_controlled_list do
       after(:create) { |record| record.update_attributes(subject_controlled_list: 'SubjectControlled 1, SubjectControlled 2') }
     end
@@ -41,7 +41,7 @@ FactoryGirl.define do
     factory :record_with_language_list, traits: [:language_list]
     factory :record_with_accrualPeriodicity_list, traits: [:accrualPeriodicity_list]
     factory :record_with_subject_tag_list, traits: [:subject_tag_list]
-    
+
   end
-  
+
 end
