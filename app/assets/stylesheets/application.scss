@@ -1,52 +1,5 @@
 @import "nyulibraries";
-
-
-body {
-  padding-top: 0;
-}
-
-.row, #content {
-  margin-left: 0 !important;
-}
-
-#search {
-  margin-bottom: $padding-base;
-}
-
-.toggle_bookmark { margin-top: 2px !important; }
-
-.page_links { line-height: 20px; }
-
-.record-help { margin-bottom: 10px; }
-
-.field_with_errors {
-  input {
-    @extend .alert;
-    @extend .alert-danger;
-  }
-  label {
-    color: #B94A48;
-    font-weight:bold;
-  }
-}
-
-.constraint {
-  * { text-indent: 0; }
-  .filterValue {
-    span { margin: 0px 4px; }
-    .label {
-      color: white !important;
-    }
-  }
-}
-
-.pagination, .nyu-pagination {
-  text-align: left;
-}
-
-input[type='file'] {
-  line-height: 12px;
-}
+@import 'blacklight/blacklight';
 
 // Override blacklight styles because our search box is not in a navbar
 #q {
@@ -75,4 +28,14 @@ button.search-btn {
 .btn.btn-primary {
   background-color: $nyu-purple !important;
   border-color: $nyu-purple !important;
+}
+// Pretty up the edit user form a bit
+form.edit_user {
+  margin-left: 1em;
+  label.checkbox {
+    margin-top: 0;
+  }
+}
+.asc, .desc {
+  padding-right: .5em;
 }
