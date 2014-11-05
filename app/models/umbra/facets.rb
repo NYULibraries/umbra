@@ -14,7 +14,7 @@ module Umbra
       def facets_accessible
         facets.collect {|facet| facet.to_s.concat("_list").to_sym }
       end
-      def facets 
+      def facets
         @facets ||= []
       end
     end
