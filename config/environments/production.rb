@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.action_controller.relative_url_root = '/umbra'
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
