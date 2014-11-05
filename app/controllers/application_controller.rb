@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   # If user is an admin pass back true, otherwise redirect to root
   def authenticate_admin
-    if !is_admin?
+    if !current_user.admin?
       redirect_to(root_path) and return
     else
       return true
@@ -25,20 +25,9 @@ class ApplicationController < ActionController::Base
 
   # Imitate logged in admin in dev
   def current_user_dev
-    @current_user ||= User.find_by_username("global_admin")
+    @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", user_attributes: { umbra_admin: true, umbra_admin_collections: "global" })
   end
   alias_method :current_user, :current_user_dev if Rails.env == 'development'
-
-  # Find out if the user is an admin or not based on flag
-  def is_admin
-  	if current_user.nil? or !current_user.user_attributes[:umbra_admin]
-      return false
-    else
-      return true
-    end
-  end
-  alias :is_admin? :is_admin
-  helper_method :is_admin?
 
   # Return boolean matching the url to find out if we are in the admin view
   def is_in_admin_view

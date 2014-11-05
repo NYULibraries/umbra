@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
+
+  attr_accessible :email, :password, :password_confirmation if Rails::VERSION::MAJOR < 4
   # Connects this user object to Blacklights Bookmarks and Folders.
   include Blacklight::User
   attr_accessible :crypted_password, :current_login_at, :current_login_ip, :email, :firstname, :last_login_at, :last_login_ip, :last_request_at, :lastname, :login_count, :mobile_phone, :password_salt, :persistence_token, :refreshed_at, :session_id, :user_attributes, :username
+
+  scope :non_admin, -> { where("user_attributes not like '%:umbra_admin: true%'") }
 
   serialize :user_attributes
 
@@ -35,6 +39,10 @@ class User < ActiveRecord::Base
     @user_collections ||= (self.user_attributes[admin_collections_name].nil?) ? [] :
                             (self.user_attributes[admin_collections_name].is_a? Array) ?
                               self.user_attributes[admin_collections_name] : [self.user_attributes[admin_collections_name]]
+  end
+
+  def admin?
+    self.user_attributes[:umbra_admin] rescue false
   end
 
   def admin_collections_name
