@@ -1,10 +1,10 @@
 module Umbra
   module Collections
-      
+
     def admin_collections_name
       "umbra_admin_collections".to_sym
     end
-    
+
     # Get an array of collections authorized to the current logged in user from user attributes
     #
     # * Return an empty array if user has global access, this will skip loop adding collections to solr search hence showing all
@@ -18,12 +18,12 @@ module Umbra
         else
           current_user[:user_attributes][admin_collections_name]
         end
-      else    
-        return [nil]    
+      else
+        return [nil]
       end
     end
     private :current_user_admin_collections
-    
+
     # Find out if current_user has access to collection
     #
     # * True if current_user's admin collections is empty, this means the "global" flag is set
@@ -34,7 +34,7 @@ module Umbra
     end
     private :current_user_has_access_to_collection
     alias_method :current_user_has_access_to_collection?, :current_user_has_access_to_collection
-    
+
     # Edit authorized collection list based on submitted values
     def update_admin_collections
       @user = User.find(params[:id])
@@ -42,11 +42,11 @@ module Umbra
         # Loop through all submitted admin collections
         params[:user][admin_collections_name].keys.each do |collection|
           update_admin_collection(collection)
-        end 
+        end
       end
     end
     private :update_admin_collections
-    
+
     def update_admin_collection(collection)
       if collection_unselected?(collection)
         @user.user_collections.delete(collection)
@@ -55,12 +55,12 @@ module Umbra
       end
     end
     private :update_admin_collection
-    
+
     def collection_selected?(collection)
       params[:user][admin_collections_name][collection].to_i == 1 rescue false
     end
     private :collection_selected?
-        
+
     def collection_unselected?(collection)
       !collection_selected?(collection)
     end
@@ -68,18 +68,18 @@ module Umbra
 
     # Return which collections this admin user is authorized to view and edit
     #
-    # If no collections have been set for this user return an empty array. 
+    # If no collections have been set for this user return an empty array.
     def collections_user_can_admin
       return [] if @user.user_attributes[admin_collections_name].nil? or !@user.user_attributes[admin_collections_name].is_a? Array
       return @user.user_attributes[admin_collections_name]
     end
-    
+
     # Get the current collection code
     def current_collection(collection_name)
       @current_collection ||= repositories_info["Catalog"]["repositories"][collection_name]["admin_code"] unless collection_name.nil? or repositories_info["Catalog"]["repositories"][collection_name].nil?
     end
-    
-    # Sets a session variable to the user submitted collection 
+
+    # Sets a session variable to the user submitted collection
     def set_session_collection
       # This redirect hijacks the "Start over" function to redirect back to the correct collection instead of the generic catalog
       redirect_to("/#{session[:collection]}") if redirect_to_session_url?
@@ -87,7 +87,7 @@ module Umbra
       # Don't set it to nil though because we don't want it to default to "all collections"
       session[:collection] = params[:collection] if params[:collection].present?
     end
-    
+
     def redirect_to_session_url?
       params[:collection].blank? && session[:collection].present? && request.path == "/catalog"
     end
@@ -95,18 +95,18 @@ module Umbra
 
     # Add the session collection to the list of submitted variables
     def add_collection_param_to_search
-      # Merge collection with params only if the controller is catalog, 
+      # Merge collection with params only if the controller is catalog,
       # because Bookmarks extends Catalog we need this fix
       params.merge!({:collection => session[:collection]}) if controller_name == "catalog"
     end
-    
+
     # Get the name of the collection from the tab info, or default to blank
     #
     # * If the collection session variable was set, use that to get the collection display name from yaml
     # * If there is a current collection otherwise, use that
     # * Show blank if no collection
     def collection_name
-      if (session[:collection]) 
+      if (session[:collection])
         session_collection
       elsif current_collection(params[:collection]).present?
         params_collection
@@ -114,17 +114,17 @@ module Umbra
         ""
       end
     end
-    
+
     def session_collection
       collection_from_repositories_hash(session[:collection])
     end
     private :session_collection
-    
+
     def params_collection
       collection_from_repositories_hash(params[:collection])
     end
     private :params_collection
-    
+
     def collection_from_repositories_hash(collection)
       repository_info["repositories"][collection]["display"]
     end

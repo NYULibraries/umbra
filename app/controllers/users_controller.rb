@@ -28,6 +28,7 @@ class UsersController < ApplicationController
       :umbra_admin_collections => @user.user_collections,
       :umbra_admin => !@user.user_collections.empty?
     }
+
     @user.user_attributes = user_attributes
 
     flash[:notice] = t('users.update_success') if @user.save
@@ -47,7 +48,7 @@ class UsersController < ApplicationController
   def clear_patron_data
     @users = User.all
 
-    flash[:success] = t('users.clear_patron_data_success') if User.destroy_all("user_attributes not like '%:umbra_admin: true%'")
+    flash[:success] = t('users.clear_patron_data_success') if User.non_admin.destroy_all
 
     respond_with(@users, :location => users_url) do |format|
       format.html { redirect_to users_url }

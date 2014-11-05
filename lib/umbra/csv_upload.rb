@@ -10,40 +10,30 @@ module Umbra
     attr_accessor :csv_file, :current_user
 
     def initialize(csv_file, current_user)
+      unless csv_file.present?
+        raise ArgumentError.new("Please select a file to upload.")
+      end
+      unless csv_file.content_type == "text/csv"
+        raise ArgumentError.new("File must be in CSV format.")
+      end
       @csv_file = csv_file
       @current_user = current_user
     end
 
-    # Initialize uploading process with some top-level error handling
-    def upload
-      # Did the user submit a file?
-      if csv_file.present?
-        # If this is a valid CSV file, proceed to uploading
-        if is_valid_csv?
-          csv_to_db
-          return "Successfully loaded CSV records into database. Reindexing will take a moment."
-        else
-          return "File must be in CSV format."
-        end
-      else
-        return "Please select a file to upload."
-      end
-    end
-
     # Pull fields out of the CSV into db
-    def csv_to_db(encoding = "windows-1251:utf-8")
+    def upload(encoding = "windows-1251:utf-8")
       Rails.logger.info "Starting job for #{csv_file}"
       CSV.foreach(csv_file.tempfile, :headers => true, :encoding => encoding) do |row|
-        csv_row_to_db(row)
+        csv_row_to_db!(row)
       end
+      return true
       # Write a failed PID, if the process can't save to DB
     rescue => e
       Rails.logger.error "ERROR loading CSV: #{e}"
       write_pid_file(pid_failed)
     end
-    private :csv_to_db
 
-    def csv_row_to_db(row)
+    def csv_row_to_db!(row)
       # User can only update records he has access to
       if current_user_has_access_to_collection? row["nyu.libraries.collection"]
 
@@ -54,22 +44,22 @@ module Umbra
         facets_insert = Hash.new
         facets.keys.each {|facet| facets_insert.merge!({facet.to_sym => facets[facet.to_sym] }) }
 
-        csv_row_save(row, facets_insert)
+        csv_row_save!(row, facets_insert)
         @facets = nil
       end
     end
 
-    def csv_row_save(row, facets_insert)
+    def csv_row_save!(row, facets_insert)
       #Generate record, or find if CSV contained a unique ID matching to original-id
-      record = Umbra::Record.find_or_create_by_original_id(row["guid"])
-      # Update attrs in the record and merge in facets
-      # Delay with delayed_job
-      record.update_attributes({
-        :collection => row["nyu.libraries.collection"],
-        :title => row[dc_format(:title)],
-        :identifier => row[dc_format(:identifier)],
-        :description => row[dc_format(:description)],
-      }.merge(facets_insert))
+      record = Umbra::Record.find_or_initialize_by(original_id: row["guid"])
+      record.collection = row["nyu.libraries.collection"]
+      record.title = row[dc_format(:title)]
+      record.identifier = row[dc_format(:identifier)]
+      record.description = row[dc_format(:description)]
+      facets_insert.each do |facet,facet_value|
+        record.send("#{facet}=",facet_value)
+      end
+      record.save
     end
 
     def csv_field_to_db(field)
@@ -102,13 +92,6 @@ module Umbra
       facet.to_s.split("_list").first.split("_").unshift("dc").join(".")
     end
     private :dc_format
-
-    # Verify that the CSV is actually a CSV
-    def is_valid_csv
-      (csv_file.content_type == "text/csv")
-    end
-    alias_method :is_valid_csv?, :is_valid_csv
-    private :is_valid_csv
 
     # Create and write to the given PID file and folder structure
     def write_pid_file(pid_file)
