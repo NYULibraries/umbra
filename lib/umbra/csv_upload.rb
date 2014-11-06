@@ -7,9 +7,9 @@ require 'csv'
 module Umbra
   class CsvUpload
     include Umbra::Collections
-    attr_accessor :csv_file, :current_user
+    attr_accessor :csv_file, :current_user, :encoding
 
-    def initialize(csv_file, current_user)
+    def initialize(csv_file, current_user, encoding = "windows-1251:utf-8")
       unless csv_file.present?
         raise ArgumentError.new("Please select a file to upload.")
       end
@@ -18,10 +18,11 @@ module Umbra
       end
       @csv_file = csv_file
       @current_user = current_user
+      @encoding = encoding
     end
 
     # Pull fields out of the CSV into db
-    def upload(encoding = "windows-1251:utf-8")
+    def upload
       Rails.logger.info "Starting job for #{csv_file}"
       CSV.foreach(csv_file.tempfile, :headers => true, :encoding => encoding) do |row|
         csv_row_to_db!(row)
