@@ -1,6 +1,7 @@
 GIT
   remote: git://github.com/NYULibraries/formaggio.git
   revision: ea772f96ceb394e045b45b8197319f31491656b0
+  tag: v1.0.1
   specs:
     formaggio (1.0.1)
       cap_git_tools (~> 0.9.1)
@@ -224,12 +225,8 @@ GEM
     newrelic_rpm (3.9.6.257)
     nokogiri (1.6.4)
       mini_portile (~> 0.6.0)
-    options (2.3.2)
     polyglot (0.3.5)
     pr_geohash (1.0.0)
-    progress_bar (1.0.3)
-      highline (~> 1.6.1)
-      options (~> 2.3.0)
     protected_attributes (1.0.8)
       activemodel (>= 4.0.1, < 5.0)
     pry (0.10.1)
@@ -366,7 +363,6 @@ DEPENDENCIES
   mysql2 (~> 0.3.0)
   newrelic_rpm (~> 3.9.6)
   nyulibraries-assets!
-  progress_bar (~> 1.0.3)
   protected_attributes (~> 1.0.8)
   pry
   rails (~> 4.1.7)

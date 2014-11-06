@@ -9,7 +9,7 @@ gem 'sunspot_rails', '~> 2.1.0'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'acts_as_indexed', '~> 0.8.3'
 gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.0.4'
-gem 'formaggio', github: 'NYULibraries/formaggio'
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.0.1'
 gem 'unicode', '~> 0.4.4.1'
 gem 'mustache', '0.99.4'
 gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie'
@@ -35,7 +35,6 @@ group :development do
   gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'sunspot_solr', '~> 2.1.1'
-  gem 'progress_bar', '~> 1.0.3'
 end
 
 group :test do
@@ -49,4 +48,4 @@ group :test do
   gem 'rspec-rails', '~> 2.14.2'
 end
 
-gem 'pry', :group => [:test, :development]
+gem 'pry', group: [:test, :development]
