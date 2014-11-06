@@ -96,7 +96,7 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    config.add_show_field 'identifier_ss', :label => '', :helper_method => :link_field
+    config.add_show_field 'identifier_ss', :label => 'Resource', :helper_method => :link_field
     config.add_show_field 'title_texts', :label => 'Title'
     config.add_show_field 'description_texts', :label => 'Description', :helper_method => :html_field
     config.add_show_field 'subject_controlled_list_sms', :label => "Categories"
@@ -195,20 +195,20 @@ class CatalogController < ApplicationController
   # Our implementation of Blacklight will not serialize the query_params for some reason if the utf8 param is present
   #
   # TODO: Write a test to show how this fails in Blacklight and add back to core code
-  def save_current_search_params
-    # If it's got anything other than controller, action, total, we
-    # consider it an actual search to be saved. Can't predict exactly
-    # what the keys for a search will be, due to possible extra plugins.
-    return if (search_session.keys - [:controller, :action, :total, :counter, :commit ]) == []
-    params_copy = search_session.clone.except(:page, :utf8) # don't think we need a deep copy for this
-
-    unless @searches.collect { |search| search.query_params }.include?(params_copy)
-      new_search = Search.create(:query_params => params_copy)
-      session[:history].unshift(new_search.id)
-      # Only keep most recent X searches in history, for performance.
-      # both database (fetching em all), and cookies (session is in cookie)
-      session[:history] = session[:history].slice(0, Blacklight::Catalog::SearchHistoryWindow )
-    end
-  end
+  # def save_current_search_params
+  #   # If it's got anything other than controller, action, total, we
+  #   # consider it an actual search to be saved. Can't predict exactly
+  #   # what the keys for a search will be, due to possible extra plugins.
+  #   return if (search_session.keys - [:controller, :action, :total, :counter, :commit ]) == []
+  #   params_copy = search_session.clone.except(:page, :utf8) # don't think we need a deep copy for this
+  #
+  #   unless @searches.collect { |search| search.query_params }.include?(params_copy)
+  #     new_search = Search.create(:query_params => params_copy)
+  #     session[:history].unshift(new_search.id)
+  #     # Only keep most recent X searches in history, for performance.
+  #     # both database (fetching em all), and cookies (session is in cookie)
+  #     session[:history] = session[:history].slice(0, Blacklight::Catalog::SearchHistoryWindow )
+  #   end
+  # end
 
 end

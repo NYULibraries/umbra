@@ -34,8 +34,7 @@ module Views
 
       # Prepend modal dialog elements to the body
       def prepend_body
-        content_tag(:div, nil, :class => "modal-container")+
-        content_tag(:div, nil, :id => "ajax-modal", :class => "modal hide fade", :tabindex => "-1")
+        render partial: 'shared/ajax_modal'
       end
 
       # Prepend search box amd flash message partials before to yield

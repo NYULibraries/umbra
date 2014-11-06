@@ -27,13 +27,12 @@ class ApplicationController < ActionController::Base
   def current_user_dev
     @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", user_attributes: { umbra_admin: true, umbra_admin_collections: "global" })
   end
-  alias_method :current_user, :current_user_dev if Rails.env == 'development'
+  alias_method :current_user, :current_user_dev if Rails.env.development?
 
   # Return boolean matching the url to find out if we are in the admin view
-  def is_in_admin_view
+  def is_in_admin_view?
     !request.path.match("admin").nil?
   end
-  alias :is_in_admin_view? :is_in_admin_view
   helper_method :is_in_admin_view?
 
   ########
