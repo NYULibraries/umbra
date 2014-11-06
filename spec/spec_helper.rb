@@ -27,7 +27,6 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 def csv_fixture(filename, content_type = "text/csv")
   file = File.new(File.join(File.dirname(__FILE__), 'fixtures', 'csv', filename))
   csv_fixture = ActionDispatch::Http::UploadedFile.new(tempfile: file, filename: File.basename(file))
-  csv_fixture.headers = "Content-Disposition: form-data; name=\"csv\"; filename=\"csv_sample.csv\"\r\nContent-Type: text/csv\r\n"
   csv_fixture.content_type = content_type
   return csv_fixture
 end
@@ -35,9 +34,7 @@ end
 if Rails.env.test?
   begin
     WebMock.allow_net_connect!
-    dummy_user = User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", user_attributes: { umbra_admin: true, umbra_admin_collections: "global" })
-    Sunspot.remove_all!
-    Umbra::CsvUpload.new(csv_fixture("csv_sample.csv"), dummy_user).upload
+    Sunspot.remove_all(Umbra::Record)
   ensure
     WebMock.disable_net_connect!
   end
@@ -65,7 +62,7 @@ RSpec.configure do |config|
     # Run factory girl lint before the suite
     begin
       DatabaseCleaner.start
-      FactoryGirl.lint
+      # FactoryGirl.lint
     ensure
       DatabaseCleaner.clean
     end
@@ -101,6 +98,8 @@ VCR.configure do |c|
   c.hook_into :webmock
 end
 
+# I think the need for this is related to the usage of AuthLogic and the custom authpds
+# Once we move over to the OAuth2 model this should be removed
 def performed?
   false
 end

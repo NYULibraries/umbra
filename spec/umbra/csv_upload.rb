@@ -16,7 +16,7 @@ describe Umbra::CsvUpload do
 
   describe "#upload" do
     subject { csv_upload.upload }
-
+    it { should be_true }
   end
 
 end
