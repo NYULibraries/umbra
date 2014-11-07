@@ -70,7 +70,7 @@ class RecordsController < ApplicationController
       csv_upload = Umbra::CsvUpload.new(csv_file, current_user)
       flash[:success] = "Successfully loaded CSV records into database. Reindexing will take a moment." if csv_upload.upload
     rescue ArgumentError => e
-      flash[:danger] = e
+      flash[:error] = e.message
     end
 
     respond_with(@records) do |format|
