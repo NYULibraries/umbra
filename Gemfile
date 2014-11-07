@@ -34,7 +34,6 @@ gem 'uglifier', '>= 2.5.3'
 group :development do
   gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller', '~> 0.7.2'
-  gem 'sunspot_solr', '~> 2.1.1'
 end
 
 group :test do
@@ -49,3 +48,4 @@ group :test do
 end
 
 gem 'pry', group: [:test, :development]
+gem 'sunspot_solr', '~> 2.1.1', group: [:test, :development]
