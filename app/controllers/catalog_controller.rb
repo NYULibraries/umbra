@@ -23,7 +23,7 @@ class CatalogController < ApplicationController
       :echoParams => "explicit",
       :qf => "title_texts^5.0 description_texts",
       :pf => "title_texts^5.0 description_texts",
-      :defType => "dismax",
+      :defType => "edismax",
       'q.alt' => '*:*'
     }
 
