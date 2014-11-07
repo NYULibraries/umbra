@@ -78,13 +78,13 @@ describe RecordsController, :type => :controller do
     context "when csv is missing" do
       let(:csv_file) { "" }
       it "should complain about a missing CSV file" do
-        expect( subject.request.flash[:danger] ).to_not be_nil
+        expect( subject.request.flash[:error] ).to_not be_nil
       end
     end
     context "when csv is an invalid content type" do
       let(:csv_file) { csv_fixture("csv_sample.csv", "evil/virus") }
       it "should complain about an invalid content type" do
-        expect( subject.request.flash[:danger] ).to_not be_nil
+        expect( subject.request.flash[:error] ).to_not be_nil
       end
     end
   end
