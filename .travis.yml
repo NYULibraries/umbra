@@ -6,13 +6,16 @@ rvm:
   - 2.1.3
 
 env:
-  - SOLR_URL='http://localhost:8983/solr/test'
+  - SOLR_URL='http://localhost:8984/solr/test'
 
 before_script:
   - mysql -e 'create database umbra_test;'
   - RAILS_ENV=test bundle exec rake db:schema:load
-  - bundle exec rake sunspot:solr:start
+  - bundle exec sunspot-solr start -p 8984
   - sleep 100
+
+after_script:
+  - bundle exec sunspot-solr stop -p 8984
 
 bundler_args: --without development
 
