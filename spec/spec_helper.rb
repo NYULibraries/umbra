@@ -16,12 +16,29 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
+require 'database_cleaner'
 require "authlogic/test_case"
 include Authlogic::TestCase
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+def csv_fixture(filename, content_type = "text/csv")
+  file = File.new(File.join(File.dirname(__FILE__), 'fixtures', 'csv', filename))
+  csv_fixture = ActionDispatch::Http::UploadedFile.new(tempfile: file, filename: File.basename(file))
+  csv_fixture.content_type = content_type
+  return csv_fixture
+end
+
+if Rails.env.test?
+  begin
+    WebMock.allow_net_connect!
+    Sunspot.remove_all(Umbra::Record)
+  ensure
+    WebMock.disable_net_connect!
+  end
+end
 
 RSpec.configure do |config|
   # ## Mock Framework
@@ -37,8 +54,24 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.before(:suite) do
+    # Startout by trucating all the tables
+    DatabaseCleaner.clean_with :truncation
+    # Then use transactions to roll back other changes
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+
+    # Run factory girl lint before the suite
+    begin
+      DatabaseCleaner.start
+      # FactoryGirl.lint
+    ensure
+      DatabaseCleaner.clean
+    end
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.start
+    example.run
+    DatabaseCleaner.clean
   end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -59,12 +92,14 @@ RSpec.configure do |config|
 end
 
 VCR.configure do |c|
+  c.ignore_localhost = true
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.configure_rspec_metadata!
   c.hook_into :webmock
 end
 
-def csv_fixture filename
-  file = File.new(File.join(File.dirname(__FILE__), 'fixtures', 'csv', filename))
-  ActionDispatch::Http::UploadedFile.new(:tempfile => file, :filename => File.basename(file))
+# I think the need for this is related to the usage of AuthLogic and the custom authpds
+# Once we move over to the OAuth2 model this should be removed
+def performed?
+  false
 end

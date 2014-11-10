@@ -8,9 +8,9 @@ describe UserSession do
 
   describe "#additional_attributes" do
     subject { user_session.additional_attributes }
-
-    xit { should eql "" }
-
+    context "when there is no PDS user" do
+      it { should be_empty }
+    end
   end
 
 end

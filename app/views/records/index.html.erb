@@ -36,5 +36,6 @@
 
 <br />
 
-<%= icon_tag :add %>
-<%= link_to 'New Record', new_record_path %>
+<%= link_to new_record_path, class: "btn btn-default" do %>
+  <i class="glyphicon glyphicon-plus"></i> New Record
+<% end %>

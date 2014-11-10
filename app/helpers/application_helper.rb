@@ -18,7 +18,7 @@ module ApplicationHelper
     direction_icon = (direction.eql? "desc") ? :sort_desc : :sort_asc
     search = params[:search]
     html = link_to title, params.merge(:sort => column, :direction => direction, :page => nil, :id => ""), {:class => css_class}
-    html << icon_tag(direction_icon) if column == sort_column
+    html << content_tag(:i, nil, class: "glyphicon glyphicon-sort") if column == sort_column
     return html
   end
 

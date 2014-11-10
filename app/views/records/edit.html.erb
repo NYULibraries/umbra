@@ -2,7 +2,11 @@
 
 <%= render 'form' %>
 
-<%= icon_tag :show %><%= link_to 'Show', @record %> |
-<%= icon_tag :back %><%= link_to 'Back', records_path %>
+<br />
 
-
+<%= link_to @record, class: "btn btn-link" do %>
+  <i class="glyphicon glyphicon-search"></i> Edit
+<% end %>
+<%= link_to records_path, class: "btn btn-link" do %>
+  <i class="glyphicon glyphicon-chevron-left"></i> Back
+<% end %>
