@@ -188,27 +188,4 @@ class CatalogController < ApplicationController
     solr_parameters[:fq] << "collection_ss:#{current_collection(user_parameters[:collection])}" unless current_collection(user_parameters[:collection]).nil?
   end
 
-
-  # This is an override of lib/blacklight/catalog.rb#save_current_search_params
-  #
-  # The original function creates a Search instance after each search to track search history
-  # Our implementation of Blacklight will not serialize the query_params for some reason if the utf8 param is present
-  #
-  # TODO: Write a test to show how this fails in Blacklight and add back to core code
-  # def save_current_search_params
-  #   # If it's got anything other than controller, action, total, we
-  #   # consider it an actual search to be saved. Can't predict exactly
-  #   # what the keys for a search will be, due to possible extra plugins.
-  #   return if (search_session.keys - [:controller, :action, :total, :counter, :commit ]) == []
-  #   params_copy = search_session.clone.except(:page, :utf8) # don't think we need a deep copy for this
-  #
-  #   unless @searches.collect { |search| search.query_params }.include?(params_copy)
-  #     new_search = Search.create(:query_params => params_copy)
-  #     session[:history].unshift(new_search.id)
-  #     # Only keep most recent X searches in history, for performance.
-  #     # both database (fetching em all), and cookies (session is in cookie)
-  #     session[:history] = session[:history].slice(0, Blacklight::Catalog::SearchHistoryWindow )
-  #   end
-  # end
-
 end
