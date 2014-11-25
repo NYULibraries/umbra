@@ -23,13 +23,9 @@ class UsersController < ApplicationController
 
   # PUT /users/1
   def update
-    # Update user attributes
-    user_attributes = {
-      :umbra_admin_collections => @user.user_collections,
-      :umbra_admin => !@user.user_collections.empty?
-    }
-
-    @user.user_attributes = user_attributes
+    # Update admin preferences
+    @user.admin = @user.user_collections.present?
+    @user.admin_collections = @user.user_collections
 
     flash[:notice] = t('users.update_success') if @user.save
 

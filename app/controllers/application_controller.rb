@@ -11,9 +11,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout Proc.new{ |controller| (controller.request.xhr?) ? false : "application" }
 
-  # Adds authentication actions in application controller
-  include Authpds::Controllers::AuthpdsController
-
   # If user is an admin pass back true, otherwise redirect to root
   def authenticate_admin
     unless current_user && current_user.admin?
@@ -23,9 +20,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def new_session_path(scope)
+    new_user_session_path
+  end
+
   # Imitate logged in admin in dev
   def current_user_dev
-    @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", user_attributes: { umbra_admin: true, umbra_admin_collections: "global" })
+    @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", admin: true, admin_collections: ["global"])
   end
   alias_method :current_user, :current_user_dev if Rails.env.development?
 
