@@ -4,18 +4,9 @@ describe Umbra::Collections do
 
   include Umbra::Collections
 
-  let(:umbra_admin_collections) { ["global"] }
-  let(:user_attributes) do
-    {
-      :umbra_admin => true,
-      :umbra_admin_collections => umbra_admin_collections
-    }
-  end
-  let(:user) do
-    User.new({
-      :user_attributes => user_attributes
-    })
-  end
+  let(:admin_collections) { ["global"] }
+  let(:admin) { true }
+  let(:user) { User.new(admin: admin, admin_collections: admin_collections) }
 
   describe ".current_user_admin_collections" do
 
@@ -27,21 +18,21 @@ describe Umbra::Collections do
     end
 
     context "when user collections is empty" do
-      let(:umbra_admin_collections) { [] }
+      let(:admin_collections) { [] }
       it { should eql([nil]) }
     end
 
     context "when user collections is nil" do
-      let(:umbra_admin_collections) { nil }
+      let(:admin_collections) { nil }
       it { should eql([nil]) }
     end
 
     context "when user has access to some non global collections" do
-      let(:umbra_admin_collections) { ["vbl", "dataservices"] }
+      let(:admin_collections) { ["vbl", "dataservices"] }
       it { should eql(["vbl", "dataservices"]) }
     end
 
-    context "when user_attributes is nil" do
+    context "when admin_collections is nil" do
       let(:current_user) { User.new }
       it { should eql([nil]) }
     end

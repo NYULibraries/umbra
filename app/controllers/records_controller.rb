@@ -38,7 +38,7 @@ class RecordsController < ApplicationController
   # POST /records
   # POST /records.json
   def create
-    @record = Umbra::Record.new(params[:record])
+    @record = Umbra::Record.new(record_params)
 
     flash[:notice] = t("records.create_success") if @record.save
     respond_with(@record)
@@ -49,7 +49,7 @@ class RecordsController < ApplicationController
   def update
     @record = Umbra::Record.find(params[:id])
 
-    flash[:notice] = t("records.update_success") if @record.update_attributes(params[:record])
+    flash[:notice] = t("records.update_success") if @record.update_attributes(record_params)
     respond_with(@record)
   end
 
@@ -87,9 +87,14 @@ class RecordsController < ApplicationController
   # Convert blank values to nil values in params
   # Blacklight prints an empty "Field name:" label if the value is blank so this makes sure the values are nil
   def blank_to_nil_params
-    params[:record].merge!(params[:record]){|k, v| v.blank? ? nil : v}
+    record_params.merge!(record_params){|k, v| v.blank? ? nil : v}
   end
   private :blank_to_nil_params
+
+  def record_params
+    params.require(:record).permit(*Umbra::Record::RECORD_ATTRIBUTES)
+  end
+  private :record_params
 
   # Default admin search in Sunspot
   def record_default_search

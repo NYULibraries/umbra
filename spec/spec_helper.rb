@@ -17,8 +17,6 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
 require 'database_cleaner'
-require "authlogic/test_case"
-include Authlogic::TestCase
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -96,10 +94,4 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.configure_rspec_metadata!
   c.hook_into :webmock
-end
-
-# I think the need for this is related to the usage of AuthLogic and the custom authpds
-# Once we move over to the OAuth2 model this should be removed
-def performed?
-  false
 end
