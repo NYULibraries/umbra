@@ -26,3 +26,6 @@ staging:
 
 production:
   <<: *umbra
+
+cucumber:
+  <<: *test
