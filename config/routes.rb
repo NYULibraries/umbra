@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     # get 'users/:provider/:id', to: 'users#show', as: 'user', constraints: { provider: "nyulibraries" }
     get 'logout', to: 'devise/sessions#destroy', as: :logout
-    get 'login/', to: redirect('/users/auth/nyulibraries'), as: :login
+    get 'login/', to: redirect('/umbra/users/auth/nyulibraries'), as: :login
   end
 end
