@@ -17,6 +17,7 @@ Feature: Log in/out links
     Then I should see a logout link
     And I should see "Log-out Dev" as the text of the logout link
 
+  @wip
   Scenario: A logged out user should be redirected to the login page when clicking login
     Given I am not logged in
     And I am on the homepage
