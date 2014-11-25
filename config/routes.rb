@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     delete "clear_patron_data", :to => "users#clear_patron_data"
   end
 
-  get 'login', :to => 'user_sessions#new', :as => :login
-  get 'logout', :to => 'user_sessions#destroy', :as => :logout
-  get 'validate', :to => 'user_sessions#validate', :as => :validate
-  resources :user_sessions
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    # get 'users/:provider/:id', to: 'users#show', as: 'user', constraints: { provider: "nyulibraries" }
+    get 'logout', to: 'devise/sessions#destroy', as: :logout
+    get 'login/', to: redirect('/users/auth/nyulibraries'), as: :login
+  end
 end
