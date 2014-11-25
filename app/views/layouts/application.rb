@@ -35,7 +35,6 @@ module Views
       # Prepend modal dialog elements to the body
       def prepend_body
         render partial: 'shared/ajax_modal'
-        # render partial: 'shared/flash_messages'
       end
 
       def prepend_yield
@@ -43,9 +42,6 @@ module Views
 
         prepend_yield = ""
         prepend_yield = render :partial => 'shared/header_navbar' unless is_in_admin_view?
-        prepend_yield += content_tag :div, :id => "main-flashes" do
-          render :partial => '/flash_msg'
-        end
         return prepend_yield.html_safe
       end
 
