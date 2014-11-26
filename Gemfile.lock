@@ -27,7 +27,7 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/omniauth-nyulibraries.git
-  revision: b1ee24ad2ec66ba829dada927a4b5e7b24cdcdc3
+  revision: 70beff9ab3de41c959a1abb9c4019244aaf12e83
   specs:
     omniauth-nyulibraries (1.1.0)
       omniauth-oauth2 (~> 1.2.0)
