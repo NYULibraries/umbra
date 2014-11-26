@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125201520) do
+ActiveRecord::Schema.define(version: 20141126180051) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "user_id",       null: false
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20141125201520) do
     t.string   "last_sign_in_ip"
     t.string   "provider",           default: "",    null: false
     t.string   "aleph_id"
-    t.string   "institution"
+    t.string   "institution_code"
     t.string   "patron_status"
     t.boolean  "admin",              default: false
     t.text     "admin_collections"
