@@ -17,7 +17,7 @@ describe CatalogController do
       get :index, q: "", collection: "vbl", search_field: "all_fields"
       expect(assigns_response.docs.size).to be > 0
     end
-    it "should get some search results when searching on DataServices collection" do
+    xit "should get some search results when searching on DataServices collection" do
       get :index, q: "", collection: "dataservices", search_field: "all_fields"
       expect(assigns_response.docs.size).to be > 0
     end
