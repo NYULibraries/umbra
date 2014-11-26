@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Alias new_session_path as login_path for default devise config
   def new_session_path(scope)
     login_path
   end
