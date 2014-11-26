@@ -6,7 +6,7 @@ FactoryGirl.define do
     provider 'nyu_shibboleth'
     firstname 'Dev'
     lastname 'Eloper'
-    institution 'NYU'
+    institution_code "NYU"
     aleph_id { (ENV['BOR_ID'] || 'BOR_ID') }
 
     trait :nyu_aleph_attributes do
