@@ -20,10 +20,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def new_session_path(scope)
-    new_user_session_path
-  end
-
   # Imitate logged in admin in dev
   def current_user_dev
     @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", admin: true, admin_collections: ["global"])
