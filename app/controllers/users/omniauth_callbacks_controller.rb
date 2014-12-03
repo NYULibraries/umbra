@@ -1,6 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def nyulibraries
-    @user = find_user_with_or_without_provider.first_or_create(attributes_from_omniauth)
+    @user = find_user_with_or_without_provider.first_or_initialize(attributes_from_omniauth)
+    @user.update_attributes(attributes_from_omniauth)
 
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
@@ -12,7 +13,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def find_user_with_or_without_provider
-    @user ||= (find_user_with_provider.present?) ? find_user_with_provider : find_user_without_provider
+    @find_user_with_or_without_provider ||= (find_user_with_provider.present?) ? find_user_with_provider : find_user_without_provider
   end
 
   def find_user_with_provider
@@ -41,6 +42,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def attributes_from_omniauth
     {
+      provider: omniauth_provider,
       email: omniauth_email,
       firstname: omniauth_firstname,
       lastname: omniauth_lastname,

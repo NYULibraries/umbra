@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   def current_user_dev
     @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", admin: true, admin_collections: ["global"])
   end
-  alias_method :current_user, :current_user_dev if Rails.env.development?
+  # alias_method :current_user, :current_user_dev if Rails.env.development?
 
   # Return boolean matching the url to find out if we are in the admin view
   def is_in_admin_view?
