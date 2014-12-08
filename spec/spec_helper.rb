@@ -87,6 +87,12 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  Dir[Rails.root.join("features/support/helpers/**/*.rb")].each do |helper|
+    require helper
+    helper_name = "UmbraFeatures::#{helper.camelize.demodulize.split('.').first}"
+    config.include helper_name.constantize
+  end
 end
 
 VCR.configure do |c|

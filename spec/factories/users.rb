@@ -3,7 +3,7 @@ FactoryGirl.define do
   factory User do
     sequence(:username) { |n| "user#{n}" }
     sequence(:email) { |n| "#{username}@example.com" }
-    provider 'nyu_shibboleth'
+    provider 'nyulibraries'
     firstname 'Dev'
     lastname 'Eloper'
     institution_code "NYU"
