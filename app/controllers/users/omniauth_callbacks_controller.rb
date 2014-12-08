@@ -1,5 +1,8 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  before_filter :require_valid_omniauth, only: :nyulibraries
   def nyulibraries
+    # Find existing or initialize new user,
+    # and save new attributes each time
     @user = find_user_with_or_without_provider.first_or_initialize(attributes_from_omniauth)
     @user.update_attributes(attributes_from_omniauth)
 
@@ -48,7 +51,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       lastname: omniauth_lastname,
       institution_code: omniauth_institution,
       aleph_id: omniauth_aleph_id,
-      patron_status: omniauth_aleph_identity.properties.patron_status
+      patron_status: omniauth_patron_status
     }
   end
 
@@ -81,6 +84,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def omniauth_aleph_id
     unless omniauth_aleph_identity.blank?
       @omniauth_aleph_id ||= omniauth_aleph_identity.uid
+    end
+  end
+
+  def omniauth_patron_status
+    unless omniauth_aleph_identity.blank?
+      @omniauth_patron_status ||= omniauth_aleph_identity.properties.patron_status
     end
   end
 end
