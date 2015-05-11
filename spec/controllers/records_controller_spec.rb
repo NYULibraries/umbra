@@ -6,6 +6,7 @@ describe RecordsController, :type => :controller do
 
   let(:user) { create(:user_with_admin_collections) }
   let(:record) { create(:record) }
+  before(:each) { @request.cookies["_check_passive_login"] = true }
   before(:each) { controller.stub(:current_user).and_return(user) }
 
   describe "GET index" do

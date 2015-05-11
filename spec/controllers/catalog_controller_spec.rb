@@ -3,6 +3,7 @@ describe CatalogController do
 
   let!(:dss_record) { create(:dss_record) }
   let!(:vbl_record) { create(:vbl_record) }
+  before(:each) { @request.cookies["_check_passive_login"] = true }
 
   describe "GET /index" do
     it "should not get search results when searching an invalid term" do
