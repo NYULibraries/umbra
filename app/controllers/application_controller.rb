@@ -20,13 +20,14 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
+
   #
   def passive_login
     if !cookies[:_check_passive_login]
       cookies[:_check_passive_login] = true
       full_login_path = "#{request.base_url}#{login_path}"
       current_path = request.original_url
-      redirect_to "#{ENV['PASSIVE_LOGIN_URL']}?login_url=#{full_login_path}&return_uri=#{current_path}"
+      redirect_to "#{ENV['PASSIVE_LOGIN_URL']}?login_url=#{full_login_path}&return_uri=#{request.url}"
     end
   end
 
