@@ -25,10 +25,12 @@ class ApplicationController < ActionController::Base
   def passive_login
     if !cookies[:_check_passive_login]
       cookies[:_check_passive_login] = true
-      full_login_path = "#{request.base_url}#{login_path}"
-      current_path = request.original_url
-      redirect_to "#{ENV['PASSIVE_LOGIN_URL']}?login_url=#{full_login_path}&return_uri=#{request.url}"
+      redirect_to passive_login_url
     end
+  end
+
+  def passive_login_url
+    "#{ENV['PASSIVE_LOGIN_URL']}?login_url=#{request.base_url}#{login_path}&return_uri=#{request.url}"
   end
 
   # Alias new_session_path as login_path for default devise config
