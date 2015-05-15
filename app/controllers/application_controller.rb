@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller
-  before_filter :passive_login
+  prepend_before_filter :passive_login
   include Blacklight::Controller
 
   include Umbra::Collections
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def passive_login_url
-    "#{ENV['PASSIVE_LOGIN_URL']}?login_url=#{request.base_url}#{login_path}&return_uri=#{request.url}"
+    "#{ENV['PASSIVE_LOGIN_URL']}?client_id=#{ENV['APP_ID']}&return_uri=#{request.url}&login_path=#{Rails.application.config.action_controller.relative_url_root}/login"
   end
 
   # Alias new_session_path as login_path for default devise config
