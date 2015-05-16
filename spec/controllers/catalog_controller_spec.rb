@@ -16,7 +16,7 @@ describe CatalogController do
       before {  get :index, collection: "vbl" }
       subject { response }
       it("should have a 302 status") { expect(subject.status).to be(302) }
-      it { should redirect_to("#{ENV['PASSIVE_LOGIN_URL']}?login_url=#{request.base_url}#{login_path}&return_uri=#{request.url}") }
+      it { should redirect_to("#{ENV['PASSIVE_LOGIN_URL']}?client_id=#{ENV['APP_ID']}&return_uri=#{request.url}&login_path=#{Rails.application.config.action_controller.relative_url_root}/login") }
       it("should set _check_passive_login cookie") { expect(subject.cookies["_check_passive_login"]).to be_true }
     end
   end
