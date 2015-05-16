@@ -59,5 +59,9 @@ module UmbraFeatures
         }
       }
     end
+
+    def ignore_passive_login(path="/")
+      ApplicationController.any_instance.should_receive(:passive_login_url).and_return("#{path}")
+    end
   end
 end
