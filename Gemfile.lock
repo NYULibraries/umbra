@@ -15,6 +15,14 @@ GIT
       rvm-capistrano (~> 1.5.0)
 
 GIT
+  remote: git://github.com/NYULibraries/mustache-rails.git
+  revision: d219b298ddc94ca0c4b749125a803f74157ddd03
+  specs:
+    mustache-rails (0.2.3)
+      actionpack (>= 3.1)
+      mustache (~> 0.99.4)
+
+GIT
   remote: git://github.com/NYULibraries/nyulibraries-assets.git
   revision: 31a31641f91362ae32a8524b6cdc03f98cb04ca0
   tag: v4.0.4
@@ -55,14 +63,6 @@ GIT
       nokogiri (~> 1.6.0)
       rake (~> 10.1.0)
       require_all (~> 1.3.1)
-
-GIT
-  remote: git://github.com/josh/mustache-rails.git
-  revision: d219b298ddc94ca0c4b749125a803f74157ddd03
-  specs:
-    mustache-rails (0.2.3)
-      actionpack (>= 3.1)
-      mustache (~> 0.99.4)
 
 GEM
   remote: https://rubygems.org/
