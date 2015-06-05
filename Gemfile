@@ -12,7 +12,7 @@ gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.3.0'
 gem 'unicode', '~> 0.4.4.1'
 gem 'mustache', '0.99.4'
-gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie'
+gem 'mustache-rails', github: 'NYULibraries/mustache-rails', require: 'mustache/railtie'
 gem 'dalli', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.9.6'
 gem 'comma', '~> 3.2.0'
