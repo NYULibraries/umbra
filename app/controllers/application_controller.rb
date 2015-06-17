@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller
-  before_filter :passive_login
+  prepend_before_filter :passive_login
   include Blacklight::Controller
 
   include Umbra::Collections
@@ -20,15 +20,16 @@ class ApplicationController < ActionController::Base
       return true
     end
   end
+
   #
   def passive_login
     if !cookies[:_check_passive_login]
       cookies[:_check_passive_login] = true
-      full_login_path = "#{request.base_url}#{login_path}"
-      current_path = request.original_url
-      redirect_to "#{ENV['PASSIVE_LOGIN_URL']}?login_url=#{full_login_path}&return_uri=#{current_path}"
+      redirect_to passive_login_url
     end
   end
+
+
 
   # Alias new_session_path as login_path for default devise config
   def new_session_path(scope)
@@ -80,4 +81,17 @@ class ApplicationController < ActionController::Base
   end
   helper_method :repository_info
 
+  private
+
+  def passive_login_url
+    "#{ENV['PASSIVE_LOGIN_URL']}?client_id=#{ENV['APP_ID']}&return_uri=#{request_url_escaped}&login_path=#{login_path_escaped}"
+  end
+
+  def request_url_escaped
+    CGI::escape(request.url)
+  end
+
+  def login_path_escaped
+    CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/login")
+  end
 end
