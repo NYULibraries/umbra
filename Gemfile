@@ -25,7 +25,7 @@ gem 'authpds', github: 'barnabyalter/authpds'
 gem 'authpds-nyu', github: 'barnabyalter/authpds-nyu'
 # /Transition gems
 
-gem 'sass-rails', '>= 5.0.0.beta1'
+gem 'sass-rails', '5.0.0.beta1'
 gem 'compass-rails', '~> 2.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', '~> 0.12.0', platforms: :ruby
