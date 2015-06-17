@@ -13,10 +13,12 @@ describe CatalogController do
       it("should have a 200 status") { expect(subject.status).to be(200) }
     end
     context 'when _check_passive_login cookie has not been set' do
+      let(:request_url_escaped) {CGI::escape(request.url)}
+      let(:login_path_escaped) {CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/login")}
       before {  get :index, collection: "vbl" }
       subject { response }
       it("should have a 302 status") { expect(subject.status).to be(302) }
-      it { should redirect_to("#{ENV['PASSIVE_LOGIN_URL']}?client_id=#{ENV['APP_ID']}&return_uri=#{request.url}&login_path=#{Rails.application.config.action_controller.relative_url_root}/login") }
+      it { should redirect_to("#{ENV['PASSIVE_LOGIN_URL']}?client_id=#{ENV['APP_ID']}&return_uri=#{request_url_escaped}&login_path=#{login_path_escaped}") }
       it("should set _check_passive_login cookie") { expect(subject.cookies["_check_passive_login"]).to be_true }
     end
   end

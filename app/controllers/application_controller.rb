@@ -29,9 +29,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def passive_login_url
-    "#{ENV['PASSIVE_LOGIN_URL']}?client_id=#{ENV['APP_ID']}&return_uri=#{request.url}&login_path=#{Rails.application.config.action_controller.relative_url_root}/login"
-  end
+
 
   # Alias new_session_path as login_path for default devise config
   def new_session_path(scope)
@@ -83,4 +81,17 @@ class ApplicationController < ActionController::Base
   end
   helper_method :repository_info
 
+  private
+
+  def passive_login_url
+    "#{ENV['PASSIVE_LOGIN_URL']}?client_id=#{ENV['APP_ID']}&return_uri=#{request_url_escaped}&login_path=#{login_path_escaped}"
+  end
+
+  def request_url_escaped
+    CGI::escape(request.url)
+  end
+
+  def login_path_escaped
+    CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/login")
+  end
 end
