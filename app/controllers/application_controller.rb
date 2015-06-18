@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  #
+  # Check for passive login if you haven't already 
   def passive_login
     if !cookies[:_check_passive_login]
       cookies[:_check_passive_login] = true
@@ -29,7 +29,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
+  # After signing out from the local application,
+  # redirect to the logout path for the Login app
+  def after_sign_out_path_for(resource_or_scope)
+    if ENV['SSO_LOGOUT_URL'].present?
+      ENV['SSO_LOGOUT_URL']
+    else
+      super(resource_or_scope)
+    end
+  end
 
   # Alias new_session_path as login_path for default devise config
   def new_session_path(scope)
