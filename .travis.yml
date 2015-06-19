@@ -7,7 +7,7 @@ rvm:
   - 2.1.5
 
 env:
-  - SOLR_URL='http://localhost:8984/solr/test'
+  - SOLR_URL='http://localhost:8984/solr/test' SSO_LOGOUT_URL=https://dev.login.library.nyu.edu/logout
 
 before_script:
   - mysql -e 'create database umbra_test;'
