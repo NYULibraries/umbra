@@ -415,7 +415,7 @@ DEPENDENCIES
   pry (~> 0.10.1)
   rails (~> 4.1.11)
   rspec-rails (~> 2.14.0)
-  sass-rails (= 5.0.0.beta1)
+  sass-rails (>= 5.0.0.beta1)
   selenium-webdriver (~> 2.45.0)
   simplecov
   simplecov-rcov
