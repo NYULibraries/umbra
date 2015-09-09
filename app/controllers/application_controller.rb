@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller
+  prepend_before_filter :passive_login
   include Blacklight::Controller
 
   include Umbra::Collections
@@ -11,9 +12,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout Proc.new{ |controller| (controller.request.xhr?) ? false : "application" }
 
-  # Adds authentication actions in application controller
-  include Authpds::Controllers::AuthpdsController
-
   # If user is an admin pass back true, otherwise redirect to root
   def authenticate_admin
     unless current_user && current_user.admin?
@@ -23,11 +21,34 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Check for passive login if you haven't already
+  def passive_login
+    if !cookies[:_check_passive_login]
+      cookies[:_check_passive_login] = true
+      redirect_to passive_login_url
+    end
+  end
+
+  # After signing out from the local application,
+  # redirect to the logout path for the Login app
+  def after_sign_out_path_for(resource_or_scope)
+    if ENV['SSO_LOGOUT_PATH'].present?
+      "#{ENV['LOGIN_URL']}#{ENV['SSO_LOGOUT_PATH']}"
+    else
+      super(resource_or_scope)
+    end
+  end
+
+  # Alias new_session_path as login_path for default devise config
+  def new_session_path(scope)
+    login_path
+  end
+
   # Imitate logged in admin in dev
   def current_user_dev
-    @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", user_attributes: { umbra_admin: true, umbra_admin_collections: "global" })
+    @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", admin: true, admin_collections: ["global"])
   end
-  alias_method :current_user, :current_user_dev if Rails.env.development?
+  # alias_method :current_user, :current_user_dev if Rails.env.development?
 
   # Return boolean matching the url to find out if we are in the admin view
   def is_in_admin_view?
@@ -68,4 +89,17 @@ class ApplicationController < ActionController::Base
   end
   helper_method :repository_info
 
+  private
+
+  def passive_login_url
+    "#{ENV['LOGIN_URL']}#{ENV['PASSIVE_LOGIN_PATH']}?client_id=#{ENV['APP_ID']}&return_uri=#{request_url_escaped}&login_path=#{login_path_escaped}"
+  end
+
+  def request_url_escaped
+    CGI::escape(request.url)
+  end
+
+  def login_path_escaped
+    CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/login")
+  end
 end

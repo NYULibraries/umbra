@@ -16,7 +16,7 @@ module Umbra
         if current_user.has_global_collection?
           []
         else
-          current_user[:user_attributes][admin_collections_name]
+          current_user.admin_collections
         end
       else
         return [nil]
@@ -70,8 +70,8 @@ module Umbra
     #
     # If no collections have been set for this user return an empty array.
     def collections_user_can_admin
-      return [] if @user.user_attributes[admin_collections_name].nil? or !@user.user_attributes[admin_collections_name].is_a? Array
-      return @user.user_attributes[admin_collections_name]
+      return [] if @user.admin_collections.nil? or !@user.admin_collections.is_a? Array
+      return @user.admin_collections
     end
 
     # Get the current collection code
