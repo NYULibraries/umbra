@@ -21,7 +21,7 @@ gem 'blacklight', '~> 5.7.0'
 gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
 gem 'devise', '~> 3.4.1'
 
-gem 'sass-rails', '>= 5.0.0.beta1'
+gem 'sass-rails', '5.0.0.beta1'
 gem 'compass-rails', '~> 2.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', '~> 0.12.0', platforms: :ruby
