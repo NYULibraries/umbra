@@ -11,7 +11,7 @@ module Umbra
 
     validates_presence_of :collection, :title
 
-    attr_accessible :collection, :description, :identifier, :record_attributes, :title, :original_id
+    RECORD_ATTRIBUTES = [:collection, :description, :identifier, :record_attributes, :title, :original_id]
 
     # Facets use Dublin Core naming scheme
     add_facets :extent, :coverage_spatial, :coverage_temporal, :coverage_jurisdiction,
@@ -19,7 +19,7 @@ module Umbra
 
     # Creat attr accessors for each facet list
     facets_accessible.each do |facet|
-      attr_accessible facet
+      RECORD_ATTRIBUTES << facet
     end
 
     # Make each facet set taggable

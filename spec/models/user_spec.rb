@@ -42,16 +42,16 @@ describe User do
     end
     context "when user is a non admin" do
       context "and user has admin collections" do
-        let(:user) { create(:non_admin, user_attributes: {umbra_admin_collections: ["VBL"],umbra_admin: false}) }
+        let(:user) { create(:non_admin, admin: false, admin_collections: ["VBL"]) }
         it { should be_true }
       end
       context "and user doesn't have admin collections" do
-        let(:user) { create(:non_admin, user_attributes: {umbra_admin_collections: [],umbra_admin: false}) }
+        let(:user) { create(:non_admin, admin: false, admin_collections: []) }
         it { should be_false }
       end
     end
-    context "when user doesn't have user attributes" do
-      let(:user) { create(:non_admin, user_attributes: {}) }
+    context "when user doesn't have admin" do
+      let(:user) { create(:non_admin, admin: nil) }
       it { should be_false }
     end
   end
@@ -79,14 +79,9 @@ describe User do
       it { should be_false }
     end
     context "when user doesn't have user attributes" do
-      let(:user) { create(:non_admin, user_attributes: {}) }
+      let(:user) { create(:non_admin, admin: nil) }
       it { should be_false }
     end
-  end
-
-  describe "#admin_collections_name" do
-    subject { user.admin_collections_name }
-    it { should eql :umbra_admin_collections }
   end
 
 end
