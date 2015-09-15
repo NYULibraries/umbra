@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller
+  prepend_before_filter :passive_login
   include Blacklight::Controller
 
   include Umbra::Collections
@@ -17,6 +18,14 @@ class ApplicationController < ActionController::Base
       redirect_to(root_path) and return
     else
       return true
+    end
+  end
+
+  # Check for passive login if you haven't already
+  def passive_login
+    if !cookies[:_check_passive_login]
+      cookies[:_check_passive_login] = true
+      redirect_to passive_login_url
     end
   end
 
@@ -81,6 +90,10 @@ class ApplicationController < ActionController::Base
   helper_method :repository_info
 
   private
+
+  def passive_login_url
+    "#{ENV['LOGIN_URL']}#{ENV['PASSIVE_LOGIN_PATH']}?client_id=#{ENV['APP_ID']}&return_uri=#{request_url_escaped}"
+  end
 
   def request_url_escaped
     CGI::escape(request.url)
