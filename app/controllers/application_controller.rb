@@ -29,6 +29,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # This makes sure you redirect to the correct location after passively
+  # logging in or after getting sent back not logged in
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+  end
+
   # After signing out from the local application,
   # redirect to the logout path for the Login app
   def after_sign_out_path_for(resource_or_scope)
