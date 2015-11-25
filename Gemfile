@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1.11'
+gem 'rails', '~> 4.2.0'
 gem 'mysql2', '~> 0.3.0'
 gem 'json', '~> 1.8.0'
 gem 'jquery-rails', '~> 3.1.0'
@@ -22,7 +22,7 @@ gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag:
 gem 'devise', '~> 3.4.1'
 
 gem 'sass-rails', '>= 5.0.0.beta1'
-gem 'compass-rails', '~> 2.0.0'
+gem 'compass-rails', '~> 2.0.5'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', '~> 0.12.0', platforms: :ruby
 gem 'uglifier', '>= 2.5.3'
