@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.1.11'
+gem 'rails', '~> 4.2.0'
 gem 'mysql2', '~> 0.3.0'
 gem 'json', '~> 1.8.0'
 gem 'jquery-rails', '~> 3.1.0'
@@ -9,7 +9,7 @@ gem 'sunspot_rails', '~> 2.1.0'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'acts_as_indexed', '~> 0.8.3'
 gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.4.3'
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.4.2'
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.5.2'
 gem 'unicode', '~> 0.4.4.1'
 gem 'mustache', '0.99.4'
 gem 'mustache-rails', github: 'NYULibraries/mustache-rails', require: 'mustache/railtie'
@@ -22,7 +22,7 @@ gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag:
 gem 'devise', '~> 3.4.1'
 
 gem 'sass-rails', '>= 5.0.0.beta1'
-gem 'compass-rails', '~> 2.0.0'
+gem 'compass-rails', '~> 2.0.5'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', '~> 0.12.0', platforms: :ruby
 gem 'uglifier', '>= 2.5.3'

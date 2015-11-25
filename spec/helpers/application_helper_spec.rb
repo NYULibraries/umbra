@@ -23,7 +23,7 @@ describe ApplicationHelper do
   describe ".link_field" do
     subject { link_field(document) }
     let(:field) { :identifier_ss }
-    it { should eql '<a href="http://google.com" target="_blank">Link to resource</a>' }
+    it { should eql '<a target="_blank" href="http://google.com">Link to resource</a>' }
   end
 
   describe ".html_field" do
