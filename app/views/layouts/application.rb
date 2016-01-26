@@ -5,7 +5,7 @@ module Views
       # Meta tags to include in layout
       def meta
         meta = super
-        meta << tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title =>  application_name, :href => opensearch_catalog_path(:format => 'xml', :only_path => false))
+        meta << tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title =>  application_name, :href => opensearch_catalog_url(:format => 'xml', :only_path => false))
       end
 
       # Generate link to application root
