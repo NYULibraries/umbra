@@ -34,6 +34,12 @@ GIT
       institutions (~> 0.1.3)
 
 GIT
+  remote: git://github.com/NYULibraries/nyulibraries_errors.git
+  revision: 99f4bb34493da983100dc20be10f185ca6f97449
+  specs:
+    nyulibraries_errors (0.0.1)
+
+GIT
   remote: git://github.com/NYULibraries/omniauth-nyulibraries.git
   revision: 352bd2c76350483667c603c1a7e63735e4a283b8
   tag: v2.0.0
@@ -436,6 +442,7 @@ DEPENDENCIES
   mysql2 (~> 0.3.0)
   newrelic_rpm (~> 3.9.6)
   nyulibraries-assets!
+  nyulibraries_errors!
   omniauth-nyulibraries!
   phantomjs (>= 1.9.0)
   pickle (~> 0.4.11)

@@ -1,4 +1,6 @@
 en:
+  nyulibraries_errors:
+    application_title: Umbra Search
   users:
     update_success: "User successfully updated."
     update_failure: "Could not save user."
