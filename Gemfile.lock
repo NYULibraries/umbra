@@ -377,13 +377,13 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sunspot (2.1.1)
+    sunspot (2.2.4)
       pr_geohash (~> 1.0)
       rsolr (~> 1.0.7)
-    sunspot_rails (2.1.1)
+    sunspot_rails (2.2.4)
       nokogiri
       rails (>= 3)
-      sunspot (= 2.1.1)
+      sunspot (= 2.2.4)
     sunspot_solr (2.1.1)
     term-ansicolor (1.3.2)
       tins (~> 1.0)
@@ -456,7 +456,7 @@ DEPENDENCIES
   selenium-webdriver (~> 2.45.0)
   simplecov
   simplecov-rcov
-  sunspot_rails (~> 2.1.0)
+  sunspot_rails (~> 2.2.0)
   sunspot_solr (~> 2.1.1)
   therubyracer (~> 0.12.0)
   uglifier (>= 2.5.3)
