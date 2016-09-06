@@ -57,7 +57,7 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_templates.git
-  revision: a5d501fd0d29452a64c2ffb1df456d335bcb39a3
+  revision: 4a06d15438af56f2d35f734d63ecb0be3df01688
   branch: feature/better_testing
   specs:
     nyulibraries_templates (0.0.1)
