@@ -40,20 +40,17 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_javascripts.git
-  revision: 44824cdd2d7bfe94cf61aef3a04fc41958914eb0
+  revision: 52cc82ba72d26445204b2be143b4e8e346d243fe
   specs:
     nyulibraries_javascripts (0.0.1)
-      rails (>= 4.1.0)
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_stylesheets.git
-  revision: 8e43c10607b2be6ff9bda7ce5a84afac79314027
+  revision: 5cffb36ab294c7f77a58cd3145be6bd649e52ec6
   specs:
     nyulibraries_stylesheets (0.0.0)
-      bootstrap-sass (~> 3.2.0)
-      compass (~> 1.0.1)
-      font-awesome-rails (~> 4.2.0)
-      rails (~> 4.1)
+      bootstrap-sass (~> 3.2)
+      compass (>= 1.0.1)
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_templates.git
@@ -230,8 +227,6 @@ GEM
     figs (2.0.3)
       git (~> 1.2.6)
       rake (~> 10.1)
-    font-awesome-rails (4.2.0.0)
-      railties (>= 3.2, < 5.0)
     foreman (0.78.0)
       thor (~> 0.19.1)
     gherkin (3.2.0)
