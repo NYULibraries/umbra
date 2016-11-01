@@ -9,21 +9,21 @@ gem 'sunspot_rails', '~> 2.2.0'
 gem 'acts-as-taggable-on', '~> 3.4.2'
 gem 'acts_as_indexed', '~> 0.8.3'
 # gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.4.3'
-gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets'
-gem 'nyulibraries_templates', github: 'NYULibraries/nyulibraries_templates', branch: 'feature/better_testing'
-gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions', branch: 'feature/improve_tests'
-gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts'
-gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.0'
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.5.2'
+gem 'nyulibraries_stylesheets', git: 'https://github.com/NYULibraries/nyulibraries_stylesheets'
+gem 'nyulibraries_templates', git: 'https://github.com/NYULibraries/nyulibraries_templates'
+gem 'nyulibraries_institutions', git: 'https://github.com/NYULibraries/nyulibraries_institutions'
+gem 'nyulibraries_javascripts', git: 'https://github.com/NYULibraries/nyulibraries_javascripts'
+gem 'nyulibraries_errors', git: 'https://github.com/NYULibraries/nyulibraries_errors', tag: 'v1.0.0'
+gem 'formaggio', git: 'https://github.com/NYULibraries/formaggio', tag: 'v1.5.2'
 gem 'unicode', '~> 0.4.4.1'
 gem 'mustache', '0.99.4'
-gem 'mustache-rails', github: 'NYULibraries/mustache-rails', require: 'mustache/railtie'
+gem 'mustache-rails', git: 'https://github.com/NYULibraries/mustache-rails', require: 'mustache/railtie'
 gem 'dalli', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.9.6'
 gem 'comma', '~> 3.2.0'
 gem 'blacklight', '~> 5.7.0'
 
-gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
+gem 'omniauth-nyulibraries', git: 'https://github.com/NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
 gem 'devise', '~> 3.5.4'
 
 gem 'sass-rails', '>= 5.0.0.beta1'
@@ -52,6 +52,7 @@ end
 
 group :test, :cucumber do
   gem 'cucumber-rails', require: false
+  gem 'cucumber', '~> 2.4.0'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'coveralls', '~> 0.7.0', require: false
