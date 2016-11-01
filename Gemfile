@@ -52,6 +52,7 @@ end
 
 group :test, :cucumber do
   gem 'cucumber-rails', require: false
+  gem 'cucumber'
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
   gem 'coveralls', '~> 0.7.0', require: false
