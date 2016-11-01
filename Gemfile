@@ -16,8 +16,6 @@ gem 'nyulibraries_javascripts', git: 'https://github.com/NYULibraries/nyulibrari
 gem 'nyulibraries_errors', git: 'https://github.com/NYULibraries/nyulibraries_errors', tag: 'v1.0.0'
 gem 'formaggio', git: 'https://github.com/NYULibraries/formaggio', tag: 'v1.5.2'
 gem 'unicode', '~> 0.4.4.1'
-gem 'mustache', '0.99.4'
-gem 'mustache-rails', git: 'https://github.com/NYULibraries/mustache-rails', require: 'mustache/railtie'
 gem 'dalli', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.9.6'
 gem 'comma', '~> 3.2.0'
