@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/NYULibraries/formaggio.git
+  remote: https://github.com/NYULibraries/formaggio
   revision: 05290d119a0f9f15df12206c798494d1554c4c58
   tag: v1.5.2
   specs:
@@ -15,53 +15,43 @@ GIT
       rvm-capistrano (~> 1.5)
 
 GIT
-  remote: git://github.com/NYULibraries/mustache-rails.git
-  revision: d219b298ddc94ca0c4b749125a803f74157ddd03
-  specs:
-    mustache-rails (0.2.3)
-      actionpack (>= 3.1)
-      mustache (~> 0.99.4)
-
-GIT
-  remote: git://github.com/NYULibraries/nyulibraries_errors.git
+  remote: https://github.com/NYULibraries/nyulibraries_errors
   revision: c77c8c8a8699d5af7ceb2775fe6ac7aa81f6a5f5
   tag: v1.0.0
   specs:
     nyulibraries_errors (1.0.0)
 
 GIT
-  remote: git://github.com/NYULibraries/nyulibraries_institutions.git
-  revision: a120b0a668125d7b5ccbb104a57c177879e56521
-  branch: feature/improve_tests
+  remote: https://github.com/NYULibraries/nyulibraries_institutions
+  revision: f9c82d7deceee55805ae08cebfc993e3a1115b0f
   specs:
     nyulibraries_institutions (0.0.0)
       institutions (~> 0.1.3)
       rails (>= 4)
 
 GIT
-  remote: git://github.com/NYULibraries/nyulibraries_javascripts.git
-  revision: 52cc82ba72d26445204b2be143b4e8e346d243fe
+  remote: https://github.com/NYULibraries/nyulibraries_javascripts
+  revision: b7391f5bdd52ef2633015e747750369dd7c585e8
   specs:
     nyulibraries_javascripts (0.0.1)
 
 GIT
-  remote: git://github.com/NYULibraries/nyulibraries_stylesheets.git
-  revision: 5cffb36ab294c7f77a58cd3145be6bd649e52ec6
+  remote: https://github.com/NYULibraries/nyulibraries_stylesheets
+  revision: cf9f0aa9f38c593e97149c2a85398921348e3166
   specs:
     nyulibraries_stylesheets (0.0.0)
       bootstrap-sass (~> 3.2)
       compass (>= 1.0.1)
 
 GIT
-  remote: git://github.com/NYULibraries/nyulibraries_templates.git
-  revision: a668821e097ea754c0cb26b2899ab6ead828e730
-  branch: feature/better_testing
+  remote: https://github.com/NYULibraries/nyulibraries_templates
+  revision: b36dfe044223630ab79f431dd3266a663a95401d
   specs:
     nyulibraries_templates (0.0.1)
       rails (>= 4)
 
 GIT
-  remote: git://github.com/NYULibraries/omniauth-nyulibraries.git
+  remote: https://github.com/NYULibraries/omniauth-nyulibraries
   revision: 352bd2c76350483667c603c1a7e63735e4a283b8
   tag: v2.0.0
   specs:
@@ -111,32 +101,35 @@ GEM
     acts_as_indexed (0.8.3)
     addressable (2.4.0)
     arel (6.0.3)
-    bcrypt (3.1.10)
+    autoprefixer-rails (6.5.1.1)
+      execjs
+    bcrypt (3.1.11)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    blacklight (5.7.2)
+    blacklight (5.7.0)
       bootstrap-sass (~> 3.2)
       deprecation
       kaminari (~> 0.13)
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
       rsolr (~> 1.0.6)
-    bootstrap-sass (3.2.0.2)
-      sass (~> 3.2)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     cap_git_tools (0.9.1)
       capistrano (~> 2.0)
-    capistrano (2.15.7)
+    capistrano (2.15.9)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capybara (2.6.0)
+    capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -145,9 +138,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    chunky_png (1.3.6)
+    chunky_png (1.3.7)
     cliver (0.3.2)
-    coderay (1.1.0)
+    coderay (1.1.1)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -181,29 +174,29 @@ GEM
       thor (~> 0.19.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
-    cucumber (2.3.2)
+    cucumber (2.4.0)
       builder (>= 2.1.2)
-      cucumber-core (~> 1.4.0)
+      cucumber-core (~> 1.5.0)
       cucumber-wire (~> 0.0.1)
       diff-lcs (>= 1.1.3)
-      gherkin (~> 3.2.0)
+      gherkin (~> 4.0)
       multi_json (>= 1.7.5, < 2.0)
       multi_test (>= 0.1.2)
-    cucumber-core (1.4.0)
-      gherkin (~> 3.2.0)
-    cucumber-rails (1.4.3)
+    cucumber-core (1.5.0)
+      gherkin (~> 4.0)
+    cucumber-rails (1.4.5)
       capybara (>= 1.1.2, < 3)
-      cucumber (>= 1.3.8, < 3)
+      cucumber (>= 1.3.8, < 4)
       mime-types (>= 1.16, < 4)
       nokogiri (~> 1.5)
-      railties (>= 3, < 5)
+      railties (>= 3, < 5.1)
     cucumber-wire (0.0.1)
-    dalli (2.7.5)
+    dalli (2.7.6)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
-    deprecation (0.2.2)
+    deprecation (1.0.0)
       activesupport
-    devise (3.5.5)
+    devise (3.5.10)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -212,10 +205,10 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    domain_name (0.5.25)
+    domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
-    execjs (2.6.0)
+    execjs (2.7.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
@@ -229,14 +222,14 @@ GEM
       rake (~> 10.1)
     foreman (0.78.0)
       thor (~> 0.19.1)
-    gherkin (3.2.0)
+    gherkin (4.0.0)
     git (1.2.9.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    hashie (3.4.3)
+    hashie (3.4.6)
     highline (1.7.8)
     hike (1.2.3)
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
     institutions (0.1.3)
@@ -249,43 +242,41 @@ GEM
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
-    jwt (1.5.2)
-    kaminari (0.16.3)
+    jwt (1.5.6)
+    kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    libv8 (3.16.14.13)
+    libv8 (3.16.14.15)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
-    mime-types (2.99.2)
+    mime-types (2.99.3)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     multi_json (1.12.1)
     multi_test (0.1.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mustache (0.99.4)
-    mysql2 (0.3.20)
+    mysql2 (0.3.21)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (3.0.2)
+    net-ssh (3.2.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     netrc (0.11.0)
     newrelic_rpm (3.9.9.275)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
-    oauth2 (1.0.0)
+    oauth2 (1.2.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
-      rack (~> 1.2)
+      rack (>= 1.2, < 3)
     omniauth (1.3.1)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
@@ -295,17 +286,16 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
-    phantomjs (1.9.8.0)
+    phantomjs (2.1.1.0)
     pickle (0.4.11)
       cucumber (>= 0.8)
       rake
-    pkg-config (1.1.7)
     poltergeist (1.10.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     pr_geohash (1.0.0)
-    pry (0.10.3)
+    pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
@@ -337,12 +327,12 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (10.5.0)
-    rb-fsevent (0.9.7)
+    rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     ref (2.0.0)
     require_all (1.3.3)
-    responders (2.1.1)
+    responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -362,13 +352,13 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    rubyzip (1.1.7)
+    rubyzip (1.2.0)
     rvm-capistrano (1.5.6)
       capistrano (~> 2.15.4)
     safe_yaml (1.0.4)
     sass (3.4.22)
-    sass-rails (5.0.4)
-      railties (>= 4.0.0, < 5.0)
+    sass-rails (5.0.6)
+      railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
@@ -403,7 +393,7 @@ GEM
       rails (>= 3)
       sunspot (= 2.2.4)
     sunspot_solr (2.1.1)
-    term-ansicolor (1.3.2)
+    term-ansicolor (1.4.0)
       tins (~> 1.0)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
@@ -411,23 +401,22 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
-    tins (1.8.2)
+    tins (1.12.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (3.0.3)
+      execjs (>= 0.3.0, < 3)
     unf (0.1.4)
       unf_ext
-    unf_ext (0.0.7.1)
+    unf_ext (0.0.7.2)
     unicode (0.4.4.2)
     vcr (2.9.3)
-    warden (1.2.4)
+    warden (1.2.6)
       rack (>= 1.0)
     webmock (1.19.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-    websocket (1.2.2)
+    websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -447,6 +436,7 @@ DEPENDENCIES
   comma (~> 3.2.0)
   compass-rails (~> 2.0.5)
   coveralls (~> 0.7.0)
+  cucumber (~> 2.4.0)
   cucumber-rails
   dalli (~> 2.7.0)
   database_cleaner (~> 1.3.0)
@@ -457,8 +447,6 @@ DEPENDENCIES
   jquery-rails (~> 3.1.0)
   jquery-ui-rails (~> 5.0.2)
   json (~> 1.8.0)
-  mustache (= 0.99.4)
-  mustache-rails!
   mysql2 (~> 0.3.0)
   newrelic_rpm (~> 3.9.6)
   nyulibraries_errors!
@@ -486,4 +474,4 @@ DEPENDENCIES
   webmock (~> 1.19.0)
 
 BUNDLED WITH
-   1.12.5
+   1.13.6
