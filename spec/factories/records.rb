@@ -48,6 +48,8 @@ FactoryGirl.define do
     factory :record_with_accrualPeriodicity_list, traits: [:accrualPeriodicity_list]
     factory :record_with_subject_tag_list, traits: [:subject_tag_list]
 
+    after(:create) { |r| r.index! }
+
   end
 
 end
