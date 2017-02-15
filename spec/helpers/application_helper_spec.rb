@@ -8,7 +8,7 @@ describe ApplicationHelper do
   let(:identifier_ss) { "http://google.com" }
   let(:field) { :title_ssm }
   let(:solr_response) do
-    Blacklight::SolrResponse.new({}, :solr_parameters => {:qf => "fieldOne^2.3 fieldTwo fieldThree^0.4", :pf => "", :spellcheck => 'false', :rows => "55", :sort => "request_params_sort" })
+    Blacklight::Solr::Response.new({}, :solr_parameters => {:qf => "fieldOne^2.3 fieldTwo fieldThree^0.4", :pf => "", :spellcheck => 'false', :rows => "55", :sort => "request_params_sort" })
   end
   let(:document) do
     {

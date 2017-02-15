@@ -1,5 +1,9 @@
 # Change Log
 
+## 2017-02-15
+
+- Upgraded to Ruby 2.3.3 :gem:
+
 ## 2014-11-05
 
 ### Updates

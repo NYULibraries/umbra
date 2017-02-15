@@ -7,6 +7,14 @@
 
 Umbra is a Solr-based search interface that implements Blacklight as its frontend discovery tool and Sunspot as its backend administration tool. Umbra uses WebSolr as its cloud-hosted Solr index.
 
+## Starting up a development Solr instance
+
+Use the foreman Procfile to manage startup tasks:
+
+```
+bundle exec foreman start
+```
+
 ## Blacklight
 
 Implements [Blacklight](http://projectblacklight.org/) gem to take advantage of the Solr-indexed catalog discovery.

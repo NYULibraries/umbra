@@ -181,7 +181,7 @@ class CatalogController < ApplicationController
 
   # Initially defined in lib/blacklight/solr_helper.rb, this array is looped through to form search parameters
   # This is the standard way of adding search params to a solr search
-  self.solr_search_params_logic << :add_collection_to_solr
+  self.search_params_logic << :add_collection_to_solr
 
   # Adding a collection to solr params
   def add_collection_to_solr(solr_parameters, user_parameters)
