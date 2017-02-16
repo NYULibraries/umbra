@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include Blacklight::Controller
 
   include Umbra::Collections
+  helper_method :repositories
   helper_method :collections_user_can_admin, :current_collection, :current_user_has_access_to_collection?, :collection_codes, :collection_name
 
   # Please be sure to impelement current_user and user_session. Blacklight depends on
@@ -54,7 +55,7 @@ class ApplicationController < ActionController::Base
   def current_user_dev
     @current_user ||= User.new(email: "user@nyu.edu", firstname: "Julius", username: "jcVI", admin: true, admin_collections: ["global"])
   end
-  # alias_method :current_user, :current_user_dev if Rails.env.development?
+  alias_method :current_user, :current_user_dev if Rails.env.development?
 
   # Return boolean matching the url to find out if we are in the admin view
   def is_in_admin_view?
@@ -80,20 +81,6 @@ class ApplicationController < ActionController::Base
   helper_method :sort_direction
   #
   ########
-
-  # Load YAML file with repos info into Hash
-  def repositories_info
-    @repositories_info ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") ).with_indifferent_access
-  end
-  helper_method :repositories_info
-
-  # Return which Hash set to use
-  #
-  # * Return the Catalog repositories
-  def repository_info
-   return repositories_info["Catalog"]
-  end
-  helper_method :repository_info
 
   private
 

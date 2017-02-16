@@ -179,13 +179,5 @@ class CatalogController < ApplicationController
     config.spell_max = 5
   end
 
-  # Initially defined in lib/blacklight/solr_helper.rb, this array is looped through to form search parameters
-  # This is the standard way of adding search params to a solr search
-  self.search_params_logic << :add_collection_to_solr
-
-  # Adding a collection to solr params
-  def add_collection_to_solr(solr_parameters, user_parameters)
-    solr_parameters[:fq] << "collection_ss:#{current_collection(user_parameters[:collection])}" unless current_collection(user_parameters[:collection]).nil?
-  end
 
 end

@@ -19,7 +19,7 @@ gem 'unicode', '~> 0.4.4'
 gem 'dalli', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3'
 gem 'comma', '~> 3.2.0'
-gem 'blacklight', '~> 5.19.2'
+gem 'blacklight', '~> 6.7.0'
 
 gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.1.1'
 gem 'devise', '~> 4.2.0'

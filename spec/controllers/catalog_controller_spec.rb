@@ -3,7 +3,12 @@ describe CatalogController do
 
   let!(:dss_record) { create(:dss_record) }
   let!(:vbl_record) { create(:vbl_record) }
-
+  before(:all) do
+    create(:dss_record)
+    create(:vbl_record)
+    Umbra::Record.reindex
+    sleep 10
+  end
 
   describe "GET root" do
     before {  get :index, collection: "vbl" }

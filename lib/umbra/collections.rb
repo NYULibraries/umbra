@@ -1,5 +1,8 @@
+require_relative 'repositories'
 module Umbra
   module Collections
+    extend ActiveSupport::Concern
+    include Umbra::Repositories
 
     def admin_collections_name
       "umbra_admin_collections".to_sym
@@ -38,9 +41,9 @@ module Umbra
     # Edit authorized collection list based on submitted values
     def update_admin_collections
       @user = User.find(params[:id])
-      unless params[:user][admin_collections_name].blank?
+      unless params[:user][self.admin_collections_name].blank?
         # Loop through all submitted admin collections
-        params[:user][admin_collections_name].keys.each do |collection|
+        params[:user][self.admin_collections_name].keys.each do |collection|
           update_admin_collection(collection)
         end
       end
@@ -57,7 +60,7 @@ module Umbra
     private :update_admin_collection
 
     def collection_selected?(collection)
-      params[:user][admin_collections_name][collection].to_i == 1 rescue false
+      params[:user][self.admin_collections_name][collection].to_i == 1 rescue false
     end
     private :collection_selected?
 
@@ -76,7 +79,7 @@ module Umbra
 
     # Get the current collection code
     def current_collection(collection_name)
-      @current_collection ||= repositories_info["Catalog"]["repositories"][collection_name]["admin_code"] unless collection_name.nil? or repositories_info["Catalog"]["repositories"][collection_name].nil?
+      @current_collection ||= get_repository_admin_code(collection_name) unless collection_name.nil?
     end
 
     # Sets a session variable to the user submitted collection
@@ -107,32 +110,17 @@ module Umbra
     # * Show blank if no collection
     def collection_name
       if (session[:collection])
-        session_collection
+        get_repository_display(session[:collection])
       elsif current_collection(params[:collection]).present?
-        params_collection
+        get_repository_display(params[:collection])
       else
         ""
       end
     end
 
-    def session_collection
-      collection_from_repositories_hash(session[:collection])
-    end
-    private :session_collection
-
-    def params_collection
-      collection_from_repositories_hash(params[:collection])
-    end
-    private :params_collection
-
-    def collection_from_repositories_hash(collection)
-      repository_info["repositories"][collection]["display"]
-    end
-    private :collection_from_repositories_hash
-
     # Collect collections admin code from YAML
     def collection_codes
-      @collections ||= repositories_info["Catalog"]["repositories"].collect{|c| c[1]["admin_code"] }.push("global")
+      @collections ||= repositories.collect{|c| c[1]["admin_code"] }.push("global")
     end
 
   end
