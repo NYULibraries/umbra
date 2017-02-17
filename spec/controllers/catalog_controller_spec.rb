@@ -1,8 +1,6 @@
 require 'spec_helper'
 describe CatalogController do
 
-  # let!(:dss_record) { create(:dss_record) }
-  # let!(:vbl_record) { create(:vbl_record) }
   before(:all) do
     create(:dss_record)
     create(:vbl_record)
