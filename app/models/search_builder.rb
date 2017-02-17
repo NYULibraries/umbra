@@ -5,6 +5,6 @@ class SearchBuilder < Blacklight::SearchBuilder
 
   # Adding a collection to solr params
   def add_collection_to_solr(solr_parameters)
-    solr_parameters[:fq] << "#collection_ss:#{get_repository_admin_code(blacklight_params[:collection])}" unless get_repository_admin_code(blacklight_params[:collection]).nil?
+    solr_parameters[:fq] << "collection_ss:#{get_repository_admin_code(blacklight_params[:collection])}" unless get_repository_admin_code(blacklight_params[:collection]).nil?
   end
 end
