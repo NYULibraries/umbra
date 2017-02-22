@@ -24,7 +24,6 @@ module LayoutsHelper
     breadcrumbs = super
     breadcrumbs << link_to('Catalog', {:controller =>'catalog', :collection => session[:collection]})
     breadcrumbs << link_to('Admin', :controller => 'records') if is_in_admin_view?
-    breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
     breadcrumbs << link_to_unless_current(collection_name) unless params[:collection].nil?
     return breadcrumbs
   end

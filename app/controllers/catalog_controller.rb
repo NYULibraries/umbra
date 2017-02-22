@@ -13,7 +13,7 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
     ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
     config.default_solr_params = {
-      :qt => '',
+      qt: '',
       :rows => 10,
       :fl => "resource_id_ss title_sort_ss identifier_ss score title_texts description_texts source_list_sms extent_list_sms",
       :facet => true,
@@ -179,13 +179,5 @@ class CatalogController < ApplicationController
     config.spell_max = 5
   end
 
-  # Initially defined in lib/blacklight/solr_helper.rb, this array is looped through to form search parameters
-  # This is the standard way of adding search params to a solr search
-  self.search_params_logic << :add_collection_to_solr
-
-  # Adding a collection to solr params
-  def add_collection_to_solr(solr_parameters, user_parameters)
-    solr_parameters[:fq] << "collection_ss:#{current_collection(user_parameters[:collection])}" unless current_collection(user_parameters[:collection]).nil?
-  end
 
 end

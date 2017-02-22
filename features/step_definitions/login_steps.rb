@@ -45,7 +45,7 @@ Then(/^I should see the login page in the current window$/) do
 end
 
 Given(/^I am on the homepage$/) do
-  visit catalog_index_path
+  visit search_catalog_path
 end
 
 When(/^I click the login link$/) do

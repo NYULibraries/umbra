@@ -1,7 +1,26 @@
 Rails.application.routes.draw do
-  blacklight_for :catalog
+  mount Blacklight::Engine => '/'
 
-  root :to => "catalog#index", :collection => "vbl"
+  root to: "catalog#index", collection: 'vbl'
+  concern :searchable, Blacklight::Routes::Searchable.new
+
+  resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    concerns :searchable
+  end
+
+  concern :exportable, Blacklight::Routes::Exportable.new
+
+  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
+    concerns :exportable
+  end
+
+  resources :bookmarks do
+    concerns :exportable
+
+    collection do
+      delete 'clear'
+    end
+  end
 
   # Create named routes for each collection specified in tabs.yml
   YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
@@ -10,7 +29,7 @@ Rails.application.routes.draw do
 
   scope "admin" do
     resources :records do
-      post 'upload', :on => :collection
+      patch 'upload', :on => :collection
     end
     resources :users
     delete "clear_patron_data", :to => "users#clear_patron_data"
