@@ -48,3 +48,10 @@ form label {
 table.search_history {
   margin-top: 1em;
 }
+.panel-title.facet-field-heading {
+  border-top: 0 !important;
+}
+.facets-heading {
+  background-image: none !important;
+  padding-left: 0 !important;
+}
