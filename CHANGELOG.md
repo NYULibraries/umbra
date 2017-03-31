@@ -1,5 +1,9 @@
 # Change Log
 
+## 2017-03-31
+
+- Upgrade nokogiri for security patch
+
 ## 2017-02-15
 
 - Upgraded to Ruby 2.3.3 :gem:
