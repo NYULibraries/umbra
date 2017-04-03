@@ -1,0 +1,19 @@
+machine:
+
+  ruby:
+    version: 2.3.3
+
+  environment:
+    LOGIN_URL: https://dev.login.library.nyu.edu
+    SSO_LOGOUT_PATH: /logout
+    SOLR_URL: http://localhost:8984/solr/test
+
+database:
+  override:
+    - mysql -e 'create database umbra_test;'
+    - bundle exec rake db:schema:load
+
+dependencies:
+  post:
+    - bundle exec sunspot-solr start -p 8984
+    - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8984/
