@@ -1,6 +1,6 @@
 # Umbra
 
-[![Build Status](https://travis-ci.org/NYULibraries/umbra.png?branch=master)](https://travis-ci.org/NYULibraries/umbra)
+[![CircleCI](https://circleci.com/gh/NYULibraries/umbra.svg?style=svg)](https://circleci.com/gh/NYULibraries/umbra)
 [![Dependency Status](https://gemnasium.com/NYULibraries/umbra.png)](https://gemnasium.com/NYULibraries/umbra)
 [![Code Climate](https://codeclimate.com/github/NYULibraries/umbra.png)](https://codeclimate.com/github/NYULibraries/umbra)
 [![Coverage Status](https://coveralls.io/repos/NYULibraries/umbra/badge.png?branch=master)](https://coveralls.io/r/NYULibraries/umbra)

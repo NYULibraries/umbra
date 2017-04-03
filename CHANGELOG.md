@@ -3,6 +3,7 @@
 ## 2017-03-31
 
 - Upgrade nokogiri for security patch
+- Added CircleCI and removed TravisCI
 
 ## 2017-02-15
 
