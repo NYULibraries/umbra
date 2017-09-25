@@ -17,3 +17,13 @@ dependencies:
   post:
     - bundle exec sunspot-solr start -p 8984
     - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8984/
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Umbra/job/Umbra%20Production%20Deploy/build/api
+  development:
+    branch: /.+/
+    commands:
+      - curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Umbra/job/Umbra%20Development%20Deploy/build/api
